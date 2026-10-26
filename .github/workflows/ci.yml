@@ -1,13 +1,6 @@
 name: CI
 
-# Phase 11 — validation/finalisation CI (voir docs/production-deployment.md
-# §4 et PHASE_11_RAPPORT.md). Ce workflow tourne sur un runner GitHub Actions
-# avec un accès réseau normal — SANS le blocage d'égress organisationnel
-# (`binaries.prisma.sh`, `registry-1.docker.io`) documenté et jamais contourné
-# dans le bac à sable de développement où cette phase a été écrite. C'est ce
-# workflow, pas ce bac à sable, qui doit être le premier endroit où
-# `prisma generate`/`next build`/la suite Playwright permanente s'exécutent
-# réellement avec succès — voir le verdict explicite du rapport final.
+# Vérifications sur des bases PostgreSQL isolées, sans accès au VPS.
 
 on:
   push:
@@ -24,7 +17,7 @@ jobs:
   # ---------------------------------------------------------------------
   build-and-test:
     name: Lint, typecheck, unit tests, build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     services:
       postgres:
         image: postgres:16
@@ -45,9 +38,9 @@ jobs:
       NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: "ci-placeholder"
       AUTH_SECRET: "ci-placeholder-secret-not-for-production-use-only"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: "22"
           cache: "npm"
@@ -55,12 +48,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Résout enfin réellement le client Prisma — ce que le bac à sable de
-      # développement ne peut jamais faire (réseau bloqué vers
-      # binaries.prisma.sh). Un échec ICI, dans un environnement avec un
-      # accès réseau normal, serait un vrai défaut à corriger — contrairement
-      # au même échec dans le bac à sable, qui est un blocage d'infrastructure
-      # documenté et attendu.
       - name: Generate Prisma Client
         run: npx prisma generate
 
@@ -71,7 +58,8 @@ jobs:
         run: npm run lint
 
       - name: Type check
-        run: npx tsc --noEmit
+        # LayoutProps et les types de routes sont générés par Next.js.
+        run: npm run typecheck
 
       - name: Unit tests (Vitest)
         run: npm test
@@ -80,14 +68,11 @@ jobs:
         run: npm run build
 
   # ---------------------------------------------------------------------
-  # Suite Playwright PERMANENTE (Phase 9, §28) contre une vraie PostgreSQL
-  # de service — la seule façon de fermer réellement la lacune que ce bac à
-  # sable ne peut pas fermer (aucune instance PostgreSQL locale disponible
-  # ici, voir tests/e2e/README.md et playwright.config.ts).
+  # Parcours Playwright contre une base de démonstration isolée.
   # ---------------------------------------------------------------------
   e2e:
     name: Playwright E2E (base PostgreSQL réelle)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build-and-test
     services:
       postgres:
@@ -111,9 +96,9 @@ jobs:
       NEXTAUTH_URL: "http://localhost:3000"
       E2E_START_SERVER: "1"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: "22"
           cache: "npm"
@@ -144,7 +129,7 @@ jobs:
 
       - name: Upload Playwright report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: playwright-report
           path: playwright-report/
