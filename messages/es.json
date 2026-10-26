@@ -1,0 +1,181 @@
+{
+  "metadata": {
+    "title": "Maayan 2000 – Localizador de tiendas",
+    "description": "Encuentra la tienda Maayan 2000 más cercana: dirección, horarios, servicios y navegación."
+  },
+  "nav": {
+    "brand": "Maayan 2000",
+    "branches": "Tiendas",
+    "skipToContent": "Ir al contenido principal"
+  },
+  "languageSwitcher": {
+    "label": "Idioma",
+    "srLabel": "Elegir idioma de visualización"
+  },
+  "branches": {
+    "title": "Nuestras tiendas",
+    "subtitle": "Encuentra la tienda Maayan 2000 más cercana",
+    "search": "Buscar por ciudad, dirección o nombre de tienda",
+    "nearMe": "Encontrar una tienda cerca de mí",
+    "openNow": "Abierto ahora",
+    "closed": "Cerrado",
+    "openingSoon": "Abre pronto",
+    "closingSoon": "Cierra pronto",
+    "temporarilyClosed": "Cerrado temporalmente",
+    "navigation": "Cómo llegar",
+    "call": "Llamar",
+    "whatsapp": "WhatsApp",
+    "services": "Servicios",
+    "openingHours": "Horario de apertura",
+    "details": "Ficha de la tienda",
+    "viewPage": "Ver ficha completa",
+    "showLess": "Mostrar menos",
+    "myStore": "Mi tienda",
+    "filterByCity": "Filtrar por ciudad",
+    "allCities": "Todas las ciudades",
+    "filterByService": "Filtrar por servicio",
+    "allServices": "Todos los servicios",
+    "clearFilters": "Borrar filtros",
+    "noResultsTitle": "No se encontraron tiendas",
+    "noResultsHint": "Prueba con otro término de búsqueda o borra los filtros",
+    "errorTitle": "Algo salió mal",
+    "errorHint": "No se pudieron cargar las tiendas. Comprueba tu conexión e inténtalo de nuevo.",
+    "moreServicesCount": "+{count}",
+    "resultsCount": "{count, plural, =0 {No se encontraron tiendas} one {# tienda encontrada} other {# tiendas encontradas}}",
+    "closedToday": "Cerrado hoy",
+    "openUntil": "Abierto hasta las {time}",
+    "closingSoonMinutes": "{minutes, plural, one {Cierra en # minuto} other {Cierra en # minutos}}",
+    "openingSoonMinutes": "{minutes, plural, one {Abre en # minuto} other {Abre en # minutos}}",
+    "opensTodayAt": "Abre hoy a las {time}",
+    "opensTomorrowAt": "Abre mañana a las {time}",
+    "opensInDaysAt": "{days, plural, one {Abre en # día a las {time}} other {Abre en # días a las {time}}}",
+    "exceptionalHoursToday": "Horario excepcional hoy",
+    "todayIndicator": "Hoy",
+    "closedLabel": "Cerrado"
+  },
+  "days": {
+    "sunday": "Domingo",
+    "monday": "Lunes",
+    "tuesday": "Martes",
+    "wednesday": "Miércoles",
+    "thursday": "Jueves",
+    "friday": "Viernes",
+    "saturday": "Sábado"
+  },
+  "map": {
+    "regionLabel": "Mapa de tiendas",
+    "loading": "Cargando el mapa…",
+    "unavailableTitle": "Mapa no disponible",
+    "unavailableHint": "La lista de tiendas de abajo sigue funcionando — la búsqueda y los filtros siguen disponibles.",
+    "missingApiKeyTitle": "Mapa no configurado",
+    "missingApiKeyHint": "Define la variable NEXT_PUBLIC_GOOGLE_MAPS_API_KEY para activar el mapa interactivo. La lista de tiendas funciona sin ella.",
+    "closePopup": "Cerrar",
+    "clusterCount": "{count, plural, one {# tienda} other {# tiendas}}",
+    "recenter": "Mi ubicación"
+  },
+  "geolocation": {
+    "deniedMessage": "No se pudo acceder a tu ubicación. Aun así puedes buscar una tienda por ciudad o dirección.",
+    "unavailableMessage": "La ubicación no está disponible en este dispositivo. Puedes buscar una tienda por ciudad o dirección.",
+    "timeoutMessage": "La búsqueda de tu ubicación tardó demasiado. Puedes intentarlo de nuevo o buscar por ciudad o dirección.",
+    "errorMessage": "Ocurrió un error al obtener tu ubicación. Puedes buscar una tienda por ciudad o dirección."
+  },
+  "navigation": {
+    "chooseApp": "Elige una app de navegación",
+    "waze": "Waze",
+    "googleMaps": "Google Maps",
+    "appleMaps": "Apple Maps"
+  },
+  "mobileView": {
+    "list": "Lista",
+    "map": "Mapa"
+  },
+  "common": {
+    "loading": "Cargando…",
+    "demoNotice": "Datos de demostración únicamente — no representan las tiendas reales de Maayan 2000",
+    "comingSoon": "Próximamente",
+    "retry": "Reintentar"
+  },
+  "breadcrumbs": {
+    "home": "Inicio",
+    "branches": "Tiendas"
+  },
+  "branchDetail": {
+    "gallery": {
+      "sectionTitle": "Fotos",
+      "mainImageAlt": "{name} – foto principal",
+      "thumbnailAlt": "{name} – foto {index}",
+      "noImage": "Aún no hay fotos disponibles"
+    },
+    "services": {
+      "sectionTitle": "Servicios",
+      "empty": "Aún no hay servicios registrados para esta tienda"
+    },
+    "promotions": {
+      "sectionTitle": "Ofertas actuales",
+      "period": "Hasta el {endDate}",
+      "cta": "Más información",
+      "showAll": "Ver todas las ofertas ({count})",
+      "discountBadge": "-{percentage}%",
+      "units": {
+        "UNIT": "/ unidad",
+        "KG": "/ kg",
+        "GRAM": "/ g",
+        "LITER": "/ L",
+        "ML": "/ mL",
+        "PACK": "/ paquete",
+        "BOX": "/ caja"
+      }
+    },
+    "hours": {
+      "sectionTitle": "Horario de apertura"
+    },
+    "location": {
+      "sectionTitle": "Ubicación"
+    },
+    "about": {
+      "sectionTitle": "Sobre esta tienda"
+    },
+    "nearby": {
+      "sectionTitle": "Otras tiendas Maayan 2000 en {cityName}"
+    },
+    "seo": {
+      "fallbackTitle": "Maayan 2000 {displayName} {cityName} – Horarios, dirección y cómo llegar",
+      "fallbackDescription": "Toda la información sobre la tienda Maayan 2000 {displayName} en {cityName}: dirección, horarios, servicios y cómo llegar."
+    },
+    "notFound": {
+      "title": "Tienda no encontrada",
+      "description": "Esta tienda no existe o ya no está activa.",
+      "cta": "Volver a todas las tiendas"
+    }
+  },
+  "errorBoundary": {
+    "title": "Se produjo un error",
+    "description": "No pudimos cargar esta página. Inténtelo de nuevo y contáctenos si el problema persiste.",
+    "cta": "Volver al inicio"
+  },
+  "reviews": {
+    "title": "Opiniones y satisfacción del cliente",
+    "intro": "Comparte tu experiencia en esta tienda.",
+    "write": "Escribir una opinión",
+    "rating": "Tu valoración",
+    "name": "Tu nombre o seudónimo",
+    "comment": "Tu opinión",
+    "commentHint": "Entre 10 y 2.000 caracteres.",
+    "privacy": "Tu nombre o seudónimo, valoración y opinión serán públicos tras la moderación. No incluyas datos de contacto ni información personal en tu opinión.",
+    "send": "Enviar mi opinión",
+    "sending": "Enviando…",
+    "submitted": "¡Gracias! Tu opinión se ha enviado y aparecerá tras la aprobación de nuestro equipo.",
+    "empty": "Esta tienda aún no tiene opiniones publicadas. Sé el primero en compartir tu experiencia.",
+    "count": "{count, plural, one {# opinión publicada} other {# opiniones publicadas}}",
+    "satisfaction": "{percent}% de satisfacción",
+    "method": "Porcentaje de opiniones publicadas con 4 o 5 estrellas. Las pendientes o rechazadas no se incluyen.",
+    "stars": "{rating, plural, one {# estrella} other {# estrellas}}",
+    "published": "Opiniones publicadas",
+    "error": "No hemos podido procesar tu solicitud. Inténtalo de nuevo en unos instantes.",
+    "invalid": "Comprueba tu valoración, nombre y opinión.",
+    "rateLimited": "Has enviado varias opiniones recientemente. Vuelve a intentarlo dentro de una hora.",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "page": "Página {page} de {total}"
+  }
+}

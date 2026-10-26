@@ -1,0 +1,15 @@
+node_modules
+.next
+.git
+.env
+.env.*
+!.env.example
+npm-debug.log*
+playwright-report
+test-results
+blob-report
+coverage
+*.tsbuildinfo
+docs
+PHASE_*_RAPPORT.md
+README.md

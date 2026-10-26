@@ -1,0 +1,11 @@
+-- Phase 11, §16 — défaut réel découvert pendant le durcissement de la
+-- concurrence optimiste (voir le commentaire détaillé sur le modèle
+-- `Service` dans prisma/schema.prisma) : `services` était la seule des 4
+-- tables CRUD admin sans colonne `updatedAt`, alors que la couche service
+-- l'utilise depuis la Phase 9 pour la détection de conflit d'édition (§17).
+--
+-- `DEFAULT CURRENT_TIMESTAMP` uniquement pour satisfaire NOT NULL sur les
+-- lignes existantes au moment de la migration (le seed DEMO) — Prisma gère
+-- ensuite la mise à jour automatique (`@updatedAt`) à la charge applicative,
+-- comme pour `branches`/`promotions`/`cities`, aucun trigger DB requis.
+ALTER TABLE "services" ADD COLUMN "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;

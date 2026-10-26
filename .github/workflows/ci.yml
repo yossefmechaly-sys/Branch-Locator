@@ -1,0 +1,151 @@
+name: CI
+
+# Phase 11 — validation/finalisation CI (voir docs/production-deployment.md
+# §4 et PHASE_11_RAPPORT.md). Ce workflow tourne sur un runner GitHub Actions
+# avec un accès réseau normal — SANS le blocage d'égress organisationnel
+# (`binaries.prisma.sh`, `registry-1.docker.io`) documenté et jamais contourné
+# dans le bac à sable de développement où cette phase a été écrite. C'est ce
+# workflow, pas ce bac à sable, qui doit être le premier endroit où
+# `prisma generate`/`next build`/la suite Playwright permanente s'exécutent
+# réellement avec succès — voir le verdict explicite du rapport final.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  NEXT_TELEMETRY_DISABLED: "1"
+
+jobs:
+  # ---------------------------------------------------------------------
+  # Le build consulte PostgreSQL pour les paramètres des pages magasin.
+  # ---------------------------------------------------------------------
+  build-and-test:
+    name: Lint, typecheck, unit tests, build
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: ci
+          POSTGRES_PASSWORD: ci
+          POSTGRES_DB: branch_locator_build
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ci -d branch_locator_build"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: "postgresql://ci:ci@localhost:5432/branch_locator_build"
+      NEXT_PUBLIC_SITE_URL: "https://ci-build.example.invalid"
+      NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: "ci-placeholder"
+      AUTH_SECRET: "ci-placeholder-secret-not-for-production-use-only"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Résout enfin réellement le client Prisma — ce que le bac à sable de
+      # développement ne peut jamais faire (réseau bloqué vers
+      # binaries.prisma.sh). Un échec ICI, dans un environnement avec un
+      # accès réseau normal, serait un vrai défaut à corriger — contrairement
+      # au même échec dans le bac à sable, qui est un blocage d'infrastructure
+      # documenté et attendu.
+      - name: Generate Prisma Client
+        run: npx prisma generate
+
+      - name: Apply migrations (isolated CI database)
+        run: npx prisma migrate deploy
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Unit tests (Vitest)
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+  # ---------------------------------------------------------------------
+  # Suite Playwright PERMANENTE (Phase 9, §28) contre une vraie PostgreSQL
+  # de service — la seule façon de fermer réellement la lacune que ce bac à
+  # sable ne peut pas fermer (aucune instance PostgreSQL locale disponible
+  # ici, voir tests/e2e/README.md et playwright.config.ts).
+  # ---------------------------------------------------------------------
+  e2e:
+    name: Playwright E2E (base PostgreSQL réelle)
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: maayan2000
+          POSTGRES_PASSWORD: maayan2000
+          POSTGRES_DB: maayan2000_e2e
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U maayan2000"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: "postgresql://maayan2000:maayan2000@localhost:5432/maayan2000_e2e?schema=public"
+      NEXT_PUBLIC_SITE_URL: "http://localhost:3000"
+      NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: "ci-placeholder"
+      AUTH_SECRET: "ci-placeholder-secret-not-for-production-use-only"
+      NEXTAUTH_URL: "http://localhost:3000"
+      E2E_START_SERVER: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma Client
+        run: npx prisma generate
+
+      # Base VIDE de service CI, jamais une base partagée/de production —
+      # cohérent avec l'interdiction explicite de tester un rollback
+      # destructif sur des données partagées (voir docs/production-deployment.md §6.2).
+      - name: Apply migrations
+        run: npx prisma migrate deploy
+
+      - name: Seed demo data
+        run: npx prisma db seed
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Build (production mode, requis par playwright.config.ts webServer)
+        run: npm run build
+
+      - name: Run Playwright suite
+        run: npm run test:e2e
+
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14

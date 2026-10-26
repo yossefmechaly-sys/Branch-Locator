@@ -1,0 +1,181 @@
+{
+  "metadata": {
+    "title": "מעיין 2000 – מציאת סניף",
+    "description": "מצאו את סניף מעיין 2000 הקרוב אליכם: כתובת, שעות פתיחה, שירותים וניווט."
+  },
+  "nav": {
+    "brand": "מעיין 2000",
+    "branches": "סניפים",
+    "skipToContent": "דלג לתוכן הראשי"
+  },
+  "languageSwitcher": {
+    "label": "שפה",
+    "srLabel": "בחירת שפת התצוגה"
+  },
+  "branches": {
+    "title": "הסניפים שלנו",
+    "subtitle": "מצאו את סניף מעיין 2000 הקרוב אליכם",
+    "search": "חיפוש לפי עיר, כתובת או שם סניף",
+    "nearMe": "מצא סניף קרוב אליי",
+    "openNow": "פתוח עכשיו",
+    "closed": "סגור עכשיו",
+    "openingSoon": "נפתח בקרוב",
+    "closingSoon": "נסגר בקרוב",
+    "temporarilyClosed": "סגור זמנית",
+    "navigation": "ניווט",
+    "call": "התקשר",
+    "whatsapp": "WhatsApp",
+    "services": "שירותים",
+    "openingHours": "שעות פתיחה",
+    "details": "פרטי הסניף",
+    "viewPage": "לעמוד הסניף המלא",
+    "showLess": "הצג פחות",
+    "myStore": "הסניף שלי",
+    "filterByCity": "סינון לפי עיר",
+    "allCities": "כל הערים",
+    "filterByService": "סינון לפי שירות",
+    "allServices": "כל השירותים",
+    "clearFilters": "נקה סינון",
+    "noResultsTitle": "לא נמצאו סניפים",
+    "noResultsHint": "נסו מילות חיפוש אחרות או נקו את הסינון",
+    "errorTitle": "משהו השתבש",
+    "errorHint": "לא הצלחנו לטעון את הסניפים. בדקו את החיבור ונסו שוב.",
+    "moreServicesCount": "+{count}",
+    "resultsCount": "{count, plural, =0 {לא נמצאו סניפים} one {נמצא סניף אחד} two {נמצאו שני סניפים} other {נמצאו # סניפים}}",
+    "closedToday": "סגור היום",
+    "openUntil": "פתוח עד {time}",
+    "closingSoonMinutes": "{minutes, plural, one {נסגר בעוד דקה} two {נסגר בעוד שתי דקות} many {נסגר בעוד # דקות} other {נסגר בעוד # דקות}}",
+    "openingSoonMinutes": "{minutes, plural, one {נפתח בעוד דקה} two {נפתח בעוד שתי דקות} many {נפתח בעוד # דקות} other {נפתח בעוד # דקות}}",
+    "opensTodayAt": "נפתח היום ב־{time}",
+    "opensTomorrowAt": "נפתח מחר ב־{time}",
+    "opensInDaysAt": "{days, plural, two {נפתח בעוד יומיים ב־{time}} other {נפתח בעוד # ימים ב־{time}}}",
+    "exceptionalHoursToday": "שעות פתיחה חריגות היום",
+    "todayIndicator": "היום",
+    "closedLabel": "סגור"
+  },
+  "days": {
+    "sunday": "ראשון",
+    "monday": "שני",
+    "tuesday": "שלישי",
+    "wednesday": "רביעי",
+    "thursday": "חמישי",
+    "friday": "שישי",
+    "saturday": "שבת"
+  },
+  "map": {
+    "regionLabel": "מפת הסניפים",
+    "loading": "טוען מפה…",
+    "unavailableTitle": "המפה אינה זמינה",
+    "unavailableHint": "רשימת הסניפים למטה ממשיכה לפעול — החיפוש והסינון זמינים במלואם.",
+    "missingApiKeyTitle": "המפה לא הוגדרה",
+    "missingApiKeyHint": "יש להגדיר את המשתנה NEXT_PUBLIC_GOOGLE_MAPS_API_KEY כדי להפעיל את המפה האינטראקטיבית. רשימת הסניפים פועלת גם בלעדיו.",
+    "closePopup": "סגירה",
+    "clusterCount": "{count, plural, one {סניף אחד} two {שני סניפים} other {# סניפים}}",
+    "recenter": "המיקום שלי"
+  },
+  "geolocation": {
+    "deniedMessage": "לא ניתן לגשת למיקום שלך. עדיין אפשר לחפש סניף לפי עיר או כתובת.",
+    "unavailableMessage": "המיקום אינו זמין במכשיר הזה. אפשר לחפש סניף לפי עיר או כתובת.",
+    "timeoutMessage": "תם הזמן הקצוב לאיתור המיקום. אפשר לנסות שוב, או לחפש לפי עיר או כתובת.",
+    "errorMessage": "אירעה שגיאה באיתור המיקום. אפשר לחפש סניף לפי עיר או כתובת."
+  },
+  "navigation": {
+    "chooseApp": "בחירת אפליקציית ניווט",
+    "waze": "Waze",
+    "googleMaps": "Google Maps",
+    "appleMaps": "Apple Maps"
+  },
+  "mobileView": {
+    "list": "רשימה",
+    "map": "מפה"
+  },
+  "common": {
+    "loading": "טוען…",
+    "demoNotice": "נתוני הדגמה בלבד — אינם מייצגים את הסניפים בפועל של מעיין 2000",
+    "comingSoon": "בקרוב",
+    "retry": "נסו שוב"
+  },
+  "breadcrumbs": {
+    "home": "דף הבית",
+    "branches": "סניפים"
+  },
+  "branchDetail": {
+    "gallery": {
+      "sectionTitle": "תמונות",
+      "mainImageAlt": "{name} – תמונה ראשית",
+      "thumbnailAlt": "{name} – תמונה {index}",
+      "noImage": "אין תמונה זמינה כרגע"
+    },
+    "services": {
+      "sectionTitle": "שירותים",
+      "empty": "אין שירותים מפורטים לסניף זה כרגע"
+    },
+    "promotions": {
+      "sectionTitle": "מבצעים פעילים",
+      "period": "עד ל-{endDate}",
+      "cta": "לפרטים נוספים",
+      "showAll": "לכל המבצעים ({count})",
+      "discountBadge": "-{percentage}%",
+      "units": {
+        "UNIT": "ליחידה",
+        "KG": "לק\"ג",
+        "GRAM": "לגרם",
+        "LITER": "לליטר",
+        "ML": "למ\"ל",
+        "PACK": "לאריזה",
+        "BOX": "לקופסה"
+      }
+    },
+    "hours": {
+      "sectionTitle": "שעות פתיחה"
+    },
+    "location": {
+      "sectionTitle": "מיקום"
+    },
+    "about": {
+      "sectionTitle": "על הסניף"
+    },
+    "nearby": {
+      "sectionTitle": "עוד סניפי מעיין 2000 ב{cityName}"
+    },
+    "seo": {
+      "fallbackTitle": "מעיין 2000 {displayName} {cityName} – שעות פתיחה, כתובת וניווט",
+      "fallbackDescription": "כל המידע על סניף מעיין 2000 {displayName} ב{cityName}: כתובת, שעות פתיחה, שירותים וניווט."
+    },
+    "notFound": {
+      "title": "הסניף לא נמצא",
+      "description": "הסניף הזה אינו קיים או אינו פעיל עוד.",
+      "cta": "חזרה לכל הסניפים"
+    }
+  },
+  "errorBoundary": {
+    "title": "אירעה שגיאה",
+    "description": "משהו השתבש בטעינת הדף. נסו לרענן, ואם הבעיה נמשכת פנו אלינו.",
+    "cta": "חזרה לדף הבית"
+  },
+  "reviews": {
+    "title": "ביקורות ושביעות רצון לקוחות",
+    "intro": "שתפו את החוויה שלכם בסניף הזה.",
+    "write": "כתיבת ביקורת",
+    "rating": "הדירוג שלכם",
+    "name": "שם פרטי או כינוי",
+    "comment": "הביקורת שלכם",
+    "commentHint": "בין 10 ל־2,000 תווים.",
+    "privacy": "השם או הכינוי, הדירוג והביקורת שלכם יהיו גלויים לציבור לאחר בדיקה. אין לכלול פרטי קשר או מידע אישי בביקורת.",
+    "send": "שליחת הביקורת",
+    "sending": "שולח…",
+    "submitted": "תודה! הביקורת נשלחה ותוצג לאחר אישור הצוות שלנו.",
+    "empty": "לסניף זה עדיין אין ביקורות שפורסמו. היו הראשונים לשתף את החוויה שלכם.",
+    "count": "{count, plural, one {ביקורת אחת שפורסמה} other {# ביקורות שפורסמו}}",
+    "satisfaction": "{percent}% שביעות רצון",
+    "method": "שיעור הביקורות שפורסמו עם 4 או 5 כוכבים. ביקורות בהמתנה או שנדחו אינן נכללות.",
+    "stars": "{rating, plural, one {כוכב אחד} other {# כוכבים}}",
+    "published": "ביקורות שפורסמו",
+    "error": "לא ניתן לטפל בבקשה. נסו שוב בעוד כמה רגעים.",
+    "invalid": "בדקו את הדירוג, השם והביקורת.",
+    "rateLimited": "שלחתם כמה ביקורות לאחרונה. נסו שוב בעוד שעה.",
+    "previous": "הקודם",
+    "next": "הבא",
+    "page": "עמוד {page} מתוך {total}"
+  }
+}

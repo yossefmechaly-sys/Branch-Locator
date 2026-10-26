@@ -1,0 +1,181 @@
+{
+  "metadata": {
+    "title": "Maayan 2000 – Branch Locator",
+    "description": "Find the nearest Maayan 2000 store: address, opening hours, services and navigation."
+  },
+  "nav": {
+    "brand": "Maayan 2000",
+    "branches": "Branches",
+    "skipToContent": "Skip to main content"
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "srLabel": "Choose display language"
+  },
+  "branches": {
+    "title": "Our branches",
+    "subtitle": "Find the nearest Maayan 2000 branch",
+    "search": "Search by city, address or branch name",
+    "nearMe": "Find a branch near me",
+    "openNow": "Open now",
+    "closed": "Closed now",
+    "openingSoon": "Opening soon",
+    "closingSoon": "Closing soon",
+    "temporarilyClosed": "Temporarily closed",
+    "navigation": "Directions",
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "services": "Services",
+    "openingHours": "Opening hours",
+    "details": "Branch details",
+    "viewPage": "View full branch page",
+    "showLess": "Show less",
+    "myStore": "My store",
+    "filterByCity": "Filter by city",
+    "allCities": "All cities",
+    "filterByService": "Filter by service",
+    "allServices": "All services",
+    "clearFilters": "Clear filters",
+    "noResultsTitle": "No branches found",
+    "noResultsHint": "Try a different search term or clear the filters",
+    "errorTitle": "Something went wrong",
+    "errorHint": "We couldn't load the branches. Check your connection and try again.",
+    "moreServicesCount": "+{count}",
+    "resultsCount": "{count, plural, =0 {No branches found} one {# branch found} other {# branches found}}",
+    "closedToday": "Closed today",
+    "openUntil": "Open until {time}",
+    "closingSoonMinutes": "{minutes, plural, one {Closing in # minute} other {Closing in # minutes}}",
+    "openingSoonMinutes": "{minutes, plural, one {Opening in # minute} other {Opening in # minutes}}",
+    "opensTodayAt": "Opens today at {time}",
+    "opensTomorrowAt": "Opens tomorrow at {time}",
+    "opensInDaysAt": "{days, plural, one {Opens in # day at {time}} other {Opens in # days at {time}}}",
+    "exceptionalHoursToday": "Exceptional hours today",
+    "todayIndicator": "Today",
+    "closedLabel": "Closed"
+  },
+  "days": {
+    "sunday": "Sunday",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday"
+  },
+  "map": {
+    "regionLabel": "Store map",
+    "loading": "Loading map…",
+    "unavailableTitle": "Map unavailable",
+    "unavailableHint": "The branch list below still works — search and filters remain fully usable.",
+    "missingApiKeyTitle": "Map not configured",
+    "missingApiKeyHint": "Set NEXT_PUBLIC_GOOGLE_MAPS_API_KEY to enable the interactive map. The branch list works without it.",
+    "closePopup": "Close",
+    "clusterCount": "{count, plural, one {# branch} other {# branches}}",
+    "recenter": "My location"
+  },
+  "geolocation": {
+    "deniedMessage": "We couldn't access your location. You can still search for a branch by city or address.",
+    "unavailableMessage": "Location isn't available on this device. You can still search for a branch by city or address.",
+    "timeoutMessage": "Finding your location took too long. You can try again, or search by city or address.",
+    "errorMessage": "Something went wrong while finding your location. You can still search for a branch by city or address."
+  },
+  "navigation": {
+    "chooseApp": "Choose a navigation app",
+    "waze": "Waze",
+    "googleMaps": "Google Maps",
+    "appleMaps": "Apple Maps"
+  },
+  "mobileView": {
+    "list": "List",
+    "map": "Map"
+  },
+  "common": {
+    "loading": "Loading…",
+    "demoNotice": "Demo data only — does not represent Maayan 2000's actual branches",
+    "comingSoon": "Coming soon",
+    "retry": "Retry"
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "branches": "Branches"
+  },
+  "branchDetail": {
+    "gallery": {
+      "sectionTitle": "Photos",
+      "mainImageAlt": "{name} – main photo",
+      "thumbnailAlt": "{name} – photo {index}",
+      "noImage": "No photo available yet"
+    },
+    "services": {
+      "sectionTitle": "Services",
+      "empty": "No services listed for this branch yet"
+    },
+    "promotions": {
+      "sectionTitle": "Current promotions",
+      "period": "Until {endDate}",
+      "cta": "Learn more",
+      "showAll": "See all promotions ({count})",
+      "discountBadge": "-{percentage}%",
+      "units": {
+        "UNIT": "/ unit",
+        "KG": "/ kg",
+        "GRAM": "/ g",
+        "LITER": "/ L",
+        "ML": "/ mL",
+        "PACK": "/ pack",
+        "BOX": "/ box"
+      }
+    },
+    "hours": {
+      "sectionTitle": "Opening hours"
+    },
+    "location": {
+      "sectionTitle": "Location"
+    },
+    "about": {
+      "sectionTitle": "About this branch"
+    },
+    "nearby": {
+      "sectionTitle": "Other Maayan 2000 branches in {cityName}"
+    },
+    "seo": {
+      "fallbackTitle": "{displayName} {cityName} – Hours, Address & Directions",
+      "fallbackDescription": "Everything about the {displayName} branch in {cityName}: address, opening hours, services and directions."
+    },
+    "notFound": {
+      "title": "Branch not found",
+      "description": "This branch doesn't exist or is no longer active.",
+      "cta": "Back to all branches"
+    }
+  },
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "description": "We couldn't load this page. Try again, and contact us if the problem continues.",
+    "cta": "Back to home"
+  },
+  "reviews": {
+    "title": "Reviews and customer satisfaction",
+    "intro": "Share your experience at this branch.",
+    "write": "Write a review",
+    "rating": "Your rating",
+    "name": "Your first name or nickname",
+    "comment": "Your review",
+    "commentHint": "Between 10 and 2,000 characters.",
+    "privacy": "Your name or nickname, rating and review will be public after moderation. Do not include contact details or personal information in your review.",
+    "send": "Submit my review",
+    "sending": "Sending…",
+    "submitted": "Thank you! Your review has been submitted and will appear after our team approves it.",
+    "empty": "This branch has no published reviews yet. Be the first to share your experience.",
+    "count": "{count, plural, one {# published review} other {# published reviews}}",
+    "satisfaction": "{percent}% satisfaction",
+    "method": "Share of published reviews rated 4 or 5 stars. Pending and rejected reviews are not included.",
+    "stars": "{rating, plural, one {# star} other {# stars}}",
+    "published": "Published reviews",
+    "error": "We could not process your request. Please try again shortly.",
+    "invalid": "Please check your rating, name and review.",
+    "rateLimited": "You have submitted several reviews recently. Please try again in an hour.",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {page} of {total}"
+  }
+}

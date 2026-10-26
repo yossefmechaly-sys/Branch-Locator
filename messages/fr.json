@@ -1,0 +1,181 @@
+{
+  "metadata": {
+    "title": "Maayan 2000 – Recherche de magasin",
+    "description": "Trouvez le magasin Maayan 2000 le plus proche : adresse, horaires, services et navigation."
+  },
+  "nav": {
+    "brand": "Maayan 2000",
+    "branches": "Magasins",
+    "skipToContent": "Aller au contenu principal"
+  },
+  "languageSwitcher": {
+    "label": "Langue",
+    "srLabel": "Choisir la langue d'affichage"
+  },
+  "branches": {
+    "title": "Nos magasins",
+    "subtitle": "Trouvez le magasin Maayan 2000 le plus proche",
+    "search": "Recherche par ville, adresse ou nom de magasin",
+    "nearMe": "Trouver un magasin près de moi",
+    "openNow": "Ouvert maintenant",
+    "closed": "Fermé",
+    "openingSoon": "Ouvre bientôt",
+    "closingSoon": "Ferme bientôt",
+    "temporarilyClosed": "Temporairement fermé",
+    "navigation": "Itinéraire",
+    "call": "Appeler",
+    "whatsapp": "WhatsApp",
+    "services": "Services",
+    "openingHours": "Horaires d'ouverture",
+    "details": "Fiche du magasin",
+    "viewPage": "Voir la fiche complète",
+    "showLess": "Afficher moins",
+    "myStore": "Mon magasin",
+    "filterByCity": "Filtrer par ville",
+    "allCities": "Toutes les villes",
+    "filterByService": "Filtrer par service",
+    "allServices": "Tous les services",
+    "clearFilters": "Réinitialiser les filtres",
+    "noResultsTitle": "Aucun magasin trouvé",
+    "noResultsHint": "Essayez un autre terme de recherche ou réinitialisez les filtres",
+    "errorTitle": "Une erreur est survenue",
+    "errorHint": "Impossible de charger les magasins. Vérifiez votre connexion et réessayez.",
+    "moreServicesCount": "+{count}",
+    "resultsCount": "{count, plural, =0 {Aucun magasin trouvé} one {# magasin trouvé} other {# magasins trouvés}}",
+    "closedToday": "Fermé aujourd'hui",
+    "openUntil": "Ouvert jusqu'à {time}",
+    "closingSoonMinutes": "{minutes, plural, one {Ferme dans # minute} other {Ferme dans # minutes}}",
+    "openingSoonMinutes": "{minutes, plural, one {Ouvre dans # minute} other {Ouvre dans # minutes}}",
+    "opensTodayAt": "Ouvre aujourd'hui à {time}",
+    "opensTomorrowAt": "Ouvre demain à {time}",
+    "opensInDaysAt": "{days, plural, one {Ouvre dans # jour à {time}} other {Ouvre dans # jours à {time}}}",
+    "exceptionalHoursToday": "Horaires exceptionnels aujourd'hui",
+    "todayIndicator": "Aujourd'hui",
+    "closedLabel": "Fermé"
+  },
+  "days": {
+    "sunday": "Dimanche",
+    "monday": "Lundi",
+    "tuesday": "Mardi",
+    "wednesday": "Mercredi",
+    "thursday": "Jeudi",
+    "friday": "Vendredi",
+    "saturday": "Samedi"
+  },
+  "map": {
+    "regionLabel": "Carte des magasins",
+    "loading": "Chargement de la carte…",
+    "unavailableTitle": "Carte indisponible",
+    "unavailableHint": "La liste des magasins ci-dessous reste utilisable — la recherche et les filtres fonctionnent normalement.",
+    "missingApiKeyTitle": "Carte non configurée",
+    "missingApiKeyHint": "Définissez la variable NEXT_PUBLIC_GOOGLE_MAPS_API_KEY pour activer la carte interactive. La liste des magasins fonctionne sans elle.",
+    "closePopup": "Fermer",
+    "clusterCount": "{count, plural, one {# magasin} other {# magasins}}",
+    "recenter": "Ma position"
+  },
+  "geolocation": {
+    "deniedMessage": "Impossible d'accéder à votre position. Vous pouvez toujours rechercher un magasin par ville ou adresse.",
+    "unavailableMessage": "La localisation n'est pas disponible sur cet appareil. Vous pouvez toujours rechercher un magasin par ville ou adresse.",
+    "timeoutMessage": "La localisation a pris trop de temps. Réessayez, ou recherchez un magasin par ville ou adresse.",
+    "errorMessage": "Une erreur est survenue lors de la localisation. Vous pouvez toujours rechercher un magasin par ville ou adresse."
+  },
+  "navigation": {
+    "chooseApp": "Choisir une application de navigation",
+    "waze": "Waze",
+    "googleMaps": "Google Maps",
+    "appleMaps": "Apple Plans"
+  },
+  "mobileView": {
+    "list": "Liste",
+    "map": "Carte"
+  },
+  "common": {
+    "loading": "Chargement…",
+    "demoNotice": "Données de démonstration uniquement — ne représentent pas les magasins réels de Maayan 2000",
+    "comingSoon": "Bientôt disponible",
+    "retry": "Réessayer"
+  },
+  "breadcrumbs": {
+    "home": "Accueil",
+    "branches": "Magasins"
+  },
+  "branchDetail": {
+    "gallery": {
+      "sectionTitle": "Photos",
+      "mainImageAlt": "{name} – photo principale",
+      "thumbnailAlt": "{name} – photo {index}",
+      "noImage": "Aucune photo disponible pour le moment"
+    },
+    "services": {
+      "sectionTitle": "Services",
+      "empty": "Aucun service répertorié pour ce magasin pour le moment"
+    },
+    "promotions": {
+      "sectionTitle": "Offres en cours",
+      "period": "Jusqu'au {endDate}",
+      "cta": "En savoir plus",
+      "showAll": "Voir toutes les promotions ({count})",
+      "discountBadge": "-{percentage} %",
+      "units": {
+        "UNIT": "/ unité",
+        "KG": "/ kg",
+        "GRAM": "/ g",
+        "LITER": "/ L",
+        "ML": "/ mL",
+        "PACK": "/ paquet",
+        "BOX": "/ boîte"
+      }
+    },
+    "hours": {
+      "sectionTitle": "Horaires d'ouverture"
+    },
+    "location": {
+      "sectionTitle": "Emplacement"
+    },
+    "about": {
+      "sectionTitle": "À propos de ce magasin"
+    },
+    "nearby": {
+      "sectionTitle": "Autres magasins Maayan 2000 à {cityName}"
+    },
+    "seo": {
+      "fallbackTitle": "Maayan 2000 {displayName} {cityName} – Horaires, adresse et navigation",
+      "fallbackDescription": "Toutes les informations sur le magasin Maayan 2000 {displayName} à {cityName} : adresse, horaires, services et itinéraire."
+    },
+    "notFound": {
+      "title": "Magasin introuvable",
+      "description": "Ce magasin n'existe pas ou n'est plus actif.",
+      "cta": "Retour à tous les magasins"
+    }
+  },
+  "errorBoundary": {
+    "title": "Une erreur est survenue",
+    "description": "Nous n'avons pas pu charger cette page. Réessayez, et contactez-nous si le problème persiste.",
+    "cta": "Retour à l'accueil"
+  },
+  "reviews": {
+    "title": "Avis et satisfaction client",
+    "intro": "Partagez votre expérience dans ce magasin.",
+    "write": "Donner mon avis",
+    "rating": "Votre note",
+    "name": "Votre prénom ou pseudonyme",
+    "comment": "Votre commentaire",
+    "commentHint": "De 10 à 2 000 caractères.",
+    "privacy": "Votre prénom ou pseudonyme, votre note et votre commentaire seront publics après modération. N’indiquez pas de coordonnées ni de données personnelles dans votre commentaire.",
+    "send": "Envoyer mon avis",
+    "sending": "Envoi…",
+    "submitted": "Merci ! Votre avis a été envoyé et sera visible après validation par notre équipe.",
+    "empty": "Ce magasin n’a pas encore d’avis publié. Soyez le premier à partager votre expérience.",
+    "count": "{count, plural, one {# avis publié} other {# avis publiés}}",
+    "satisfaction": "{percent} % de satisfaction",
+    "method": "Part des avis publiés notés 4 ou 5 étoiles. Les avis en attente ou refusés ne sont pas comptabilisés.",
+    "stars": "{rating, plural, one {# étoile} other {# étoiles}}",
+    "published": "Avis publiés",
+    "error": "Impossible de traiter votre demande. Réessayez dans quelques instants.",
+    "invalid": "Vérifiez votre note, votre nom et votre commentaire.",
+    "rateLimited": "Vous avez envoyé plusieurs avis récemment. Réessayez dans une heure.",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "page": "Page {page} sur {total}"
+  }
+}

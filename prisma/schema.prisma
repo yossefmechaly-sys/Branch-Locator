@@ -1,0 +1,585 @@
+// Maayan 2000 — Smart Branch Locator
+// Schéma de données validé en Phase 1 (voir le document d'architecture).
+//
+// Principe directeur : toute entité visible par l'utilisateur (Branch, City,
+// Service, Promotion) a une table `*Translation` séparée avec
+// `@@unique([entityId, locale])` — jamais de colonnes `nameHe`/`nameEn`/etc.
+// C'est ce qui permet d'ajouter une sixième langue sans migration de schéma.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ============================================================
+// ENUMS
+// ============================================================
+
+enum Locale {
+  he
+  en
+  ru
+  fr
+  es
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  ADMIN
+  EDITOR
+}
+
+enum ReviewStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum PromotionStatus {
+  DRAFT
+  SCHEDULED
+  ACTIVE
+  EXPIRED
+  ARCHIVED
+}
+
+/// Devise des prix promotionnels (Phase 9, §3) — MVP = ILS uniquement, mais
+/// représentée comme un enum extensible (même convention que `Locale`
+/// ci-dessus) plutôt qu'un champ implicite : ajouter une devise plus tard ne
+/// demande qu'une valeur d'enum supplémentaire, jamais une migration de
+/// structure. Le frontend ne doit JAMAIS coder en dur le symbole ₪ — voir
+/// `lib/pricing/money.ts#formatMoney()`, qui passe systématiquement par
+/// `Intl.NumberFormat(locale, { style: "currency", currency })`.
+enum Currency {
+  ILS
+}
+
+/// Unité de vente d'une promotion structurée (Phase 9, §4) — jamais stocké en
+/// texte libre ("₪/kg") : chaque valeur a un libellé traduit par locale, voir
+/// `lib/pricing/money.ts#formatUnitLabel()` et les clés
+/// `promotions.units.*` de `messages/{locale}.json`. `UNIT` est la valeur par
+/// défaut (produit vendu à la pièce, pas au poids/volume).
+enum PromotionUnit {
+  UNIT
+  KG
+  GRAM
+  LITER
+  ML
+  PACK
+  BOX
+}
+
+enum AnalyticsEventType {
+  SEARCH
+  BRANCH_VIEW
+  WAZE_CLICK
+  GOOGLE_MAPS_CLICK
+  APPLE_MAPS_CLICK
+  PHONE_CLICK
+  WHATSAPP_CLICK
+  GEOLOCATION_USED
+  FILTER_USED
+  LANGUAGE_CHANGED
+  /// Phase 10, §3 — ajoutés pour couvrir la liste minimale d'événements
+  /// demandée. `NAVIGATION_CLICK` générique n'existe volontairement PAS :
+  /// c'est un agrégat calculé à la lecture (WAZE_CLICK + GOOGLE_MAPS_CLICK +
+  /// APPLE_MAPS_CLICK, voir `lib/analytics/queries.ts`), jamais un événement
+  /// stocké en plus des trois déjà spécifiques (§6 : éviter la duplication).
+  LOCATOR_VIEW
+  BRANCH_CARD_CLICK
+  MAP_MARKER_CLICK
+  PROMOTION_VIEW
+  PROMOTION_CLICK
+}
+
+// ============================================================
+// VILLES
+// ============================================================
+
+model City {
+  id           String            @id @default(cuid())
+  slug         String            @unique
+  latitude     Float?
+  longitude    Float?
+  isActive     Boolean           @default(true)
+  sortOrder    Int               @default(0)
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+  // Phase 11, §16ter (durcissement concurrence optimiste) — SEULE source de
+  // vérité pour la détection de conflit d'édition (§17) sur ce modèle. Voir
+  // le commentaire détaillé équivalent sur `Branch.version` ci-dessous : même
+  // mécanisme, même rationale, appliqué identiquement aux 4 entités CRUD
+  // admin (`City`/`Branch`/`Service`/`Promotion`). `updatedAt` reste un champ
+  // d'affichage ("dernière modification") — plus jamais comparé dans une
+  // clause `WHERE` de verrouillage.
+  version      Int               @default(1)
+
+  translations CityTranslation[]
+  branches     Branch[]
+
+  @@map("cities")
+}
+
+model CityTranslation {
+  id     String @id @default(cuid())
+  cityId String
+  locale Locale
+  name   String
+
+  city   City   @relation(fields: [cityId], references: [id], onDelete: Cascade)
+
+  @@unique([cityId, locale])
+  @@index([locale, name])
+  @@map("city_translations")
+}
+
+// ============================================================
+// MAGASINS
+// ============================================================
+
+model Branch {
+  id               String                @id @default(cuid())
+  slug             String                @unique
+  branchCode       String                @unique
+  cityId           String
+  district         String?
+  address          String
+  postalCode       String?
+  latitude         Float
+  longitude        Float
+  phone            String?
+  email            String?
+  whatsappNumber   String?
+  whatsappGroupUrl String?
+  wazeUrlOverride  String?
+  mainImage        String?
+  isActive         Boolean               @default(true)
+  isDemo           Boolean               @default(true)
+  sortOrder        Int                   @default(0)
+  createdAt        DateTime              @default(now())
+  updatedAt        DateTime              @updatedAt
+  // Phase 11, §16ter (durcissement concurrence optimiste — remplace le
+  // verrou basé sur `updatedAt` introduit plus tôt dans cette même phase) :
+  // un compteur entier explicite est plus fiable qu'une comparaison
+  // d'horodatage pour un verrou optimiste — il élimine toute question de
+  // précision/arrondi/fuseau horaire lors de l'aller-retour client↔serveur
+  // (le client renvoie un entier opaque, jamais une date reformattée), et son
+  // intention ("version N attendue, N+1 après succès") est immédiatement
+  // lisible dans le code ET dans les logs, contrairement à deux horodatages
+  // millisecondes à comparer par égalité stricte.
+  //
+  // SEULE source de vérité pour la détection de conflit d'édition (§17) —
+  // `updatedAt` ci-dessus reste un champ d'affichage ("dernière
+  // modification" dans la liste admin), plus jamais utilisé dans une clause
+  // `WHERE` de verrouillage : les deux ne sont JAMAIS combinés comme
+  // mécanismes de concurrence concurrents (voir `updateBranch()` dans
+  // `services/admin/branch-admin.service.ts` pour le point d'application
+  // unique de cette règle).
+  //
+  // Incrémenté ATOMIQUEMENT au sein de la transaction via
+  // `{ increment: 1 }` (jamais lu en JS puis réécrit, ce qui réintroduirait
+  // la même race que celle corrigée) ; les nouvelles entités démarrent à `1`
+  // (`@default(1)`), jamais `0` (`0` resterait ambigu avec "valeur absente").
+  version          Int                   @default(1)
+
+  city             City                  @relation(fields: [cityId], references: [id])
+  translations     BranchTranslation[]
+  openingHours     BranchOpeningHours[]
+  specialHours     SpecialOpeningHours[]
+  services         BranchService[]
+  images           BranchImage[]
+  promotions       PromotionBranch[]
+  searchAliases    SearchAlias[]
+  analyticsEvents  AnalyticsEvent[]
+  reviews          BranchReview[]
+
+  @@index([cityId])
+  @@index([isActive])
+  @@map("branches")
+}
+
+/// Only APPROVED reviews are public and contribute to customer satisfaction.
+/// clientHash is a keyed hash used for rate limiting, never a raw IP address.
+model BranchReview {
+  id         String       @id @default(cuid())
+  branchId   String
+  authorName String
+  rating     Int
+  comment    String
+  locale     Locale
+  status     ReviewStatus @default(PENDING)
+  clientHash String
+  version    Int          @default(1)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  branch Branch @relation(fields: [branchId], references: [id], onDelete: Restrict)
+
+  @@index([branchId, status, createdAt])
+  @@index([status, createdAt])
+  @@index([clientHash, createdAt])
+  @@map("branch_reviews")
+}
+
+model BranchTranslation {
+  id             String @id @default(cuid())
+  branchId       String
+  locale         Locale
+  displayName    String
+  description    String?
+  seoTitle       String?
+  seoDescription String?
+
+  branch         Branch @relation(fields: [branchId], references: [id], onDelete: Cascade)
+
+  @@unique([branchId, locale])
+  @@index([locale])
+  @@map("branch_translations")
+}
+
+/// dayOfWeek : 0 = dimanche ... 6 = samedi (convention israélienne, cohérente
+/// avec les données de `SpecialOpeningHours` et le moteur d'horaires de Phase 7).
+model BranchOpeningHours {
+  id           String  @id @default(cuid())
+  branchId     String
+  dayOfWeek    Int
+  isClosed     Boolean @default(false)
+  openingTime  String? // "08:00"
+  closingTime  String? // "20:00"
+  openingTime2 String? // second créneau optionnel (coupure méridienne, etc.)
+  closingTime2 String?
+
+  branch       Branch  @relation(fields: [branchId], references: [id], onDelete: Cascade)
+
+  @@unique([branchId, dayOfWeek])
+  @@map("branch_opening_hours")
+}
+
+model SpecialOpeningHours {
+  id           String   @id @default(cuid())
+  branchId     String
+  date         DateTime @db.Date
+  title        String?
+  isClosed     Boolean  @default(false)
+  openingTime  String?
+  closingTime  String?
+  openingTime2 String?
+  closingTime2 String?
+  createdAt    DateTime @default(now())
+
+  branch       Branch   @relation(fields: [branchId], references: [id], onDelete: Cascade)
+
+  @@index([branchId, date])
+  @@map("special_opening_hours")
+}
+
+// ============================================================
+// SERVICES
+// ============================================================
+
+model Service {
+  id           String                @id @default(cuid())
+  slug         String                @unique
+  icon         String
+  isActive     Boolean               @default(true)
+  sortOrder    Int                   @default(0)
+  // Phase 11, §16 (défaut réel découvert pendant le durcissement de la
+  // concurrence optimiste) — AJOUTÉ : ce modèle est le SEUL des 4 entités
+  // CRUD admin (Branch/Promotion/City/Service) à n'avoir jamais eu de colonne
+  // `updatedAt`, alors que `services/admin/service-admin.service.ts` (depuis
+  // la Phase 9) déclare `updatedAt: Date` sur `PrismaServiceAdminRow`, l'expose
+  // dans `AdminServiceListItem`/`AdminServiceDetail`, et compare
+  // `existing.updatedAt` à `expectedUpdatedAt` pour détecter un conflit
+  // d'édition (§17) — un mensonge de type resté invisible à `tsc` UNIQUEMENT
+  // parce que le Client Prisma ne peut pas être généré dans ce bac à sable
+  // (voir le rapport Phase 11) et qu'aucune vérification contre une vraie
+  // base Postgres n'avait donc jamais pu confirmer ce décalage avant cette
+  // phase. Sans cette colonne, `updateService`/`hardDeleteService` auraient
+  // échoué à l'exécution contre une vraie base (`column "updatedAt" does not
+  // exist`) dès le premier appel. Migration :
+  // `20260901020000_service_updated_at`.
+  updatedAt    DateTime              @updatedAt
+  // Phase 11, §16ter (durcissement concurrence optimiste) — SEULE source de
+  // vérité pour la détection de conflit d'édition (§17) sur ce modèle,
+  // remplaçant `updatedAt` ci-dessus comme mécanisme de verrouillage (qui
+  // reste, lui, un champ d'affichage uniquement désormais). Voir le
+  // commentaire détaillé sur `Branch.version`, même mécanisme.
+  version      Int                   @default(1)
+
+  translations ServiceTranslation[]
+  branches     BranchService[]
+
+  @@map("services")
+}
+
+model ServiceTranslation {
+  id          String  @id @default(cuid())
+  serviceId   String
+  locale      Locale
+  name        String
+  description String?
+
+  service     Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@unique([serviceId, locale])
+  @@map("service_translations")
+}
+
+model BranchService {
+  branchId  String
+  serviceId String
+
+  branch    Branch  @relation(fields: [branchId], references: [id], onDelete: Cascade)
+  service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@id([branchId, serviceId])
+  @@map("branch_services")
+}
+
+// ============================================================
+// PROMOTIONS
+// ============================================================
+
+/// FUTUR (au-delà de la Phase 9, non implémenté — §20) : si un catalogue
+/// produit complet voit le jour un jour (Product / ProductCategory / SKU /
+/// code-barres / stock par magasin / prix par magasin / e-commerce), ce
+/// modèle pourra gagner un `productId String?` optionnel pointant vers un
+/// futur `Product`, EN CONSERVANT `price`/`originalPrice`/`unit` ici : le
+/// prix PROMOTIONNEL reste propre à la campagne, pas au produit catalogue (un
+/// même produit peut avoir des prix promo différents selon la promotion). Les
+/// champs actuels (`price`, `unit`, `productName` traduit sur
+/// `PromotionTranslation`) permettent à `Promotion` de décrire un produit de
+/// façon autonome dès aujourd'hui, SANS bloquer cette évolution future :
+/// aucun champ n'aurait besoin d'être renommé ni supprimé pour l'introduire.
+model Promotion {
+  id            String                  @id @default(cuid())
+  /// Identifiant stable pour l'administration/le futur lien direct (Phase 9,
+  /// §1) — jamais utilisé pour créer une page SEO dédiée pour l'instant
+  /// (§16 : pas encore de page individuelle par promotion).
+  slug          String                  @unique
+  image         String?
+  /// Prix promotionnel structuré (§1/§2) — `Decimal`, JAMAIS `Float` (aucune
+  /// approximation binaire sur un montant financier). `null` pour une
+  /// promotion purement éditoriale sans produit précis (ex. les 3 promotions
+  /// DEMO déjà en place : bannières "back-to-school"/"grand-opening"/
+  /// "rosh-hashanah", qui restent volontairement sans prix). Une promotion
+  /// AVEC produit renseigne `price` (obligatoire dans ce cas) + `currency` +
+  /// `unit` ensemble.
+  price         Decimal?                @db.Decimal(10, 2)
+  /// Ancien prix optionnel (§5) — une réduction n'est affichée/calculée que
+  /// si `originalPrice` est présent ET strictement supérieur à `price`
+  /// (fonction pure `lib/pricing/discount.ts#computeDiscount()`, jamais de
+  /// pourcentage inventé ou stocké en dur ici).
+  originalPrice Decimal?                @db.Decimal(10, 2)
+  currency      Currency                @default(ILS)
+  unit          PromotionUnit           @default(UNIT)
+  startDate     DateTime
+  endDate       DateTime
+  url           String?
+  status        PromotionStatus         @default(DRAFT)
+  appliesToAll  Boolean                 @default(false)
+  /// "Promotion du jour" (§10) — interrupteur éditorial EXPLICITE, jamais
+  /// déduit automatiquement du seul fait qu'une promotion est active
+  /// aujourd'hui (une promotion active peut très bien ne pas être "featured").
+  /// Pilote à la fois le badge "🔥 Promotion aujourd'hui" de la fiche magasin
+  /// et l'éligibilité à l'aperçu compact dans `BranchCard`/`BranchPopup`.
+  isFeatured    Boolean                 @default(false)
+  /// Ordre d'affichage manuel (§1/§8) — valeur DESC (plus grand = plus
+  /// prioritaire) ; départage secondaire, après la règle "locale avant
+  /// globale" (voir `lib/promotions/priority.ts`).
+  priority      Int                     @default(0)
+  /// Même convention que `Branch.isDemo` (Phase 3) — TOUTES les promotions
+  /// DEMO du seed doivent porter `true` : ne jamais présenter une promotion
+  /// fictive comme une vraie offre Maayan 2000 (§22).
+  isDemo        Boolean                 @default(true)
+  createdAt     DateTime                @default(now())
+  updatedAt     DateTime                @updatedAt
+  // Phase 11, §16ter (durcissement concurrence optimiste) — SEULE source de
+  // vérité pour la détection de conflit d'édition (§17) sur ce modèle,
+  // remplaçant `updatedAt` ci-dessus comme mécanisme de verrouillage (qui
+  // reste, lui, un champ d'affichage uniquement désormais). Voir le
+  // commentaire détaillé sur `Branch.version`, même mécanisme.
+  version       Int                     @default(1)
+
+  translations    PromotionTranslation[]
+  branches        PromotionBranch[]
+  /// Phase 10, §15/§19/§46 — voir le commentaire de `AnalyticsEvent.promotionId`.
+  analyticsEvents AnalyticsEvent[]
+
+  @@index([status, startDate, endDate])
+  @@index([isFeatured, priority])
+  @@map("promotions")
+}
+
+model PromotionTranslation {
+  id          String    @id @default(cuid())
+  promotionId String
+  locale      Locale
+  /// Nom du produit affiché (§1/§11), ex. "עוף טרי" / "Poulet frais" —
+  /// distinct de `title`, qui reste le nom/accroche de la PROMOTION elle-même
+  /// (ex. "מבצע היום"). `null` pour une promotion éditoriale sans produit
+  /// structuré (même cas que `Promotion.price` ci-dessus).
+  productName String?
+  title       String
+  description String?
+  ctaLabel    String?
+
+  promotion   Promotion @relation(fields: [promotionId], references: [id], onDelete: Cascade)
+
+  @@unique([promotionId, locale])
+  @@map("promotion_translations")
+}
+
+model PromotionBranch {
+  promotionId String
+  branchId    String
+
+  promotion   Promotion @relation(fields: [promotionId], references: [id], onDelete: Cascade)
+  branch      Branch    @relation(fields: [branchId], references: [id], onDelete: Cascade)
+
+  @@id([promotionId, branchId])
+  // Phase 11, §16 (audit index) — index manquant démontré : la clé primaire
+  // composite ci-dessus a `promotionId` en tête, donc inutilisable pour
+  // chercher par `branchId` seul. Or `loadPromotionsForBranches()`
+  // (`services/branch.repository.prisma.ts`) fait exactement ça sur CHAQUE
+  // chargement du Store Locator et de chaque fiche magasin (clause
+  // `branches: { some: { branchId: { in: branchIds } } } }`) — le chemin
+  // public le plus chaud de l'application. Sans cet index, Postgres doit
+  // parcourir séquentiellement `promotion_branches` à chaque requête, un coût
+  // qui grandit avec le catalogue de promotions.
+  @@index([branchId])
+  @@map("promotion_branches")
+}
+
+// ============================================================
+// PHOTOS
+// ============================================================
+
+model BranchImage {
+  id        String   @id @default(cuid())
+  branchId  String
+  imageUrl  String
+  alt       String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  branch    Branch   @relation(fields: [branchId], references: [id], onDelete: Cascade)
+
+  @@map("branch_images")
+}
+
+// ============================================================
+// RECHERCHE MULTILINGUE
+// ============================================================
+
+/// Variantes de recherche (translittérations, orthographes locales) associées à un
+/// magasin — indépendant de `BranchTranslation` pour ne pas polluer les traductions
+/// officielles. Voir `lib/search/` (Phase 4/9).
+model SearchAlias {
+  id       String @id @default(cuid())
+  branchId String
+  locale   Locale
+  alias    String
+
+  branch   Branch @relation(fields: [branchId], references: [id], onDelete: Cascade)
+
+  @@index([locale, alias])
+  @@map("search_aliases")
+}
+
+// ============================================================
+// ADMINISTRATION
+// ============================================================
+
+model AdminUser {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  role         AdminRole @default(EDITOR)
+  isActive     Boolean   @default(true)
+  lastLoginAt  DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@map("admin_users")
+}
+
+// ============================================================
+// AUDIT (Phase 9, §18)
+// ============================================================
+
+/// Journal minimal des mutations admin — QUI (`actorId`/`actorEmail`,
+/// dénormalisé pour rester lisible même si le compte est supprimé plus
+/// tard), QUOI (`action`, ex. "branch.update"), SUR QUOI (`entityType` +
+/// `entityId`), QUAND (`createdAt`). Volontairement PAS un système de
+/// versioning (§18 : « ne construis pas un système complexe de
+/// versioning ») : aucun stockage de l'état avant/après, uniquement la
+/// trace qu'une action a eu lieu — suffisant pour un premier niveau de
+/// traçabilité, sans la complexité d'un diff structuré par champ.
+/// Distinct d'`AnalyticsEvent` (§18 : « ne détourne pas AnalyticsEvent ») :
+/// celui-ci reste anonyme et public (recherches, clics), `AuditLog` est
+/// nommément lié à un compte admin et jamais exposé publiquement.
+model AuditLog {
+  id         String   @id @default(cuid())
+  actorId    String
+  actorEmail String
+  action     String
+  entityType String
+  entityId   String
+  createdAt  DateTime @default(now())
+
+  @@index([entityType, entityId])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+
+// ============================================================
+// ANALYTICS
+// ============================================================
+
+/// Aucune donnée personnelle : pas d'IP, pas d'identifiant utilisateur persistant,
+/// jamais de coordonnées de géolocalisation (Phase 10, §2 — appliqué par
+/// `lib/validators/analytics.ts`, jamais par ce seul modèle). `branchId` et
+/// `promotionId` sont nullables avec `onDelete: SetNull` pour ne jamais perdre
+/// l'historique analytique si un magasin ou une promotion est supprimé.
+model AnalyticsEvent {
+  id        String             @id @default(cuid())
+  type      AnalyticsEventType
+  branchId  String?
+  /// Phase 10 (§15/§19/§46) — colonne dédiée plutôt qu'un champ dans
+  /// `metadata` : les événements `PROMOTION_VIEW`/`PROMOTION_CLICK` sont
+  /// agrégés par promotion aussi souvent que par magasin (tableau §15,
+  /// analytics par magasin §19), une colonne indexée évite de filtrer sur du
+  /// JSON pour cette requête très fréquente.
+  promotionId String?
+  locale    Locale?
+  /// Champ HISTORIQUE (Phase 6), volontairement laissé NULL par le pipeline
+  /// Phase 10 — jamais réutilisé pour stocker un texte de recherche brut
+  /// (§4 : minimisation de la vie privée). L'événement `SEARCH` stocke à la
+  /// place, dans `metadata`, une classification déjà normalisée
+  /// (`matchType`, `resultCount`) — jamais la chaîne saisie par
+  /// l'utilisateur. Conservée en base (jamais de suppression rétroactive de
+  /// colonne) pour ne pas invalider les lignes déjà écrites par un
+  /// éventuel appelant antérieur.
+  query     String?
+  /// Session anonyme courte durée (Phase 10, §5) — identifiant aléatoire
+  /// SANS aucune donnée personnelle ni fingerprinting, voir
+  /// `lib/analytics/session.ts`. Sert uniquement à compter des sessions/
+  /// parcours uniques, jamais à ré-identifier un individu.
+  sessionId String?
+  metadata  Json?
+  createdAt DateTime           @default(now())
+
+  branch    Branch?            @relation(fields: [branchId], references: [id], onDelete: SetNull)
+  promotion Promotion?         @relation(fields: [promotionId], references: [id], onDelete: SetNull)
+
+  @@index([type, createdAt])
+  @@index([branchId])
+  @@index([promotionId])
+  @@index([sessionId])
+  @@map("analytics_events")
+}
