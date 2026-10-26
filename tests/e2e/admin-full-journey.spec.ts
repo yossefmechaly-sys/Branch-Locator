@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 
+import { prisma } from "../../lib/prisma";
 import { loginAsSuperAdmin } from "./helpers/auth";
 
 /**
@@ -34,8 +35,8 @@ import { loginAsSuperAdmin } from "./helpers/auth";
  * horodatage) injecté dans le titre HE de la promotion créée et dans le
  * "Titre SEO" FR édité — la suite peut donc être relancée plusieurs fois de
  * suite sans réinitialiser la base entre deux exécutions, chaque exécution
- * créant sa propre promotion et laissant une trace distincte et reconnaissable
- * (sans jamais entrer en collision avec la précédente).
+ * créant sa propre promotion, supprimée après chaque tentative pour éviter
+ * qu'une relance ne rencontre une autre promotion de même priorité.
  *
  * Priorité 20 pour la promotion créée : le seed (Phase 9, §12) contient déjà
  * une promotion locale `fresh-chicken-ramot` sur CE magasin, `isFeatured`,
@@ -70,6 +71,13 @@ const seoTitleMarker = `[E2E ${runId}]`;
 
 test.describe.configure({ mode: "serial" });
 
+test.afterEach(async () => {
+  // Une tentative suivante doit pouvoir mettre sa propre promotion en avant.
+  await prisma.promotion.deleteMany({ where: { slug: promotionSlug } });
+});
+
+test.afterAll(async () => { await prisma.$disconnect(); });
+
 test.describe("Parcours admin complet — magasin + promotion structurée (Phase 9, §28)", () => {
   test.beforeEach(async ({ page }) => {
     // Voir le commentaire de tête : déterminisme, jamais un mock du reste du
@@ -95,8 +103,8 @@ test.describe("Parcours admin complet — magasin + promotion structurée (Phase
     await test.step("3. Modification d'une traduction (Titre SEO, FR)", async () => {
       await page.getByRole("tab", { name: "Français" }).click();
       const seoTitleInput = page.getByTestId("branch-seotitle-fr");
-      const currentValue = await seoTitleInput.inputValue();
-      await seoTitleInput.fill(`${currentValue} ${seoTitleMarker}`.trim());
+      // Reste sous la limite de 70 caractères, y compris après une relance.
+      await seoTitleInput.fill(`Ramot ${seoTitleMarker}`);
     });
 
     await test.step("4. Modification des horaires (dimanche → fermeture 23:45)", async () => {
@@ -114,9 +122,9 @@ test.describe("Parcours admin complet — magasin + promotion structurée (Phase
     await test.step("5. Enregistrement", async () => {
       await page.getByRole("button", { name: "Enregistrer" }).click();
       await expect(page).toHaveURL(/\/admin\/branches$/);
-      // Absence d'alerte d'erreur serveur après redirection = mutation acceptée
-      // (§19 : jamais un succès silencieux qui masquerait un échec réel).
-      await expect(page.getByRole("alert")).toHaveCount(0);
+      // Les annonces de navigation de Next.js sont hors du contenu principal.
+      // Toute alerte du formulaire ou de la page reste un échec du test.
+      await expect(page.getByRole("main").getByRole("alert")).toHaveCount(0);
     });
 
     await test.step("6. Vérification publique (fiche magasin FR)", async () => {
@@ -134,8 +142,11 @@ test.describe("Parcours admin complet — magasin + promotion structurée (Phase
       await page.getByTestId("promotion-unit-trigger").click();
       await page.getByRole("option", { name: "Au kilogramme (kg)" }).click();
 
-      await page.getByTestId("promotion-start-date").fill("2026-08-25");
-      await page.getByTestId("promotion-end-date").fill("2026-09-10");
+      // La promotion doit être active à la date réelle du test.
+      const day = 24 * 60 * 60 * 1000;
+      const now = Date.now();
+      await page.getByTestId("promotion-start-date").fill(new Date(now - 7 * day).toISOString().slice(0, 10));
+      await page.getByTestId("promotion-end-date").fill(new Date(now + 7 * day).toISOString().slice(0, 10));
 
       await page.getByTestId("promotion-status-trigger").click();
       await page.getByRole("option", { name: "Active", exact: true }).click();
@@ -164,7 +175,7 @@ test.describe("Parcours admin complet — magasin + promotion structurée (Phase
 
       await page.getByRole("button", { name: "Créer la promotion" }).click();
       await expect(page).toHaveURL(/\/admin\/promotions$/);
-      await expect(page.getByRole("alert")).toHaveCount(0);
+      await expect(page.getByRole("main").getByRole("alert")).toHaveCount(0);
       await expect(page.getByRole("row", { name: new RegExp(runId) })).toBeVisible();
     });
 
@@ -205,7 +216,7 @@ test.describe("Parcours admin complet — magasin + promotion structurée (Phase
       await priceInput.fill("24.90");
       await page.getByRole("button", { name: "Enregistrer" }).click();
       await expect(page).toHaveURL(/\/admin\/promotions$/);
-      await expect(page.getByRole("alert")).toHaveCount(0);
+      await expect(page.getByRole("main").getByRole("alert")).toHaveCount(0);
     });
 
     await test.step("13. Invalidation IMMÉDIATE du cache public (jamais d'attente des 60s d'ISR)", async () => {

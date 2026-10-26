@@ -187,12 +187,12 @@ test.describe("Parcours Import — template → aperçu → erreur → correctio
 
       // Résumé : exactement 1 ligne à créer, 1 ligne en erreur (§24 : les deux
       // sont des catégories distinctes, comptées séparément).
-      await expect(page.getByRole("button", { name: /Confirmer l'import \(1 ligne/ })).toBeVisible();
+      await expect(page.getByRole("button", { name: "Confirmer l’import (1)", exact: true })).toBeVisible();
 
       // Le bouton de confirmation reste utilisable (ligne valide présente) —
       // seule la ligne en erreur est exclue, jamais l'ensemble du fichier
       // (§28, impératif).
-      await expect(page.getByRole("button", { name: /Confirmer l'import/ })).toBeEnabled();
+      await expect(page.getByRole("button", { name: /^Confirmer l’import/ })).toBeEnabled();
     });
 
     await test.step("6. Corrige le fichier (ville valide) et relance l'aperçu", async () => {
@@ -203,11 +203,11 @@ test.describe("Parcours Import — template → aperçu → erreur → correctio
 
       await expect(page.getByText('Aperçu — « import-corrected.csv »')).toBeVisible();
       await expect(page.getByText(/Ville inconnue/)).toHaveCount(0);
-      await expect(page.getByRole("button", { name: /Confirmer l'import \(2 ligne/ })).toBeVisible();
+      await expect(page.getByRole("button", { name: "Confirmer l’import (2)", exact: true })).toBeVisible();
     });
 
     await test.step("7. Confirme l'import (transaction réelle, §28)", async () => {
-      await page.getByRole("button", { name: /Confirmer l'import/ }).click();
+      await page.getByRole("button", { name: /^Confirmer l’import/ }).click();
       // `CardTitle`/`CardDescription` sont des `<div>` (voir `components/ui/card.tsx`),
       // jamais de vrais éléments de titre HTML — `getByText`, pas `getByRole("heading")`.
       await expect(page.getByText("Import terminé", { exact: true })).toBeVisible();
@@ -216,7 +216,7 @@ test.describe("Parcours Import — template → aperçu → erreur → correctio
 
     await test.step("8. Vérifie le nouveau magasin sur le Store Locator public (FR)", async () => {
       await page.goto(`/${PUBLIC_LOCALE}/branches/${NEW_BRANCH_SLUG}`);
-      await expect(page.getByText(NEW_BRANCH_NAME_FR)).toBeVisible();
+      await expect(page.getByRole("heading", { level: 1, name: NEW_BRANCH_NAME_FR, exact: true })).toBeVisible();
       // Horaires importés (§29) : vendredi fermeture 14:00.
       await expect(page.getByText("14:00")).toBeVisible();
     });

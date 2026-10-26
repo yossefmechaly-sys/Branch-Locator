@@ -66,7 +66,7 @@ test.describe("Parcours Analytics — événements publics → tableau de bord f
 
     await test.step("3. Ouverture d'Analytics, période « Aujourd'hui »", async () => {
       await page.goto("/admin/analytics?period=today");
-      await expect(page.getByRole("heading", { name: "Analytics", exact: true })).toBeVisible();
+      await expect(page.getByRole("heading", { name: "Statistiques", exact: true })).toBeVisible();
     });
 
     await test.step("4. Vérifie le KPI « Vues Store Locator » (non filtré — locator_view n'est jamais rattaché à un magasin)", async () => {
