@@ -54,6 +54,13 @@ test("avis en attente → publication de notes 5 et 1 → satisfaction → refus
   await expect(section.getByRole("status")).toContainText("après validation");
   const pending = await request.get(`/api/branches/${slug}/reviews`);
   expect((await pending.json()).summary.total).toBe(0);
+  async function expectListRating(total: number, averageRating: number | null) {
+    const response = await request.get("/api/branches?locale=he");
+    expect(response.ok()).toBe(true);
+    const all = await response.json();
+    expect(all.branches.find((branch: { id: string }) => branch.id === branchId).reviewRating).toEqual({ total, averageRating });
+  }
+  await expectListRating(0, null);
 
   const admin = await browser.newContext({ baseURL: test.info().project.use.baseURL });
   const adminPage = await admin.newPage();
@@ -65,6 +72,7 @@ test("avis en attente → publication de notes 5 et 1 → satisfaction → refus
     await page.reload();
     await expect(section.getByText("100 % de satisfaction")).toBeVisible();
     await expect(section.getByText(author, { exact: true })).toBeVisible();
+    await expectListRating(1, 5);
 
     // A critical review can be published through exactly the same workflow.
     await section.getByRole("radio", { name: "1 étoile", exact: true }).check();
@@ -77,6 +85,7 @@ test("avis en attente → publication de notes 5 et 1 → satisfaction → refus
     await expect.poll(async () => (await (await request.get(`/api/branches/${slug}/reviews`)).json()).summary.total).toBe(2);
     const published = await (await request.get(`/api/branches/${slug}/reviews`)).json();
     expect(published.summary).toMatchObject({ averageRating: 3, satisfiedPercent: 50 });
+    await expectListRating(2, 3);
     expect(published.reviews[0]).not.toHaveProperty("clientHash");
     expect(published.reviews[0]).not.toHaveProperty("status");
     await page.reload();
@@ -94,6 +103,7 @@ test("avis en attente → publication de notes 5 et 1 → satisfaction → refus
     await page.reload();
     await expect(section.getByText(author, { exact: true })).toHaveCount(0);
     await expect(section.getByText("0 % de satisfaction")).toBeVisible();
+    await expectListRating(1, 1);
     const otherBranch = await (await request.get("/api/branches/jerusalem-ramot/reviews")).json();
     expect(otherBranch.reviews.some((review: { authorName: string }) => [author, negativeAuthor].includes(review.authorName))).toBe(false);
 
@@ -117,4 +127,47 @@ test("la limitation des soumissions résiste aux requêtes concurrentes", async 
     if (result.status === "rejected") expect(result.reason).toBeInstanceOf(ReviewRateLimitError);
   }
   expect(await prisma.branchReview.count({ where: { clientHash } })).toBe(3);
+});
+
+test("la liste hébraïque affiche une moyenne fractionnaire, uniquement sur les avis publiés", async ({ page, request }) => {
+  const before = await (await request.get("/api/branches?locale=he")).json();
+  const otherRating = before.branches.find((branch: { id: string }) => branch.id === branchId).reviewRating;
+  const city = await prisma.city.findFirstOrThrow({ where: { isActive: true }, select: { id: true } });
+  const ratingSlug = `e2e-rating-${runId}`;
+  const fixture = await prisma.branch.create({ data: {
+    slug: ratingSlug, branchCode: `RAT-${runId}`, cityId: city.id, address: "E2E ratings only",
+    latitude: 31.8, longitude: 35.2, isActive: true, isDemo: true,
+    translations: { create: [{ locale: "he", displayName: `דירוג E2E ${runId}` }] },
+    reviews: { create: [
+      { authorName: "Published four", rating: 4, comment: "Published four-star review.", locale: "he", status: "APPROVED", clientHash: `fixture-${runId}` },
+      { authorName: "Published five", rating: 5, comment: "Published five-star review.", locale: "he", status: "APPROVED", clientHash: `fixture-${runId}` },
+      { authorName: "Pending one", rating: 1, comment: "Pending review not counted.", locale: "he", status: "PENDING", clientHash: `fixture-${runId}` },
+      { authorName: "Rejected one", rating: 1, comment: "Rejected review not counted.", locale: "he", status: "REJECTED", clientHash: `fixture-${runId}` },
+    ] },
+  } });
+  try {
+    await page.route("https://maps.googleapis.com/**", (route) => route.abort());
+    const result = await (await request.get("/api/branches?locale=he")).json();
+    expect(result.branches.find((branch: { id: string }) => branch.id === fixture.id).reviewRating).toEqual({ total: 2, averageRating: 4.5 });
+    expect(result.branches.find((branch: { id: string }) => branch.id === branchId).reviewRating).toEqual(otherRating);
+    await page.goto("/he/branches");
+    const link = page.getByRole("link", { name: "דירוג ממוצע 4.5 מתוך 5, 2 ביקורות", exact: true });
+    await expect(link).toBeVisible();
+    await expect(link).toHaveAttribute("href", `/he/branches/${ratingSlug}#reviews`);
+    const card = page.getByRole("listitem").filter({ has: link });
+    await card.screenshot({ path: "/tmp/branch-list-ratings-he-desktop.png" });
+    await page.setViewportSize({ width: 390, height: 844 });
+    await card.screenshot({ path: "/tmp/branch-list-ratings-he-mobile.png" });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    await link.click();
+    await expect(page).toHaveURL(new RegExp(`/he/branches/${ratingSlug}#reviews$`));
+    await expect(page.getByText("Published four-star review.", { exact: true })).toBeVisible();
+  } finally {
+    await prisma.$transaction([
+      prisma.branchReview.deleteMany({ where: { branchId: fixture.id } }),
+      prisma.analyticsEvent.deleteMany({ where: { branchId: fixture.id } }),
+      prisma.branchTranslation.deleteMany({ where: { branchId: fixture.id } }),
+      prisma.branch.delete({ where: { id: fixture.id } }),
+    ]);
+  }
 });

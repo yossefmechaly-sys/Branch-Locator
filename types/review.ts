@@ -18,6 +18,9 @@ export interface ReviewSummary {
   distribution: { rating: number; count: number }[];
 }
 
+/** Public aggregate only: no reviewer details or unpublished reviews. */
+export type ReviewRating = Pick<ReviewSummary, "total" | "averageRating">;
+
 export interface PublicReviewsResult {
   reviews: PublicReview[];
   summary: ReviewSummary;

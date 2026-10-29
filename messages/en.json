@@ -154,6 +154,9 @@
     "cta": "Back to home"
   },
   "reviews": {
+    "noRatings": "No reviews yet",
+    "ratingCount": "{count, plural, one {# review} other {# reviews}}",
+    "averageLabel": "Average rating {rating} out of 5, {count, plural, one {# review} other {# reviews}}",
     "title": "Reviews and customer satisfaction",
     "intro": "Share your experience at this branch.",
     "write": "Write a review",

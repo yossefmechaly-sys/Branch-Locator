@@ -154,6 +154,9 @@
     "cta": "חזרה לדף הבית"
   },
   "reviews": {
+    "noRatings": "עדיין אין ביקורות",
+    "ratingCount": "{count, plural, one {ביקורת אחת} other {# ביקורות}}",
+    "averageLabel": "דירוג ממוצע {rating} מתוך 5, {count, plural, one {ביקורת אחת} other {# ביקורות}}",
     "title": "ביקורות ושביעות רצון לקוחות",
     "intro": "שתפו את החוויה שלכם בסניף הזה.",
     "write": "כתיבת ביקורת",

@@ -20,3 +20,8 @@ accessible labels retained. No database schema changes are included.
 
 Extract it and run `python3 branch-locator-review-stars/deploy.py` as `franck`.
 The same isolated build, health checks and rollback protections apply.
+
+## Branch list ratings
+
+`branch-locator-list-ratings.tar.gz` adds the average published rating and yellow
+stars to each branch card. See [deployment instructions](list-ratings.md).

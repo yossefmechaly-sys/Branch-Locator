@@ -154,6 +154,9 @@
     "cta": "Volver al inicio"
   },
   "reviews": {
+    "noRatings": "Aún no hay opiniones",
+    "ratingCount": "{count, plural, one {# opinión} other {# opiniones}}",
+    "averageLabel": "Valoración media de {rating} sobre 5, {count, plural, one {# opinión} other {# opiniones}}",
     "title": "Opiniones y satisfacción del cliente",
     "intro": "Comparte tu experiencia en esta tienda.",
     "write": "Escribir una opinión",

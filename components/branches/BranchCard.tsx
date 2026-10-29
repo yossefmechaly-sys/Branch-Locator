@@ -14,6 +14,7 @@ import type { AppLocale } from "@/types/i18n";
 import type { BranchSummary } from "@/types/branch";
 
 import { BranchStatus } from "./BranchStatus";
+import { BranchRating } from "./BranchRating";
 import { DistanceBadge } from "./DistanceBadge";
 import { NavigationMenu } from "./NavigationMenu";
 import { OpeningHours } from "./OpeningHours";
@@ -68,6 +69,7 @@ export function BranchCard({ branch, locale, isSelected, onSelect, onHover }: Br
               {branch.district ? ` · ${branch.district}` : ""} · {branch.address}
             </span>
           </p>
+          <BranchRating rating={branch.reviewRating} slug={branch.slug} locale={locale} />
         </div>
         <DistanceBadge distanceMeters={branch.distanceMeters} locale={locale} className="shrink-0" />
       </CardHeader>

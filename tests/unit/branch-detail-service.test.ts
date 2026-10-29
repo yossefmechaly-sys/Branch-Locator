@@ -80,6 +80,7 @@ function makeRawBranch(overrides: Partial<RawBranch> = {}): RawBranch {
     searchAliases: [],
     images: [{ imageUrl: "https://cdn.example.com/ramot.jpg", alt: "Ramot branch", sortOrder: 0 }],
     promotions: [],
+    reviewRating: { total: 0, averageRating: null },
     ...overrides,
   };
 }
@@ -316,6 +317,15 @@ describe("getBranchDetailBySlug (Phase 8, §1/§4/§11/§35)", () => {
 });
 
 describe("getBranchLocatorData — featuredPromotion par magasin (Phase 9, §10/§13)", () => {
+  it("preserves the published rating aggregate through localization and search", async () => {
+    const reviewRating = { total: 8, averageRating: 4.25 };
+    const branch = makeRawBranch({ reviewRating });
+    const repository = makeFakeRepository(branch);
+    const list = await getBranchLocatorData({ locale: "he", q: "Ramot" }, repository);
+    expect(list.branches[0].reviewRating).toEqual(reviewRating);
+    expect((await getBranchDetailBySlug(branch.slug, "fr", repository))?.reviewRating).toEqual(reviewRating);
+  });
+
   function makeMultiRepository(branches: RawBranch[]): BranchRepository {
     return {
       getActiveBranches: vi.fn().mockResolvedValue(branches),

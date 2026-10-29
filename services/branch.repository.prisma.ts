@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import type { AppLocale } from "@/types/i18n";
 import type { PromotionCurrency, PromotionStatus, PromotionUnit } from "@/types/promotion";
+import type { ReviewRating } from "@/types/review";
 
 import type { BranchRepository, RawBranch, RawPromotion } from "./branch.repository";
 
@@ -150,7 +151,11 @@ function mapPromotion(row: PrismaPromotionRow): RawPromotion {
   };
 }
 
-function mapBranch(row: PrismaBranchQueryResult, promotions: RawPromotion[] = []): RawBranch {
+function mapBranch(
+  row: PrismaBranchQueryResult,
+  promotions: RawPromotion[] = [],
+  reviewRating: ReviewRating = { total: 0, averageRating: null }
+): RawBranch {
   return {
     id: row.id,
     slug: row.slug,
@@ -223,6 +228,7 @@ function mapBranch(row: PrismaBranchQueryResult, promotions: RawPromotion[] = []
       .sort((a, b) => a.sortOrder - b.sortOrder)
       .map((image) => ({ imageUrl: image.imageUrl, alt: image.alt, sortOrder: image.sortOrder })),
     promotions,
+    reviewRating,
   };
 }
 
@@ -282,6 +288,20 @@ async function loadPromotionsForBranches(branchIds: string[]): Promise<Map<strin
   return byBranchId;
 }
 
+/** One grouped query for the entire list; unpublished reviews never contribute. */
+async function loadReviewRatings(branchIds: string[]): Promise<Map<string, ReviewRating>> {
+  if (!branchIds.length) return new Map();
+  const groups = await prisma.branchReview.groupBy({
+    by: ["branchId"],
+    where: { branchId: { in: branchIds }, status: "APPROVED" },
+    _avg: { rating: true },
+    _count: { _all: true },
+  });
+  return new Map(groups.map((group) => [group.branchId, {
+    total: group._count._all, averageRating: group._avg.rating,
+  }]));
+}
+
 export const prismaBranchRepository: BranchRepository = {
   async getActiveBranches() {
     const rows = (await prisma.branch.findMany({
@@ -295,9 +315,12 @@ export const prismaBranchRepository: BranchRepository = {
     // avant la Phase 9, le Store Locator n'affichait aucune promotion et
     // cette méthode ne chargeait donc rien ici ; `BranchCard` a maintenant
     // besoin de `featuredPromotion` par magasin (voir `branch.service.ts`).
-    const promotionsByBranchId = await loadPromotionsForBranches(rows.map((row) => row.id));
+    const branchIds = rows.map((row) => row.id);
+    const [promotionsByBranchId, ratingsByBranchId] = await Promise.all([
+      loadPromotionsForBranches(branchIds), loadReviewRatings(branchIds),
+    ]);
 
-    return rows.map((row) => mapBranch(row, promotionsByBranchId.get(row.id) ?? []));
+    return rows.map((row) => mapBranch(row, promotionsByBranchId.get(row.id) ?? [], ratingsByBranchId.get(row.id)));
   },
 
   async getBranchBySlug(slug) {
@@ -320,8 +343,10 @@ export const prismaBranchRepository: BranchRepository = {
     // indépendantes DANS LA PAGE REACT », pas dans la couche donnée
     // elle-même). Réutilise `loadPromotionsForBranches()` (Phase 9, §21)
     // plutôt qu'une requête ad hoc dupliquée.
-    const promotionsByBranchId = await loadPromotionsForBranches([row.id]);
+    const [promotionsByBranchId, ratingsByBranchId] = await Promise.all([
+      loadPromotionsForBranches([row.id]), loadReviewRatings([row.id]),
+    ]);
 
-    return mapBranch(row, promotionsByBranchId.get(row.id) ?? []);
+    return mapBranch(row, promotionsByBranchId.get(row.id) ?? [], ratingsByBranchId.get(row.id));
   },
 };

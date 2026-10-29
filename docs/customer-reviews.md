@@ -12,6 +12,13 @@ la répartition des notes et le taux de satisfaction : pourcentage des avis
 **publiés** ayant une note de 4 ou 5. Sans avis, aucune moyenne ni taux fictif
 n'est affiché. Les listes sont paginées par dix avis.
 
+La liste des magasins affiche aussi une moyenne sur 5, des étoiles jaunes avec
+remplissage partiel et le nombre d'avis publiés. Le lien mène à la section des
+avis de ce magasin. Sans avis publié, la carte affiche « Pas encore d'avis »
+(dans la langue du site). Les moyennes sont calculées en une seule requête
+groupée pour toute la liste, sans charger les commentaires ni les informations
+privées. Une publication ou un refus actualise également les notes de la liste.
+
 Les administrateurs et super-administrateurs peuvent publier, refuser ou
 remettre en attente un avis. Les éditeurs peuvent consulter mais pas modérer.
 Les notes et textes ne peuvent pas être modifiés par le modérateur. Les avis

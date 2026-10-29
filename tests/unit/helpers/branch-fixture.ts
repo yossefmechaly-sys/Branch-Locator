@@ -50,6 +50,7 @@ export function makeBranchSummary(overrides: Partial<BranchSummary> & { id: stri
     statusViewModel: DEFAULT_STATUS_VIEW_MODEL,
     services: [],
     featuredPromotion: null,
+    reviewRating: { total: 0, averageRating: null },
     ...overrides,
   };
 }

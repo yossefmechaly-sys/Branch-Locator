@@ -151,6 +151,7 @@ function toSummary(
       .sort((a, b) => a.sortOrder - b.sortOrder)
       .map((service) => localizeService(service, locale)),
     featuredPromotion,
+    reviewRating: branch.reviewRating,
   };
 }
 

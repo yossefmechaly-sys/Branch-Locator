@@ -7,6 +7,7 @@ import type {
   BranchStatusViewModel,
 } from "./opening-hours";
 import type { LocalizedPromotion } from "./promotion";
+import type { ReviewRating } from "./review";
 
 /**
  * Types applicatifs (view models) consommés par les composants UI — distincts des
@@ -86,6 +87,8 @@ export interface BranchSummary {
    * localisation, pas un support promotionnel).
    */
   featuredPromotion: LocalizedPromotion | null;
+  /** Average and count of approved customer reviews only. */
+  reviewRating: ReviewRating;
 }
 
 /** Fiche complète utilisée par `/[locale]/branches/[slug]` (Phase 8). */

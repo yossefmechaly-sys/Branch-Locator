@@ -1,6 +1,7 @@
 import type { AppLocale } from "@/types/i18n";
 import type { OpeningHoursEntry, SpecialHoursEntry } from "@/types/opening-hours";
 import type { PromotionCurrency, PromotionStatus, PromotionUnit } from "@/types/promotion";
+import type { ReviewRating } from "@/types/review";
 
 /**
  * Couche « récupération des données » — strictement séparée de la recherche
@@ -150,6 +151,7 @@ export interface RawBranch {
    * `services/branch.repository.prisma.ts#loadPromotionsForBranches()`.
    */
   promotions: RawPromotion[];
+  reviewRating: ReviewRating;
 }
 
 export interface BranchRepository {

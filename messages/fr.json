@@ -154,6 +154,9 @@
     "cta": "Retour à l'accueil"
   },
   "reviews": {
+    "noRatings": "Pas encore d’avis",
+    "ratingCount": "{count, plural, one {# avis} other {# avis}}",
+    "averageLabel": "Note moyenne de {rating} sur 5, {count, plural, one {# avis} other {# avis}}",
     "title": "Avis et satisfaction client",
     "intro": "Partagez votre expérience dans ce magasin.",
     "write": "Donner mon avis",
