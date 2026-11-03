@@ -25,3 +25,9 @@ The same isolated build, health checks and rollback protections apply.
 
 `branch-locator-list-ratings.tar.gz` adds the average published rating and yellow
 stars to each branch card. See [deployment instructions](list-ratings.md).
+
+## Branch list photos
+
+`branch-locator-list-photos.tar.gz` adds rounded main-photo thumbnails to branch
+cards and includes the list ratings update. It accepts either of the preceding
+review releases. See [deployment instructions](list-photos.md).

@@ -15,6 +15,7 @@ import type { BranchSummary } from "@/types/branch";
 
 import { BranchStatus } from "./BranchStatus";
 import { BranchRating } from "./BranchRating";
+import { BranchThumbnail } from "./BranchThumbnail";
 import { DistanceBadge } from "./DistanceBadge";
 import { NavigationMenu } from "./NavigationMenu";
 import { OpeningHours } from "./OpeningHours";
@@ -48,20 +49,25 @@ export function BranchCard({ branch, locale, isSelected, onSelect, onHover }: Br
         isSelected && "border-primary ring-1 ring-primary"
       )}
     >
-      <CardHeader className="flex-row items-start justify-between gap-3">
-        <div className="min-w-0">
-          <button
-            type="button"
-            onClick={() => {
-              // Phase 10, §3 — clic sur la carte (liste), distinct de
-              // `branch_view` (montage réel de la fiche détaillée complète).
-              track({ name: "branch_card_click", branchId: branch.id });
-              onSelect(branch.id);
-            }}
-            className="rounded-sm text-start font-semibold leading-tight outline-none hover:underline focus-visible:ring-2 focus-visible:ring-ring"
-          >
-            {branch.displayName}
-          </button>
+      <CardHeader className="flex-row items-start gap-3 sm:gap-4">
+        <BranchThumbnail key={branch.mainImage ?? "no-photo"} src={branch.mainImage}
+          name={branch.displayName} slug={branch.slug} locale={locale} />
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-start justify-between gap-x-2 gap-y-1">
+            <button
+              type="button"
+              onClick={() => {
+                // Phase 10, §3 — clic sur la carte (liste), distinct de
+                // `branch_view` (montage réel de la fiche détaillée complète).
+                track({ name: "branch_card_click", branchId: branch.id });
+                onSelect(branch.id);
+              }}
+              className="min-w-0 break-words rounded-sm text-start font-semibold leading-tight outline-none hover:underline focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              {branch.displayName}
+            </button>
+            <DistanceBadge distanceMeters={branch.distanceMeters} locale={locale} className="shrink-0" />
+          </div>
           <p className="mt-1 flex items-start gap-1 text-sm text-muted-foreground">
             <MapPin className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
             <span>
@@ -71,7 +77,6 @@ export function BranchCard({ branch, locale, isSelected, onSelect, onHover }: Br
           </p>
           <BranchRating rating={branch.reviewRating} slug={branch.slug} locale={locale} />
         </div>
-        <DistanceBadge distanceMeters={branch.distanceMeters} locale={locale} className="shrink-0" />
       </CardHeader>
 
       <CardContent className="flex flex-col gap-4">
