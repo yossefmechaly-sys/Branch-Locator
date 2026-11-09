@@ -9,8 +9,8 @@ const OPENING_HOURS: OpeningHoursEntry[] = [
 
 function makeInput(overrides: Partial<GroceryStoreSchemaInput> = {}): GroceryStoreSchemaInput {
   return {
-    name: "Maayan 2000 – Ramot",
-    url: "https://maayan2000.co.il/he/branches/jerusalem-ramot",
+    name: "Zol Uvegadol – Ramot",
+    url: "https://zol-uvegadol.tobedev.com/he/branches/jerusalem-ramot",
     image: null,
     telephone: null,
     streetAddress: null,
@@ -30,8 +30,8 @@ describe("buildGroceryStoreSchema (§21-§24 Phase 8 : ne jamais inventer de don
 
     expect(schema["@context"]).toBe("https://schema.org");
     expect(schema["@type"]).toBe("GroceryStore");
-    expect(schema.name).toBe("Maayan 2000 – Ramot");
-    expect(schema.url).toBe("https://maayan2000.co.il/he/branches/jerusalem-ramot");
+    expect(schema.name).toBe("Zol Uvegadol – Ramot");
+    expect(schema.url).toBe("https://zol-uvegadol.tobedev.com/he/branches/jerusalem-ramot");
     expect(schema.geo).toEqual({ "@type": "GeoCoordinates", latitude: 31.8, longitude: 35.2 });
   });
 
@@ -45,19 +45,19 @@ describe("buildGroceryStoreSchema (§21-§24 Phase 8 : ne jamais inventer de don
   it("inclut image/telephone/hasMap quand la donnée est présente", () => {
     const schema = buildGroceryStoreSchema(
       makeInput({
-        image: "https://maayan2000.co.il/uploads/branch.jpg",
+        image: "https://zol-uvegadol.tobedev.com/uploads/branch.jpg",
         telephone: "+972-2-1234567",
         mapUrl: "https://www.google.com/maps/dir/?api=1&destination=31.8%2C35.2",
       })
     );
-    expect(schema.image).toBe("https://maayan2000.co.il/uploads/branch.jpg");
+    expect(schema.image).toBe("https://zol-uvegadol.tobedev.com/uploads/branch.jpg");
     expect(schema.telephone).toBe("+972-2-1234567");
     expect(schema.hasMap).toBe("https://www.google.com/maps/dir/?api=1&destination=31.8%2C35.2");
   });
 
   describe("image relative → URL absolue (§21 : Schema.org exige une URL absolue)", () => {
     beforeEach(() => {
-      vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://maayan2000.co.il");
+      vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://zol-uvegadol.tobedev.com");
     });
 
     afterEach(() => {
@@ -66,7 +66,7 @@ describe("buildGroceryStoreSchema (§21-§24 Phase 8 : ne jamais inventer de don
 
     it("rend absolue une image stockée en base comme un chemin relatif", () => {
       const schema = buildGroceryStoreSchema(makeInput({ image: "/demo/branches/jerusalem-ramot.jpg" }));
-      expect(schema.image).toBe("https://maayan2000.co.il/demo/branches/jerusalem-ramot.jpg");
+      expect(schema.image).toBe("https://zol-uvegadol.tobedev.com/demo/branches/jerusalem-ramot.jpg");
     });
 
     it("laisse une image déjà absolue inchangée", () => {
@@ -174,8 +174,8 @@ describe("buildGroceryStoreSchema (§21-§24 Phase 8 : ne jamais inventer de don
 describe("buildBreadcrumbSchema (§31 Phase 8)", () => {
   it("numérote les positions à partir de 1, dans l'ordre fourni", () => {
     const schema = buildBreadcrumbSchema([
-      { name: "Accueil", url: "https://maayan2000.co.il/he" },
-      { name: "Magasins", url: "https://maayan2000.co.il/he/branches" },
+      { name: "Accueil", url: "https://zol-uvegadol.tobedev.com/he" },
+      { name: "Magasins", url: "https://zol-uvegadol.tobedev.com/he/branches" },
       { name: "Ramot", url: null },
     ]);
 
@@ -185,12 +185,12 @@ describe("buildBreadcrumbSchema (§31 Phase 8)", () => {
 
   it("omet `item` pour l'étape sans URL (page courante), jamais un lien vers elle-même", () => {
     const schema = buildBreadcrumbSchema([
-      { name: "Accueil", url: "https://maayan2000.co.il/he" },
+      { name: "Accueil", url: "https://zol-uvegadol.tobedev.com/he" },
       { name: "Ramot", url: null },
     ]);
 
     const items = schema.itemListElement as Record<string, unknown>[];
-    expect(items[0].item).toBe("https://maayan2000.co.il/he");
+    expect(items[0].item).toBe("https://zol-uvegadol.tobedev.com/he");
     expect(items[1]).not.toHaveProperty("item");
     expect(items[1].name).toBe("Ramot");
   });

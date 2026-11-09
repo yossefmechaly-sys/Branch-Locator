@@ -1,7 +1,7 @@
-# Maayan 2000 — Smart Branch Locator
+# Zol Uvegadol — Smart Branch Locator
 
 Store Locator professionnel, multilingue (he/en/ru/fr/es) et mobile-first pour la
-chaîne Maayan 2000. Voir le document d'architecture (Phase 1) pour le détail complet
+chaîne Zol Uvegadol. Voir le document d'architecture (Phase 1) pour le détail complet
 du schéma de données, des routes, des endpoints API et des stratégies techniques.
 
 > **Statut** : Phase 5 — Store Locator fonctionnel (recherche multilingue, filtres,
@@ -78,7 +78,7 @@ faire dépendre `BranchList`/`BranchCard`/`BranchLocator` des types `google.maps
 
 - `lib/maps/types.ts`, `lib/maps/coordinates.ts` — types agnostiques
   (`MapCoordinates`, `MapBounds`) et calcul de bounds/zoom, purs, sans Google.
-- `lib/maps/icon.ts` — icônes de marqueur (identité Maayan 2000, disques colorés
+- `lib/maps/icon.ts` — icônes de marqueur (identité Zol Uvegadol, disques colorés
   par statut), également agnostiques (`MarkerIconSpec`).
 - `lib/maps/mount.ts` — décide si/quand monter la carte (`shouldMountGoogleMap`).
 - `lib/maps/providers/google/` — SEUL endroit qui connaît l'API Google réelle :

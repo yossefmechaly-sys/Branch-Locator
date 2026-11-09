@@ -118,7 +118,7 @@ const VALID_BRANCH_INPUT: any = {
   openingHours: [],
   specialHours: [],
   images: [],
-  translations: [{ locale: "he", displayName: "מעיין 2000 – רמות", description: null, seoTitle: null, seoDescription: null }],
+  translations: [{ locale: "he", displayName: "זול ובגדול – רמות", description: null, seoTitle: null, seoDescription: null }],
 };
 
 describe("updateBranch/hardDeleteBranch (Phase 11, §16 régression)", () => {

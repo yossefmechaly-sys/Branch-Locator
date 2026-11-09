@@ -80,7 +80,7 @@ export function BranchCard({ branch, locale, isSelected, onSelect, onHover }: Br
       </CardHeader>
 
       <CardContent className="flex flex-col gap-4">
-        <BranchStatus viewModel={branch.statusViewModel} />
+        <BranchStatus viewModel={branch.statusViewModel} saturdayEveningHours={branch.saturdayEveningHours} />
 
         {/*
          * Aperçu compact de la promotion "du jour" (Phase 9, §13) — rendu
@@ -197,6 +197,7 @@ export function BranchCard({ branch, locale, isSelected, onSelect, onHover }: Br
               <OpeningHours
                 openingHours={branch.openingHours}
                 currentDayOfWeek={branch.statusViewModel.dayOfWeek}
+                saturdayEveningHours={branch.saturdayEveningHours}
               />
             </div>
           </div>

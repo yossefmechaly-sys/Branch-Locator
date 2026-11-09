@@ -49,7 +49,7 @@ describe("Cycle export → réimport (§31)", () => {
       { dayOfWeek: 5, isClosed: false, openingTime: "09:00", closingTime: "14:00", openingTime2: null, closingTime2: null },
       { dayOfWeek: 6, isClosed: true, openingTime: null, closingTime: null, openingTime2: null, closingTime2: null },
     ],
-    translations: [{ locale: "he", displayName: "מעיין 2000 – ירושלים" }],
+    translations: [{ locale: "he", displayName: "זול ובגדול – ירושלים" }],
   };
 
   it("un magasin exporté puis réimporté correspond au MÊME magasin existant (action: update)", async () => {

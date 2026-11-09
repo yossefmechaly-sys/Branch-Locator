@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 
 import { cn } from "@/lib/utils";
 import type { DayOfWeek, OpeningHoursEntry } from "@/types/opening-hours";
+import type { SaturdayEveningHours } from "@/types/branch";
 
 /**
  * Tableau des 7 jours (§13/§14 Phase 7) — purement présentationnel : reçoit
@@ -18,6 +19,7 @@ import type { DayOfWeek, OpeningHoursEntry } from "@/types/opening-hours";
 export interface OpeningHoursProps {
   openingHours: readonly OpeningHoursEntry[];
   currentDayOfWeek: DayOfWeek;
+  saturdayEveningHours?: SaturdayEveningHours | null;
   className?: string;
 }
 
@@ -43,7 +45,7 @@ function formatRanges(entry: OpeningHoursEntry | undefined): string[] {
   return ranges;
 }
 
-export function OpeningHours({ openingHours, currentDayOfWeek, className }: OpeningHoursProps) {
+export function OpeningHours({ openingHours, currentDayOfWeek, saturdayEveningHours, className }: OpeningHoursProps) {
   const t = useTranslations("branches");
   const tDays = useTranslations("days");
 
@@ -72,8 +74,10 @@ export function OpeningHours({ openingHours, currentDayOfWeek, className }: Open
                 </span>
               )}
             </span>
-            <span dir="ltr" className={cn("text-muted-foreground", isToday && "text-accent-foreground")}>
-              {ranges.length > 0 ? ranges.join(", ") : t("closedLabel")}
+            <span dir={dayOfWeek === 6 && saturdayEveningHours ? "rtl" : "ltr"} className={cn("text-muted-foreground", isToday && "text-accent-foreground")}>
+              {dayOfWeek === 6 && saturdayEveningHours
+                ? saturdayEveningHours.officialTextHe
+                : ranges.length > 0 ? ranges.join(", ") : t("closedLabel")}
             </span>
           </div>
         );

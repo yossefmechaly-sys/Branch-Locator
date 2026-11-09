@@ -8,8 +8,8 @@ import { renderWithIntl } from "./helpers/render-with-intl";
 import { makeBranchSummary } from "./helpers/branch-fixture";
 
 const BRANCHES: BranchSummary[] = [
-  makeBranchSummary({ id: "jerusalem-center", slug: "jerusalem-center", displayName: "Maayan 2000 – Center" }),
-  makeBranchSummary({ id: "jerusalem-talpiot", slug: "jerusalem-talpiot", displayName: "Maayan 2000 – Talpiot" }),
+  makeBranchSummary({ id: "jerusalem-center", slug: "jerusalem-center", displayName: "Zol Uvegadol – Center" }),
+  makeBranchSummary({ id: "jerusalem-talpiot", slug: "jerusalem-talpiot", displayName: "Zol Uvegadol – Talpiot" }),
 ];
 
 describe("NearbyBranches (Phase 8, §30)", () => {
@@ -23,9 +23,9 @@ describe("NearbyBranches (Phase 8, §30)", () => {
   it("affiche un lien par magasin, avec le nom de la ville dans le titre de section", () => {
     renderWithIntl(<NearbyBranches branches={BRANCHES} cityName="Jerusalem" locale="en" />);
 
-    expect(screen.getByText("Other Maayan 2000 branches in Jerusalem")).toBeTruthy();
-    expect(screen.getByRole("link", { name: /Maayan 2000 – Center/ })).toBeTruthy();
-    expect(screen.getByRole("link", { name: /Maayan 2000 – Talpiot/ })).toBeTruthy();
+    expect(screen.getByText("Other Leader branches in Jerusalem")).toBeTruthy();
+    expect(screen.getByRole("link", { name: /Zol Uvegadol – Center/ })).toBeTruthy();
+    expect(screen.getByRole("link", { name: /Zol Uvegadol – Talpiot/ })).toBeTruthy();
   });
 
   it("chaque lien pointe vers la fiche du magasin correspondant, dans la locale courante", () => {

@@ -1,6 +1,7 @@
 "use client";
 
 import type { OpeningHoursEntry, SpecialHoursEntry } from "@/types/opening-hours";
+import type { SaturdayEveningHours } from "@/types/branch";
 import { useLiveBranchStatus } from "@/hooks/useLiveBranchStatus";
 
 import { OpeningHours } from "./OpeningHours";
@@ -8,6 +9,7 @@ import { OpeningHours } from "./OpeningHours";
 export interface OpeningHoursLiveProps {
   openingHours: readonly OpeningHoursEntry[];
   specialHours: readonly SpecialHoursEntry[];
+  saturdayEveningHours?: SaturdayEveningHours | null;
   className?: string;
 }
 
@@ -18,9 +20,9 @@ export interface OpeningHoursLiveProps {
  * changement de jour (minuit). Lit le MÊME `now` partagé que
  * `BranchStatusLive` (`NowProvider`) — un seul timer pour toute la page.
  */
-export function OpeningHoursLive({ openingHours, specialHours, className }: OpeningHoursLiveProps) {
-  const viewModel = useLiveBranchStatus(openingHours, specialHours);
+export function OpeningHoursLive({ openingHours, specialHours, saturdayEveningHours, className }: OpeningHoursLiveProps) {
+  const viewModel = useLiveBranchStatus(openingHours, specialHours, saturdayEveningHours);
   return (
-    <OpeningHours openingHours={openingHours} currentDayOfWeek={viewModel.dayOfWeek} className={className} />
+    <OpeningHours openingHours={openingHours} currentDayOfWeek={viewModel.dayOfWeek} saturdayEveningHours={saturdayEveningHours} className={className} />
   );
 }

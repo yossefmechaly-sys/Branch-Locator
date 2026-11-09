@@ -7,7 +7,7 @@ import {
   loadGoogleMaps,
 } from "@/lib/maps/providers/google/loader";
 
-const SCRIPT_ID = "maayan2000-google-maps-script";
+const SCRIPT_ID = "leader-google-maps-script";
 
 function clearInjectedScript() {
   document.getElementById(SCRIPT_ID)?.remove();

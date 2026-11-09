@@ -4,6 +4,8 @@ import { getClosingTime } from "./closing";
 import { getNextOpeningTime } from "./next-opening";
 import { isOpenStatus } from "./open-at";
 import { getIsraelNow } from "./timezone";
+import { applySaturdayEveningStatus } from "./saturday-evening-status";
+import type { SaturdayEveningHours } from "@/types/branch";
 
 /**
  * Compose les trois fonctions du moteur en UN SEUL objet complet, prêt à être
@@ -20,16 +22,22 @@ import { getIsraelNow } from "./timezone";
  * qui pourraient diverger (§18).
  */
 export function buildBranchStatusViewModel(
-  input: GetBranchStatusInput,
+  input: GetBranchStatusInput & {
+    saturdayEveningHours?: SaturdayEveningHours | null;
+  },
   referenceDate: Date = new Date()
 ): BranchStatusViewModel {
-  const statusResult = getBranchStatus(input, referenceDate);
+  const statusResult = applySaturdayEveningStatus(
+    getBranchStatus(input, referenceDate),
+    input.saturdayEveningHours,
+    referenceDate
+  );
   const currentlyOpen = isOpenStatus(statusResult.status);
 
   return {
     ...statusResult,
     dayOfWeek: getIsraelNow(referenceDate).dayOfWeek,
     closingTime: currentlyOpen ? getClosingTime(input, referenceDate) : null,
-    nextOpening: currentlyOpen ? null : getNextOpeningTime(input, referenceDate),
+    nextOpening: currentlyOpen || statusResult.status === "HOURS_UNCONFIRMED" ? null : getNextOpeningTime(input, referenceDate),
   };
 }

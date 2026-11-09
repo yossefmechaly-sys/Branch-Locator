@@ -8,8 +8,8 @@ const CITIES = [
 ];
 
 const BRANCHES = [
-  { id: "branch-1", displayName: "Maayan 2000 – Ramot" },
-  { id: "branch-2", displayName: "Maayan 2000 – Geula" },
+  { id: "branch-1", displayName: "Zol Uvegadol – Ramot" },
+  { id: "branch-2", displayName: "Zol Uvegadol – Geula" },
 ];
 
 /**

@@ -7,7 +7,7 @@ const BRANCH = {
   id: "jerusalem-ramot",
   position: { lat: 31.8, lng: 35.2 },
   status: "OPEN" as const,
-  title: "Maayan 2000 – Ramot",
+  title: "Zol Uvegadol – Ramot",
 };
 
 describe("createBranchMarker", () => {
@@ -139,7 +139,7 @@ describe("createUserLocationMarker (Phase 6, §5)", () => {
     expect(userMarker.options.position).toEqual(position);
     expect(userMarker.options.clickable).toBe(false);
     // Icône visuellement distincte de celle d'un marqueur magasin (§5 : ne
-    // jamais laisser croire qu'il s'agit d'un magasin Maayan 2000).
+    // jamais laisser croire qu'il s'agit d'un magasin Zol Uvegadol).
     expect(userMarker.options.icon).not.toEqual(storeMarker.options.icon);
   });
 

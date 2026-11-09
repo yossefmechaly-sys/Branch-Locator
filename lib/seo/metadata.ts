@@ -64,7 +64,7 @@ export function buildBranchMetadata(input: BranchMetadataInput): Metadata {
       title,
       description,
       url: canonical,
-      siteName: "Maayan 2000",
+      siteName: "Leader",
       locale: OPEN_GRAPH_LOCALE[input.locale],
       images: [{ url: imageUrl, width: 1200, height: 630 }],
     },

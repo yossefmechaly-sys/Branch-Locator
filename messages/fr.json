@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "title": "Maayan 2000 – Recherche de magasin",
-    "description": "Trouvez le magasin Maayan 2000 le plus proche : adresse, horaires, services et navigation."
+    "title": "Leader – Recherche de magasin",
+    "description": "Trouvez le magasin Leader le plus proche : adresse, horaires, services et navigation."
   },
   "nav": {
-    "brand": "Maayan 2000",
+    "brand": "Leader",
     "branches": "Magasins",
     "skipToContent": "Aller au contenu principal"
   },
@@ -14,7 +14,7 @@
   },
   "branches": {
     "title": "Nos magasins",
-    "subtitle": "Trouvez le magasin Maayan 2000 le plus proche",
+    "subtitle": "Trouvez le magasin Leader le plus proche",
     "search": "Recherche par ville, adresse ou nom de magasin",
     "nearMe": "Trouver un magasin près de moi",
     "openNow": "Ouvert maintenant",
@@ -51,7 +51,9 @@
     "opensInDaysAt": "{days, plural, one {Ouvre dans # jour à {time}} other {Ouvre dans # jours à {time}}}",
     "exceptionalHoursToday": "Horaires exceptionnels aujourd'hui",
     "todayIndicator": "Aujourd'hui",
-    "closedLabel": "Fermé"
+    "closedLabel": "Fermé",
+    "opensAfterShabbat": "Ouverture après Shabbat",
+    "hoursUnconfirmed": "Horaires à confirmer"
   },
   "days": {
     "sunday": "Dimanche",
@@ -91,7 +93,7 @@
   },
   "common": {
     "loading": "Chargement…",
-    "demoNotice": "Données de démonstration uniquement — ne représentent pas les magasins réels de Maayan 2000",
+    "demoNotice": "Données de démonstration uniquement — ne représentent pas les magasins réels de Leader",
     "comingSoon": "Bientôt disponible",
     "retry": "Réessayer"
   },
@@ -136,11 +138,11 @@
       "sectionTitle": "À propos de ce magasin"
     },
     "nearby": {
-      "sectionTitle": "Autres magasins Maayan 2000 à {cityName}"
+      "sectionTitle": "Autres magasins Leader à {cityName}"
     },
     "seo": {
-      "fallbackTitle": "Maayan 2000 {displayName} {cityName} – Horaires, adresse et navigation",
-      "fallbackDescription": "Toutes les informations sur le magasin Maayan 2000 {displayName} à {cityName} : adresse, horaires, services et itinéraire."
+      "fallbackTitle": "Leader {displayName} {cityName} – Horaires, adresse et navigation",
+      "fallbackDescription": "Toutes les informations sur le magasin Leader {displayName} à {cityName} : adresse, horaires, services et itinéraire."
     },
     "notFound": {
       "title": "Magasin introuvable",

@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { BRANCHES } from "../../prisma/seed-data";
 
 import { prisma } from "../../lib/prisma";
 import { loginAsSuperAdmin } from "./helpers/auth";
@@ -59,7 +60,7 @@ const BRANCH_CODE = "JLM-01";
  * Utilisé pour cocher ce magasin dans le sélecteur "Magasins sélectionnés"
  * du formulaire Promotions, qui affiche les options par nom HE
  * (`listBranchOptions()`, `services/admin/promotion-admin.service.ts`). */
-const BRANCH_HE_LABEL = "מעיין 2000 – רמות";
+const BRANCH_HE_LABEL = BRANCHES.find((branch) => branch.slug === BRANCH_SLUG)!.translations.he.displayName;
 const PUBLIC_LOCALE = "fr";
 
 const runId = Date.now().toString();
@@ -183,7 +184,7 @@ test.describe("Parcours admin complet — magasin + promotion structurée (Phase
       await page.goto(`/${PUBLIC_LOCALE}/branches`);
       const card = page
         .locator('[data-slot="card"]')
-        .filter({ hasText: "Maayan 2000 – Ramot" })
+        .filter({ hasText: BRANCHES.find((branch) => branch.slug === BRANCH_SLUG)!.translations.fr.displayName })
         .first();
       await expect(card).toBeVisible();
       await expect(card.getByText(promotionProductNameFr)).toBeVisible();

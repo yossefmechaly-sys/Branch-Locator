@@ -50,7 +50,7 @@ function makeRawBranch(overrides: Partial<RawBranch> = {}): RawBranch {
     latitude: 31.8,
     longitude: 35.2,
     phone: "+972-2-1234567",
-    email: "ramot@maayan2000.co.il",
+    email: "ramot@zol-uvegadol.test",
     whatsappNumber: "+972501234567",
     whatsappGroupUrl: null,
     wazeUrlOverride: null,
@@ -69,8 +69,8 @@ function makeRawBranch(overrides: Partial<RawBranch> = {}): RawBranch {
       ],
     },
     translations: [
-      { locale: "he", displayName: "מעיין 2000 – רמות", description: "תיאור בעברית", seoTitle: null, seoDescription: null },
-      { locale: "en", displayName: "Maayan 2000 – Ramot", description: "English description", seoTitle: "Custom SEO title", seoDescription: null },
+      { locale: "he", displayName: "זול ובגדול – רמות", description: "תיאור בעברית", seoTitle: null, seoDescription: null },
+      { locale: "en", displayName: "Zol Uvegadol – Ramot", description: "English description", seoTitle: "Custom SEO title", seoDescription: null },
     ],
     services: [],
     openingHours: [
@@ -112,15 +112,15 @@ describe("getBranchDetailBySlug (Phase 8, §1/§4/§11/§35)", () => {
     const repository = makeFakeRepository(makeRawBranch());
     const result = await getBranchDetailBySlug("jerusalem-ramot", "en", repository);
 
-    expect(result?.displayName).toBe("Maayan 2000 – Ramot");
+    expect(result?.displayName).toBe("Zol Uvegadol – Ramot");
     expect(result?.description).toBe("English description");
     expect(result?.seoTitle).toBe("Custom SEO title");
 
     const heResult = await getBranchDetailBySlug("jerusalem-ramot", "he", repository);
-    expect(heResult?.displayName).toBe("מעיין 2000 – רמות");
+    expect(heResult?.displayName).toBe("זול ובגדול – רמות");
     // Pas de traduction russe fournie dans cette fixture → repli hébreu (§5).
     const ruResult = await getBranchDetailBySlug("jerusalem-ramot", "ru", repository);
-    expect(ruResult?.displayName).toBe("מעיין 2000 – רמות");
+    expect(ruResult?.displayName).toBe("זול ובגדול – רמות");
   });
 
   it("inclut les champs propres à la fiche détaillée (postalCode, email, images...) absents de BranchSummary", async () => {
@@ -128,7 +128,7 @@ describe("getBranchDetailBySlug (Phase 8, §1/§4/§11/§35)", () => {
     const result = await getBranchDetailBySlug("jerusalem-ramot", "en", repository);
 
     expect(result?.postalCode).toBe("9721000");
-    expect(result?.email).toBe("ramot@maayan2000.co.il");
+    expect(result?.email).toBe("ramot@zol-uvegadol.test");
     expect(result?.images).toEqual([{ imageUrl: "https://cdn.example.com/ramot.jpg", alt: "Ramot branch" }]);
   });
 

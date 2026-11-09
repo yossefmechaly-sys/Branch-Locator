@@ -1,4 +1,4 @@
-# Déploiement en production — Maayan 2000 Store Locator
+# Déploiement en production — Zol Uvegadol Store Locator
 
 Ce document couvre l'ensemble Phase 11 : checklist d'environnement, architecture
 de déploiement recommandée, Docker, CI, procédure de déploiement (runbook),
@@ -29,7 +29,7 @@ voir `lib/seo/site.ts`).
 | Variable | Obligatoire | Rôle |
 |---|---|---|
 | `DATABASE_URL` | Oui | Chaîne de connexion PostgreSQL (`postgresql://user:pass@host:5432/db?schema=public`). Consommée par `prisma.config.ts` et `lib/prisma.ts`. |
-| `NEXT_PUBLIC_SITE_URL` | Oui en production | Domaine canonique **sans slash final** (ex. `https://maayan2000.co.il`). Utilisé pour `metadataBase`, hreflang, sitemap, JSON-LD, Open Graph. Un oubli en production ne casse rien visuellement mais dégrade silencieusement le SEO (URLs canoniques pointant vers `localhost`) — donc vérifié explicitement au déploiement (§4). |
+| `NEXT_PUBLIC_SITE_URL` | Oui en production | Domaine canonique **sans slash final** (ex. `https://zol-uvegadol.tobedev.com`). Utilisé pour `metadataBase`, hreflang, sitemap, JSON-LD, Open Graph. Un oubli en production ne casse rien visuellement mais dégrade silencieusement le SEO (URLs canoniques pointant vers `localhost`) — donc vérifié explicitement au déploiement (§4). |
 | `AUTH_SECRET` | Oui | Secret de signature JWT Auth.js (`/admin`). Générer avec `npx auth secret` ou `openssl rand -base64 32`. **Rotation = déconnexion immédiate de toutes les sessions admin actives** — à planifier, jamais en pleine journée de travail admin sans prévenir. |
 | `NEXTAUTH_URL` | Oui | URL absolue du site (même domaine que `NEXT_PUBLIC_SITE_URL`), requise par Auth.js pour construire les redirections OAuth/callback même en mode Credentials-only. |
 | `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` | Oui pour la carte | Clé **côté navigateur** — restreinte par domaine référent ET par API (Maps JavaScript API uniquement) dans Google Cloud Console. Voir le README pour la procédure complète. |
@@ -231,7 +231,7 @@ par cas.
 
 ```bash
 # 1. Construire l'image (ou installer + build directement sur l'hôte cible)
-docker build -t maayan2000-store-locator:<tag> .
+docker build -t zol-uvegadol-store-locator:<tag> .
 
 # 2. Appliquer TOUTES les migrations sur la base vide, dans l'ordre
 #    chronologique du dossier prisma/migrations/ — jamais `migrate dev`
@@ -249,7 +249,7 @@ DATABASE_URL=... npx prisma migrate deploy
 
 # 4. Démarrer l'application
 docker run -e DATABASE_URL=... -e AUTH_SECRET=... [...autres variables §1.2] \
-  -p 3000:3000 maayan2000-store-locator:<tag>
+  -p 3000:3000 zol-uvegadol-store-locator:<tag>
 
 # 5. Vérifier la santé de l'application AVANT de router du trafic réel
 curl -f https://<domaine>/api/health
@@ -278,7 +278,7 @@ curl -f https://<domaine>/api/health
 pg_dump "$DATABASE_URL" -Fc -f "backup-$(date +%Y%m%dT%H%M%S).dump"
 
 # 3. Construire la nouvelle image
-docker build -t maayan2000-store-locator:<nouveau-tag> .
+docker build -t zol-uvegadol-store-locator:<nouveau-tag> .
 
 # 4. Appliquer UNIQUEMENT les migrations non encore appliquées — `migrate
 #    deploy` est idempotent et ne rejoue jamais une migration déjà appliquée
@@ -354,7 +354,7 @@ perte de données ») :
 - **Destructive rollback testing interdit sur une base partagée** (contrainte
   explicite déjà respectée cette phase) — toute répétition/validation d'un
   scénario de rollback se fait sur une base jetable dédiée, jamais sur
-  `maayan2000`/`maayan2000_test`.
+  `zol_uvegadol`/`zol_uvegadol_test`.
 
 ### 6.3 Ce qui NE PEUT PAS être annulé automatiquement
 

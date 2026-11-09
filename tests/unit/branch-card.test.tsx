@@ -8,17 +8,17 @@ import { makeBranchSummary, makeLocalizedPromotion } from "./helpers/branch-fixt
 
 describe("BranchCard — intégration promotion featured compacte (Phase 9, §13)", () => {
   it("ne rend AUCUN bloc promotion quand featuredPromotion est null — comportement/rendu EXACTEMENT comme avant la Phase 9", () => {
-    const branch = makeBranchSummary({ id: "jerusalem-ramot", displayName: "Maayan 2000 – Ramot" });
+    const branch = makeBranchSummary({ id: "jerusalem-ramot", displayName: "Zol Uvegadol – Ramot" });
     renderWithIntl(<BranchCard branch={branch} locale="en" isSelected={false} onSelect={vi.fn()} />);
 
-    expect(screen.getByText("Maayan 2000 – Ramot")).toBeTruthy();
+    expect(screen.getByText("Zol Uvegadol – Ramot")).toBeTruthy();
     expect(screen.queryByText(/₪/)).toBeNull();
   });
 
   it("affiche le bloc compact featured (produit + prix) quand featuredPromotion est renseigné", () => {
     const branch = makeBranchSummary({
       id: "jerusalem-ramot",
-      displayName: "Maayan 2000 – Ramot",
+      displayName: "Zol Uvegadol – Ramot",
       featuredPromotion: makeLocalizedPromotion({
         id: "chicken",
         productName: "Fresh chicken",

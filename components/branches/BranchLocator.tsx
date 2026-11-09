@@ -81,7 +81,19 @@ export function BranchLocator({ locale, initialData, initialCitySlug = null }: B
   // carte/le SDK Google à chaque va-et-vient entre les onglets mobiles (§22).
   const [hasOpenedMapOnce, setHasOpenedMapOnce] = useState(false);
 
-  const { data, status, error, refetch } = useBranches({ locale, query, filters, initialData });
+  // Le filtre "Ouvert maintenant" est appliqué sur les statuts actualisés
+  // côté client, afin de suivre les ouvertures et fermetures sans rechargement.
+  // La recherche, la ville et les services restent filtrés par l'API.
+  const apiFilters = useMemo(
+    () => ({ ...filters, isOpenNow: false }),
+    [filters.citySlug, filters.serviceSlug]
+  );
+  const { data, status, error, refetch } = useBranches({
+    locale,
+    query,
+    filters: apiFilters,
+    initialData,
+  });
 
   const { state: geolocationState, requestLocation } = useGeolocation();
   const userLocation = geolocationState.status === "granted" ? geolocationState.coordinates : null;
@@ -149,7 +161,14 @@ export function BranchLocator({ locale, initialData, initialCitySlug = null }: B
   // seconde implémentation du calcul. `BranchList` et `BranchMap` reçoivent
   // tous deux `liveBranches` : leur statut ne peut donc jamais diverger (§17).
   const now = useNow();
-  const liveBranches = useMemo(() => refreshBranchStatuses(sortedBranches, now), [sortedBranches, now]);
+  const liveBranches = useMemo(() => {
+    const refreshed = refreshBranchStatuses(sortedBranches, now);
+    if (!filters.isOpenNow) return refreshed;
+    return refreshed.filter(
+      (branch) =>
+        branch.status === "OPEN" || branch.status === "CLOSING_SOON"
+    );
+  }, [sortedBranches, now, filters.isOpenNow]);
 
   const handleMobileTabChange = useCallback((value: string) => {
     const nextTab = value as "list" | "map";

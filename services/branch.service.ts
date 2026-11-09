@@ -1,3 +1,4 @@
+import saturdayHours from "@/leader-saturday-hours.json";
 import { locales, type AppLocale } from "@/types/i18n";
 import type { BranchDetail, BranchLocatorResult, BranchSummary, LocalizedCity, LocalizedService } from "@/types/branch";
 import type { BranchStatusViewModel } from "@/types/opening-hours";
@@ -143,6 +144,13 @@ function toSummary(
     // §19) qui recalcule `statusViewModel` sans jamais refaire d'appel réseau.
     openingHours: branch.openingHours,
     specialHours: branch.specialHours,
+    saturdayEveningHours:
+      branch.branchCode in saturdayHours
+        ? {
+            ...saturdayHours[branch.branchCode as keyof typeof saturdayHours],
+            openingRule: "ONE_HOUR_AFTER_SHABBAT" as const,
+          }
+        : null,
     // Objet complet déjà calculé (§16/§17/§21) — `BranchCard`/`BranchPopup` ne
     // consomment plus que ceci pour tout ce qui concerne le statut horaire.
     statusViewModel,
@@ -176,7 +184,17 @@ export async function getBranchLocatorData(
   // à la fois pour le filtre "ouvert maintenant" et pour l'affichage final.
   const computed: BranchWithComputedData[] = rawBranches.map((branch) => {
     const statusViewModel = buildBranchStatusViewModel(
-      { openingHours: branch.openingHours, specialHours: branch.specialHours },
+      {
+        openingHours: branch.openingHours,
+        specialHours: branch.specialHours,
+        saturdayEveningHours:
+          branch.branchCode in saturdayHours
+            ? {
+                ...saturdayHours[branch.branchCode as keyof typeof saturdayHours],
+                openingRule: "ONE_HOUR_AFTER_SHABBAT" as const,
+              }
+            : null,
+      },
       referenceDate
     );
     return {
@@ -265,7 +283,17 @@ export async function getBranchDetailBySlug(
 
   const referenceDate = new Date();
   const statusViewModel = buildBranchStatusViewModel(
-    { openingHours: branch.openingHours, specialHours: branch.specialHours },
+    {
+        openingHours: branch.openingHours,
+        specialHours: branch.specialHours,
+        saturdayEveningHours:
+          branch.branchCode in saturdayHours
+            ? {
+                ...saturdayHours[branch.branchCode as keyof typeof saturdayHours],
+                openingRule: "ONE_HOUR_AFTER_SHABBAT" as const,
+              }
+            : null,
+      },
     referenceDate
   );
 

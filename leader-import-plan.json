@@ -1,0 +1,3026 @@
+[
+  {
+    "sourceId": "117",
+    "slug": "leader-117",
+    "branchCode": "117",
+    "cityHe": "אופקים",
+    "nameHe": "אופקים – מתחם מבנה",
+    "addressHe": "יהדות דרום אפריקה 14, אופקים",
+    "phone": "1599-54-55-56",
+    "latitude": 31.3152413,
+    "longitude": 34.623763,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה | חניה נגישה (מטעם המתחם)",
+    "officialHoursHe": "א-ה | 9:00-21:00 | ו' | שעון חורף 9:00-13:30 | שעון קיץ 9:00-14:00 | מוצ\"ש | שעה אחרי צאת השבת עד 22:00 | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "107",
+    "slug": "leader-107",
+    "branchCode": "107",
+    "cityHe": "אור יהודה",
+    "nameHe": "אור יהודה – קניון עזריאלי",
+    "addressHe": "שדרות אליהו סעדון 120, אור יהודה",
+    "phone": "1599-54-55-56",
+    "latitude": 32.0253581,
+    "longitude": 34.8580191,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:00-21:00 | ו' | 9:00-14:30 | מוצ\"ש | שעה אחרי צאת השבת עד 23:00 | זמני פתיחה חריגים: | ימי חול המועד - פתוח | ערב יום הזיכרון לשואה - סגירה בשעה 18:00 | ערב יום הזיכרון - סגירה בשעה 18:00 | ערב יום העצמאות - סגירה בשעה 15:30 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:30",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "108",
+    "slug": "leader-108",
+    "branchCode": "108",
+    "cityHe": "אלעד",
+    "nameHe": "אלעד",
+    "addressHe": "בן שטח 8, אלעד",
+    "phone": "1599-54-55-56",
+    "latitude": 32.0552762,
+    "longitude": 34.9605933,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה | חניה נגישה (בקומה העליונה של הבניין)",
+    "officialHoursHe": "א-ה | 9:00-21:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "449054",
+    "slug": "leader-449054",
+    "branchCode": "449054",
+    "cityHe": "אשדוד",
+    "nameHe": "אשדוד – הרב לוין",
+    "addressHe": "הרב לוין 35 אשדוד",
+    "phone": "1599-54-55-56",
+    "latitude": 31.7917776,
+    "longitude": 34.6598226,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 10:00-21:30 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "119",
+    "slug": "leader-119",
+    "branchCode": "119",
+    "cityHe": "אשדוד",
+    "nameHe": "אשדוד – רובע ז'",
+    "addressHe": "רשב\"י 15, אשדוד",
+    "phone": "1599-54-55-56",
+    "latitude": 31.7890493,
+    "longitude": 34.6649395,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:00-21:30 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "120",
+    "slug": "leader-120",
+    "branchCode": "120",
+    "cityHe": "אשקלון",
+    "nameHe": "אשקלון – מרכז העיר",
+    "addressHe": "כיכר גולומב 1' אשקלון",
+    "phone": "1599-54-55-56",
+    "latitude": 31.6669366,
+    "longitude": 34.5868549,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:30-20:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-13:30 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "13:30",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "121",
+    "slug": "leader-121",
+    "branchCode": "121",
+    "cityHe": "אשקלון",
+    "nameHe": "אשקלון – נצבא סנטר",
+    "addressHe": "פאואר סנטר אשקלון",
+    "phone": "1599-54-55-56",
+    "latitude": 31.6748007,
+    "longitude": 34.6060214,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה | חניה נגישה",
+    "officialHoursHe": "א-ה | 10:00-20:15 | ו' | שעון חורף 9:00-12:45 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - פתוח | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 14:30 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:15",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:15",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:15",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:15",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:15",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "122",
+    "slug": "leader-122",
+    "branchCode": "122",
+    "cityHe": "באר שבע",
+    "nameHe": "באר שבע",
+    "addressHe": "התקווה 10, באר שבע",
+    "phone": "1599-54-55-56",
+    "latitude": 31.2480232,
+    "longitude": 34.7993178,
+    "accessibilityHe": "דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:00-20:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-13:30 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "13:30",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "356735",
+    "slug": "leader-356735",
+    "branchCode": "356735",
+    "cityHe": "בארות יצחק",
+    "nameHe": "בארות יצחק – מבנה",
+    "addressHe": "בארות יצחק",
+    "phone": "1599-54-55-56",
+    "latitude": 32.0465888,
+    "longitude": 34.9092826,
+    "accessibilityHe": "דלפק קופה נגיש | כניסה נגישה | לולאת השראה | חניה נגישה במתחם",
+    "officialHoursHe": "א-ה | 9:00-21:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - פתוח 10:00-18:00 | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "42682",
+    "slug": "leader-42682",
+    "branchCode": "42682",
+    "cityHe": "בית שמש",
+    "nameHe": "בית שמש – לב הרמה",
+    "addressHe": "שדרות נהר הירדן 1 בית שמש",
+    "phone": "1599-54-55-56",
+    "latitude": 31.7363114,
+    "longitude": 34.9930648,
+    "accessibilityHe": "דלפק קופה נגיש | לולאת השראה | כניסה נגישה",
+    "officialHoursHe": "א-ה | 9:30-21:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "15224",
+    "slug": "leader-15224",
+    "branchCode": "15224",
+    "cityHe": "בית שמש",
+    "nameHe": "בית שמש – סאן מול",
+    "addressHe": "שדרות האמוראים 2 בית שמש",
+    "phone": "1599-54-55-56",
+    "latitude": 31.7041798,
+    "longitude": 34.9751587,
+    "accessibilityHe": "דלפק קופה נגיש | לולאת השראה | כניסה נגישה",
+    "officialHoursHe": "א-ה | 9:30-21:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "102",
+    "slug": "leader-102",
+    "branchCode": "102",
+    "cityHe": "בית שמש",
+    "nameHe": "בית שמש – קניון נעימי",
+    "addressHe": "דרך יצחק רבין 2, בית שמש",
+    "phone": "1599-54-55-56",
+    "latitude": 31.7475007,
+    "longitude": 34.99291,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה | חניה נגישה",
+    "officialHoursHe": "א-ה | 9:00-21:00 | ו' | 9:00-13:30 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - פתוח 10:00-18:00 | ערב יום הזיכרון לשואה - סגירה בשעה 18:00 | ערב יום הזיכרון - סגירה בשעה 18:00 | ערב יום העצמאות - סגירה בשעה 15:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "13:30",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "99",
+    "slug": "leader-99",
+    "branchCode": "99",
+    "cityHe": "בית שמש",
+    "nameHe": "בית שמש – רמה א'",
+    "addressHe": "נחל ניצנים 3' בית שמש",
+    "phone": "1599-54-55-56",
+    "latitude": 31.7142273,
+    "longitude": 34.9880857,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:00-21:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "103",
+    "slug": "leader-103",
+    "branchCode": "103",
+    "cityHe": "ביתר עילית",
+    "nameHe": "ביתר עילית – גבעה A",
+    "addressHe": "רבי עקיבא 11, ביתר עילית",
+    "phone": "1599-54-55-56",
+    "latitude": 31.6978137,
+    "longitude": 35.1220932,
+    "accessibilityHe": "כניסה צרה – לשירותך חנות בגבעה B | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:00-20:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-13:30 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "13:30",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "104",
+    "slug": "leader-104",
+    "branchCode": "104",
+    "cityHe": "ביתר עילית",
+    "nameHe": "ביתר עילית – גבעה B",
+    "addressHe": "הר\"ן 6, ביתר עילית",
+    "phone": "1599-54-55-56",
+    "latitude": 31.70446359999999,
+    "longitude": 35.1170847,
+    "accessibilityHe": "כניסה נגישה | לולאת השראה | חניה נגישה",
+    "officialHoursHe": "א-ה | 9:00-21:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-13:30 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "13:30",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "386896",
+    "slug": "leader-386896",
+    "branchCode": "386896",
+    "cityHe": "בני ברק",
+    "nameHe": "בני ברק – הושע",
+    "addressHe": "הושע 24 בני ברק",
+    "phone": "1599-54-55-56",
+    "latitude": 32.0883191,
+    "longitude": 34.8379993,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:30-21:00 | ו' | שעון חורף 9:30-13:00 | שעון קיץ 9:30-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "133052",
+    "slug": "leader-133052",
+    "branchCode": "133052",
+    "cityHe": "בני ברק",
+    "nameHe": "בני ברק – כהנמן",
+    "addressHe": "כהנמן 100 בני ברק",
+    "phone": "1599-54-55-56",
+    "latitude": 32.0781565,
+    "longitude": 34.8419952,
+    "accessibilityHe": "דלפק קופה נגיש | לולאת השראה | כניסה נגישה",
+    "officialHoursHe": "א-ה | 10:00-21:00 | ו' | שעון חורף 9:30-13:00 | שעון קיץ 9:30-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "672134",
+    "slug": "leader-672134",
+    "branchCode": "672134",
+    "cityHe": "בני ברק",
+    "nameHe": "בני ברק – רבי עקיבא",
+    "addressHe": "רבי עקיבא 36 בני ברק",
+    "phone": "1599-54-55-56",
+    "latitude": 32.0885383,
+    "longitude": 34.8267221,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:30-21:30 | ו' | 9:30-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "110",
+    "slug": "leader-110",
+    "branchCode": "110",
+    "cityHe": "בת ים",
+    "nameHe": "בת ים",
+    "addressHe": "העצמאות 56, בת ים",
+    "phone": "1599-54-55-56",
+    "latitude": 32.0262419,
+    "longitude": 34.7485111,
+    "accessibilityHe": "דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:30-20:30 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "128",
+    "slug": "leader-128",
+    "branchCode": "128",
+    "cityHe": "חדרה",
+    "nameHe": "חדרה",
+    "addressHe": "הרב עובדיה יוסף 7, חדרה",
+    "phone": "1599-54-55-56",
+    "latitude": 32.4417704,
+    "longitude": 34.9130205,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה | חניית נכים קרובה לחנות",
+    "officialHoursHe": "א-ה | 9:00-20:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-13:30 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "13:30",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "129",
+    "slug": "leader-129",
+    "branchCode": "129",
+    "cityHe": "חיפה",
+    "nameHe": "חיפה",
+    "addressHe": "ארלוזורוב 13, חיפה",
+    "phone": "1599-54-55-56",
+    "latitude": 32.8059221,
+    "longitude": 35.0008975,
+    "accessibilityHe": "מדרגות בכניסה – לשירותך חנות קרובה בקרית אתא | דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:00-20:30 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-13:30 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "13:30",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "117953",
+    "slug": "leader-117953",
+    "branchCode": "117953",
+    "cityHe": "חריש",
+    "nameHe": "חריש – קניון מור",
+    "addressHe": "דרך ארץ 2 חריש",
+    "phone": "1599-54-55-56",
+    "latitude": 32.4705928,
+    "longitude": 35.0391716,
+    "accessibilityHe": "דלפק קופה נגיש | לולאת השראה | כניסה נגישה",
+    "officialHoursHe": "א-ה | 10:00-20:00 | ו' | שעון חורף 9:30-13:00 | שעון קיץ 9:30-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "130",
+    "slug": "leader-130",
+    "branchCode": "130",
+    "cityHe": "טבריה",
+    "nameHe": "טבריה",
+    "addressHe": "הגליל 29, טבריה",
+    "phone": "1599-54-55-56",
+    "latitude": 32.7857971,
+    "longitude": 35.5402686,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 10:00-20:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "93",
+    "slug": "leader-93",
+    "branchCode": "93",
+    "cityHe": "ירושלים",
+    "nameHe": "ירושלים – גאולה",
+    "addressHe": "מלכי ישראל 18, ירושלים",
+    "phone": "1599-54-55-56",
+    "latitude": 31.7890762,
+    "longitude": 35.2163356,
+    "accessibilityHe": "ללא | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:00-21:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "92",
+    "slug": "leader-92",
+    "branchCode": "92",
+    "cityHe": "ירושלים",
+    "nameHe": "ירושלים – גבעת שאול",
+    "addressHe": "כנפי נשרים 22, ירושלים",
+    "phone": "1599-54-55-56",
+    "latitude": 31.7878319,
+    "longitude": 35.1892063,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה | חניה נגישה",
+    "officialHoursHe": "א-ה | 9:00-21:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "95",
+    "slug": "leader-95",
+    "branchCode": "95",
+    "cityHe": "ירושלים",
+    "nameHe": "ירושלים – מרכז העיר",
+    "addressHe": "יפו 97, ירושלים",
+    "phone": "1599-54-55-56",
+    "latitude": 31.784294,
+    "longitude": 35.214896,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:00-20:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "96",
+    "slug": "leader-96",
+    "branchCode": "96",
+    "cityHe": "ירושלים",
+    "nameHe": "ירושלים – עודפים",
+    "addressHe": "מאה שערים 17, ירושלים",
+    "phone": "1599-54-55-56",
+    "latitude": 31.7881318,
+    "longitude": 35.22018,
+    "accessibilityHe": "כניסה נגישה (יש לבקש פתיחה של הדלת הצדדית) | דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:30-20:30 | ו' | 9:00-12:30 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "12:30",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "98",
+    "slug": "leader-98",
+    "branchCode": "98",
+    "cityHe": "ירושלים",
+    "nameHe": "ירושלים – קניון לב הפסגה",
+    "addressHe": "שד' משה דיין 106, ירושלים",
+    "phone": "1599-54-55-56",
+    "latitude": 31.8241625,
+    "longitude": 35.2372038,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה | חניה נגישה (בקניון)",
+    "officialHoursHe": "א-ה | 9:30-21:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | שעה אחרי צאת השבת עד 22:30 | זמני פתיחה חריגים: | ימי חול המועד -פתוח | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 15:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "97",
+    "slug": "leader-97",
+    "branchCode": "97",
+    "cityHe": "ירושלים",
+    "nameHe": "ירושלים – קניון עזריאלי מלחה",
+    "addressHe": "אגודת ספורט ביתר 1, ירושלים",
+    "phone": "1599-54-55-56",
+    "latitude": 31.7511833,
+    "longitude": 35.1872485,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה | חניה נגישה (בקניון)",
+    "officialHoursHe": "א-ה | 9:30-22:00 | ו' | שעון חורף 9:00-13:30 | שעון קיץ 9:00-15:00 | מוצ\"ש | שעה אחרי צאת השבת עד 23:00 | זמני פתיחה חריגים: | ימי חול המועד - פתוח | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 15:30 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "22:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "22:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "22:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "22:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "22:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "15:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "598619",
+    "slug": "leader-598619",
+    "branchCode": "598619",
+    "cityHe": "ירושלים",
+    "nameHe": "ירושלים – קניון רמות",
+    "addressHe": "גולדה מאיר 255 ירושלים",
+    "phone": "1599-54-55-56",
+    "latitude": 31.7974754,
+    "longitude": 35.2176821,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה | חניה נגישה בקניון",
+    "officialHoursHe": "א-ה | 9:30-22:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | שעה אחרי צאת השבת עד 23:00 | זמני פתיחה חריגים: | ימי חול המועד - פתוח 10:00-18:00 | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "22:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "22:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "22:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "22:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "22:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "105",
+    "slug": "leader-105",
+    "branchCode": "105",
+    "cityHe": "מודיעין עילית",
+    "nameHe": "מודיעין עילית – ברכפלד",
+    "addressHe": "שד' יחזקאל 2, מודיעין עילית",
+    "phone": "1599-54-55-56",
+    "latitude": 31.9370235,
+    "longitude": 35.0389434,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה | חניה נגישה",
+    "officialHoursHe": "א-ה | 9:30-21:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "106",
+    "slug": "leader-106",
+    "branchCode": "106",
+    "cityHe": "מודיעין עילית",
+    "nameHe": "מודיעין עילית – קרית ספר",
+    "addressHe": "אבני נזר 46, מודיעין עילית",
+    "phone": "1599-54-55-56",
+    "latitude": 31.9304948,
+    "longitude": 35.0388026,
+    "accessibilityHe": "כניסה נגישה | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:30-21:30 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "132",
+    "slug": "leader-132",
+    "branchCode": "132",
+    "cityHe": "נהריה",
+    "nameHe": "נהריה",
+    "addressHe": "ויצמן 58, נהריה",
+    "phone": "1599-54-55-56",
+    "latitude": 33.0078056,
+    "longitude": 35.0928364,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:30-20:00 | ו' | שעון חורף 9:30-13:00 | שעון קיץ 14:00 – 9:30 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 18:00 | ערב יום הזיכרון - סגירה בשעה 18:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "123",
+    "slug": "leader-123",
+    "branchCode": "123",
+    "cityHe": "נתיבות",
+    "nameHe": "נתיבות",
+    "addressHe": "שד' ירושלים 19, נתיבות",
+    "phone": "1599-54-55-56",
+    "latitude": 31.4239036,
+    "longitude": 34.5989424,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה | חניית נכים קרובה",
+    "officialHoursHe": "א-ה | 21:00 – 9:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-13:30 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "13:30",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "133",
+    "slug": "leader-133",
+    "branchCode": "133",
+    "cityHe": "נתניה",
+    "nameHe": "נתניה – מרכז העיר",
+    "addressHe": "שמואל הנציב 5, נתניה",
+    "phone": "1599-54-55-56",
+    "latitude": 32.3294882,
+    "longitude": 34.85645330000001,
+    "accessibilityHe": "דלפק קופה נגיש | לולאת השראה | כניסה נגישה",
+    "officialHoursHe": "א-ה | 20:00–10:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "134",
+    "slug": "leader-134",
+    "branchCode": "134",
+    "cityHe": "נתניה",
+    "nameHe": "נתניה – קניון השרון",
+    "addressHe": "הרצל 60, נתניה",
+    "phone": "1599-54-55-56",
+    "latitude": 32.3264108,
+    "longitude": 34.8618993,
+    "accessibilityHe": "דלפק קופה נגיש | לולאת השראה | כניסה נגישה | חניה נגישה בקניון",
+    "officialHoursHe": "א-ה | 21:30–9:30 | ו' | 14:30–9:00 | מוצ\"ש | שעה אחרי צאת השבת עד 22:30 | זמני פתיחה חריגים: | ימי חול המועד - פתוח | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 18:00 | ערב יום העצמאות - סגירה בשעה 15:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:30",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "135",
+    "slug": "leader-135",
+    "branchCode": "135",
+    "cityHe": "עפולה",
+    "nameHe": "עפולה",
+    "addressHe": "ארלוזורוב 17, עפולה",
+    "phone": "1599-54-55-56",
+    "latitude": 32.608314,
+    "longitude": 35.2882306,
+    "accessibilityHe": "כניסה נגישה | לולאת השראה",
+    "officialHoursHe": "א-ה | 20:00–9:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "737326",
+    "slug": "leader-737326",
+    "branchCode": "737326",
+    "cityHe": "עפולה",
+    "nameHe": "עפולה עודפים",
+    "addressHe": "ויצמן 11, עפולה",
+    "phone": "1599-54-55-56",
+    "latitude": 32.6100615,
+    "longitude": 35.2890368,
+    "accessibilityHe": "כניסה נגישה | לולאת השראה",
+    "officialHoursHe": "א-ה | 20:00–9:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "124",
+    "slug": "leader-124",
+    "branchCode": "124",
+    "cityHe": "ערד",
+    "nameHe": "ערד – צים אורבן",
+    "addressHe": "התעשייה 60, ערד",
+    "phone": "1599-54-55-56",
+    "latitude": 31.2478919,
+    "longitude": 35.1996837,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה | חניה נגישה (מטעם המתחם)",
+    "officialHoursHe": "א-ה | 9:00-21:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | שעה אחרי צאת השבת עד 22:00 | זמני פתיחה חריגים: | ימי חול המועד - פתוח | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 15:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "112",
+    "slug": "leader-112",
+    "branchCode": "112",
+    "cityHe": "פתח תקווה",
+    "nameHe": "פתח תקווה  – מרכז העיר",
+    "addressHe": "חובבי ציון 40, פתח תקווה",
+    "phone": "1599-54-55-56",
+    "latitude": 32.0892463,
+    "longitude": 34.885454,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:00-20:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "113",
+    "slug": "leader-113",
+    "branchCode": "113",
+    "cityHe": "פתח תקווה",
+    "nameHe": "פתח תקווה – קניון סירקין",
+    "addressHe": "אלעזר פרידמן 9, פתח תקווה",
+    "phone": "1599-54-55-56",
+    "latitude": 32.0794457,
+    "longitude": 34.9025999,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה | חניה נגישה (בקניון)",
+    "officialHoursHe": "א-ה | 9:30-21:30 | ו' | 9:00-14:30 | מוצ\"ש | שעה אחרי צאת השבת עד 23:00 | זמני פתיחה חריגים: | ימי חול המועד - פתוח | ערב יום הזיכרון לשואה - סגירה בשעה 18:00 | ערב יום הזיכרון - סגירה בשעה 18:00 | ערב יום העצמאות - סגירה בשעה 15:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "21:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:30",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "136",
+    "slug": "leader-136",
+    "branchCode": "136",
+    "cityHe": "צפת",
+    "nameHe": "צפת",
+    "addressHe": "ז'בוטינסקי 1, צפת",
+    "phone": "1599-54-55-56",
+    "latitude": 32.9643406,
+    "longitude": 35.4970529,
+    "accessibilityHe": "כניסה נגישה | לולאת השראה | חניה נגישה",
+    "officialHoursHe": "א-ה | 20:00–10:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 14:00–9:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "137",
+    "slug": "leader-137",
+    "branchCode": "137",
+    "cityHe": "קרית אתא",
+    "nameHe": "קרית אתא – מרכז העיר",
+    "addressHe": "העצמאות 91, קרית אתא",
+    "phone": "1599-54-55-56",
+    "latitude": 32.8103977,
+    "longitude": 35.1042152,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 20:00–9:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 14:00–9:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "125",
+    "slug": "leader-125",
+    "branchCode": "125",
+    "cityHe": "קרית גת",
+    "nameHe": "קרית גת – ישפרו סנטר",
+    "addressHe": "מלכי ישראל 178, קרית גת",
+    "phone": "1599-54-55-56",
+    "latitude": 31.6031361,
+    "longitude": 34.7574882,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה | חניה נגישה (מטעם המתחם)",
+    "officialHoursHe": "א-ה | 9:30-20:30 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:30",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "126",
+    "slug": "leader-126",
+    "branchCode": "126",
+    "cityHe": "קרית מלאכי",
+    "nameHe": "קרית מלאכי",
+    "addressHe": "ז'בוטינסקי 43, קרית מלאכי",
+    "phone": "1599-54-55-56",
+    "latitude": 31.7301649,
+    "longitude": 34.7463459,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:30-20:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "115",
+    "slug": "leader-115",
+    "branchCode": "115",
+    "cityHe": "ראש העין",
+    "nameHe": "ראש העין – נצבא סנטר",
+    "addressHe": "יהושע בן נון 77, ראש העין",
+    "phone": "1599-54-55-56",
+    "latitude": 32.1050615,
+    "longitude": 34.94234400000001,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 10:00-20:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-13:30 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "10:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "13:30",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "116",
+    "slug": "leader-116",
+    "branchCode": "116",
+    "cityHe": "רחובות",
+    "nameHe": "רחובות",
+    "addressHe": "הרצל 160, רחובות",
+    "phone": "1599-54-55-56",
+    "latitude": 31.893621,
+    "longitude": 34.8119765,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה",
+    "officialHoursHe": "א-ה | 9:00-20:00 | ו' | שעון חורף 9:00-13:00 | שעון קיץ 9:00-14:00 | מוצ\"ש | סגור | זמני פתיחה חריגים: | ימי חול המועד - סגור | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "20:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:00",
+        "closingTime": "14:00",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  },
+  {
+    "sourceId": "392336",
+    "slug": "leader-392336",
+    "branchCode": "392336",
+    "cityHe": "רמלה",
+    "nameHe": "רמלה – קניון עזריאלי",
+    "addressHe": "שדרות דוד רזיאל 1 רמלה",
+    "phone": "1599-54-55-56",
+    "latitude": 31.9256881,
+    "longitude": 34.8639686,
+    "accessibilityHe": "כניסה נגישה | דלפק קופה נגיש | לולאת השראה | חניה נגישה בקניון",
+    "officialHoursHe": "א-ה | 9:30-22:00 | ו' | 9:30-14:30 | מוצ\"ש | שעה אחרי צאת השבת עד 23:00 | זמני פתיחה חריגים: | ימי חול המועד - פתוח | ערב יום הזיכרון לשואה - סגירה בשעה 19:00 | ערב יום הזיכרון - סגירה בשעה 19:00 | ערב יום העצמאות - סגירה בשעה 16:00 | יום העצמאות - סגור",
+    "openingHours": [
+      {
+        "dayOfWeek": 0,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "22:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 1,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "22:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 2,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "22:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 3,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "22:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 4,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "22:00",
+        "openingTime2": null,
+        "closingTime2": null
+      },
+      {
+        "dayOfWeek": 5,
+        "isClosed": false,
+        "openingTime": "09:30",
+        "closingTime": "14:30",
+        "openingTime2": null,
+        "closingTime2": null
+      }
+    ]
+  }
+]

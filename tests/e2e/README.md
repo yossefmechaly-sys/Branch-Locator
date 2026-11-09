@@ -39,7 +39,7 @@ d'être exécuté aux phases suivantes.
 1. Une base PostgreSQL migrée (`npx prisma migrate deploy`) et seedée
    (`npx prisma db seed`) — la suite s'appuie sur le magasin `jerusalem-ramot`
    (code `JLM-01`) et le compte SUPER_ADMIN de démonstration
-   (`admin@maayan2000-demo.local`) créés par `prisma/seed.ts`. Ce seed
+   (`admin@zol-uvegadol-demo.local`) créés par `prisma/seed.ts`. Ce seed
    n'insère ces comptes DEMO que hors production (`NODE_ENV !== "production"`,
    §1) — la suite ne peut donc tourner que contre un environnement de
    développement/CI, jamais contre une base de production.

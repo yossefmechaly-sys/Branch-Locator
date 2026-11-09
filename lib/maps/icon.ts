@@ -32,6 +32,7 @@ const STATUS_COLORS: Record<BranchStatus, string> = {
   CLOSING_SOON: "#d97706",
   CLOSED: "#6b7280",
   TEMPORARILY_CLOSED: "#dc2626",
+  HOURS_UNCONFIRMED: "#64748b",
 };
 
 export function getBranchStatusColor(status: BranchStatus): string {

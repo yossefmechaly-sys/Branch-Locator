@@ -2,12 +2,14 @@
 
 import type { OpeningHoursEntry, SpecialHoursEntry } from "@/types/opening-hours";
 import { useLiveBranchStatus } from "@/hooks/useLiveBranchStatus";
+import type { SaturdayEveningHours } from "@/types/branch";
 
 import { BranchStatus } from "./BranchStatus";
 
 export interface BranchStatusLiveProps {
   openingHours: readonly OpeningHoursEntry[];
   specialHours: readonly SpecialHoursEntry[];
+  saturdayEveningHours?: SaturdayEveningHours | null;
   className?: string;
 }
 
@@ -19,7 +21,7 @@ export interface BranchStatusLiveProps {
  * `BranchStatus` lui-même ne change pas : ce composant ne fait QUE lui
  * fournir un `viewModel` toujours à jour.
  */
-export function BranchStatusLive({ openingHours, specialHours, className }: BranchStatusLiveProps) {
-  const viewModel = useLiveBranchStatus(openingHours, specialHours);
-  return <BranchStatus viewModel={viewModel} className={className} />;
+export function BranchStatusLive({ openingHours, specialHours, saturdayEveningHours, className }: BranchStatusLiveProps) {
+  const viewModel = useLiveBranchStatus(openingHours, specialHours, saturdayEveningHours);
+  return <BranchStatus viewModel={viewModel} saturdayEveningHours={saturdayEveningHours} className={className} />;
 }

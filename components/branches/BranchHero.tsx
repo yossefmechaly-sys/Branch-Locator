@@ -58,7 +58,7 @@ export function BranchHero({ branch }: BranchHeroProps) {
           </div>
         </div>
 
-        <BranchStatusLive openingHours={branch.openingHours} specialHours={branch.specialHours} />
+        <BranchStatusLive openingHours={branch.openingHours} specialHours={branch.specialHours} saturdayEveningHours={branch.saturdayEveningHours} />
 
         <BranchActions branch={branch} className="mt-1 flex flex-wrap gap-2" />
       </div>

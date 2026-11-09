@@ -127,7 +127,7 @@ describe("specialOpeningHoursInputSchema (Phase 9, §6)", () => {
 describe("branchInputSchema (Phase 9, §4)", () => {
   const heTranslation = {
     locale: "he" as const,
-    displayName: "מעיין 2000 – רמות",
+    displayName: "זול ובגדול – רמות",
     description: null,
     seoTitle: null,
     seoDescription: null,

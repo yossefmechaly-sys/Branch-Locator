@@ -62,8 +62,8 @@ function buildRow(overrides: Record<string, string> = {}): Record<string, string
     isActive: "vrai",
     sortOrder: "0",
     serviceSlugs: "",
-    displayName_he: "מעיין 2000 - רמות",
-    displayName_en: "Maayan 2000 - Ramot",
+    displayName_he: "זול ובגדול - רמות",
+    displayName_en: "Zol Uvegadol - Ramot",
     ...overrides,
   };
 }

@@ -42,7 +42,8 @@ export type BranchStatus =
   | "CLOSED"
   | "OPENING_SOON"
   | "CLOSING_SOON"
-  | "TEMPORARILY_CLOSED";
+  | "TEMPORARILY_CLOSED"
+  | "HOURS_UNCONFIRMED";
 
 /** Horaires du jour courant, tels qu'affichés dans `BranchStatus`/`BranchCard`. */
 export interface TodayHours {

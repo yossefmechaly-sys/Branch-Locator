@@ -19,7 +19,11 @@ import { buildBranchStatusViewModel } from "./view-model";
 export function refreshBranchStatuses(branches: BranchSummary[], referenceDate: Date): BranchSummary[] {
   return branches.map((branch) => {
     const statusViewModel = buildBranchStatusViewModel(
-      { openingHours: branch.openingHours, specialHours: branch.specialHours },
+      {
+        openingHours: branch.openingHours,
+        specialHours: branch.specialHours,
+        saturdayEveningHours: branch.saturdayEveningHours,
+      },
       referenceDate
     );
 

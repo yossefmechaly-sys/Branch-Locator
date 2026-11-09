@@ -47,6 +47,7 @@ export function makeBranchSummary(overrides: Partial<BranchSummary> & { id: stri
     distanceMeters: null,
     openingHours: [],
     specialHours: [],
+    saturdayEveningHours: null,
     statusViewModel: DEFAULT_STATUS_VIEW_MODEL,
     services: [],
     featuredPromotion: null,

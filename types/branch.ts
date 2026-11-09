@@ -33,6 +33,16 @@ export interface LocalizedService {
   description: string | null;
 }
 
+/**
+ * Ouverture variable le samedi soir, après la sortie de Shabbat.
+ * L'heure de début n'est volontairement pas inventée.
+ */
+export interface SaturdayEveningHours {
+  openingRule: "ONE_HOUR_AFTER_SHABBAT";
+  closingTime: string;
+  officialTextHe: string;
+}
+
 /** Résumé utilisé dans `BranchList` / `BranchCard` (Phase 4). */
 export interface BranchSummary {
   id: string;
@@ -68,6 +78,7 @@ export interface BranchSummary {
    */
   openingHours: OpeningHoursEntry[];
   specialHours: SpecialHoursEntry[];
+  saturdayEveningHours: SaturdayEveningHours | null;
   /**
    * Objet unique consommé par `BranchCard`/`BranchPopup` pour tout affichage
    * lié au statut (Phase 7, §16/§17/§21) — voir `BranchStatusViewModel`.

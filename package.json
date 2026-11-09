@@ -1,5 +1,5 @@
 {
-  "name": "maayan2000-branch-locator",
+  "name": "leader-branch-locator",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,13 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "test:e2e:report": "playwright show-report"
+    "test:e2e:report": "playwright show-report",
+    "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
     "@googlemaps/markerclusterer": "^2.6.2",
+    "@hebcal/core": "6.14.4",
     "@prisma/adapter-pg": "^7.10.0",
     "@prisma/client": "^7.10.0",
     "@radix-ui/react-dialog": "^1.1.23",

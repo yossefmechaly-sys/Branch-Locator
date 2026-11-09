@@ -12,16 +12,16 @@ describe("Breadcrumbs (Phase 8, §31)", () => {
         locale="en"
         cityName="Jerusalem"
         citySlug="jerusalem"
-        branchDisplayName="Maayan 2000 – Ramot"
-        homeUrl="https://maayan2000.co.il/en"
-        branchesUrl="https://maayan2000.co.il/en/branches"
+        branchDisplayName="Zol Uvegadol – Ramot"
+        homeUrl="https://zol-uvegadol.tobedev.com/en"
+        branchesUrl="https://zol-uvegadol.tobedev.com/en/branches"
       />
     );
 
     const items = Array.from(container.querySelectorAll('ol li:not([aria-hidden="true"])')).map(
       (li) => li.textContent
     );
-    expect(items).toEqual(["Home", "Branches", "Jerusalem", "Maayan 2000 – Ramot"]);
+    expect(items).toEqual(["Home", "Branches", "Jerusalem", "Zol Uvegadol – Ramot"]);
   });
 
   it("rend la ville cliquable vers le Store Locator filtré par ville", () => {
@@ -30,9 +30,9 @@ describe("Breadcrumbs (Phase 8, §31)", () => {
         locale="en"
         cityName="Jerusalem"
         citySlug="jerusalem"
-        branchDisplayName="Maayan 2000 – Ramot"
-        homeUrl="https://maayan2000.co.il/en"
-        branchesUrl="https://maayan2000.co.il/en/branches"
+        branchDisplayName="Zol Uvegadol – Ramot"
+        homeUrl="https://zol-uvegadol.tobedev.com/en"
+        branchesUrl="https://zol-uvegadol.tobedev.com/en/branches"
       />
     );
 
@@ -46,12 +46,12 @@ describe("Breadcrumbs (Phase 8, §31)", () => {
         locale="en"
         cityName="Jerusalem"
         citySlug="jerusalem"
-        branchDisplayName="Maayan 2000 – Ramot"
-        homeUrl="https://maayan2000.co.il/en"
-        branchesUrl="https://maayan2000.co.il/en/branches"
+        branchDisplayName="Zol Uvegadol – Ramot"
+        homeUrl="https://zol-uvegadol.tobedev.com/en"
+        branchesUrl="https://zol-uvegadol.tobedev.com/en/branches"
       />
     );
-    expect(screen.getByText("Maayan 2000 – Ramot").getAttribute("aria-current")).toBe("page");
+    expect(screen.getByText("Zol Uvegadol – Ramot").getAttribute("aria-current")).toBe("page");
   });
 
   it("embarque un BreadcrumbList JSON-LD utilisant les URLs absolues fournies, jamais un lien vers l'étape courante", () => {
@@ -60,9 +60,9 @@ describe("Breadcrumbs (Phase 8, §31)", () => {
         locale="en"
         cityName="Jerusalem"
         citySlug="jerusalem"
-        branchDisplayName="Maayan 2000 – Ramot"
-        homeUrl="https://maayan2000.co.il/en"
-        branchesUrl="https://maayan2000.co.il/en/branches"
+        branchDisplayName="Zol Uvegadol – Ramot"
+        homeUrl="https://zol-uvegadol.tobedev.com/en"
+        branchesUrl="https://zol-uvegadol.tobedev.com/en/branches"
       />
     );
 
@@ -71,13 +71,13 @@ describe("Breadcrumbs (Phase 8, §31)", () => {
 
     expect(schema["@type"]).toBe("BreadcrumbList");
     expect(schema.itemListElement).toHaveLength(4);
-    expect(schema.itemListElement[0]).toMatchObject({ position: 1, name: "Home", item: "https://maayan2000.co.il/en" });
+    expect(schema.itemListElement[0]).toMatchObject({ position: 1, name: "Home", item: "https://zol-uvegadol.tobedev.com/en" });
     expect(schema.itemListElement[2]).toMatchObject({
       position: 3,
       name: "Jerusalem",
-      item: "https://maayan2000.co.il/en/branches?city=jerusalem",
+      item: "https://zol-uvegadol.tobedev.com/en/branches?city=jerusalem",
     });
     expect(schema.itemListElement[3]).not.toHaveProperty("item");
-    expect(schema.itemListElement[3].name).toBe("Maayan 2000 – Ramot");
+    expect(schema.itemListElement[3].name).toBe("Zol Uvegadol – Ramot");
   });
 });

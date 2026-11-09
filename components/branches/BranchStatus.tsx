@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { Badge, type badgeVariants } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import type { BranchStatus as BranchStatusValue, BranchStatusViewModel } from "@/types/opening-hours";
+import type { SaturdayEveningHours } from "@/types/branch";
 import type { VariantProps } from "class-variance-authority";
 
 /**
@@ -15,6 +16,7 @@ import type { VariantProps } from "class-variance-authority";
  */
 export interface BranchStatusProps {
   viewModel: BranchStatusViewModel;
+  saturdayEveningHours?: SaturdayEveningHours | null;
   className?: string;
 }
 
@@ -24,6 +26,7 @@ const STATUS_BADGE_VARIANT: Record<BranchStatusValue, VariantProps<typeof badgeV
   OPENING_SOON: "outline",
   CLOSED: "secondary",
   TEMPORARILY_CLOSED: "destructive",
+  HOURS_UNCONFIRMED: "outline",
 };
 
 const STATUS_DOT_CLASS: Record<BranchStatusValue, string> = {
@@ -32,24 +35,28 @@ const STATUS_DOT_CLASS: Record<BranchStatusValue, string> = {
   OPENING_SOON: "bg-amber-500",
   CLOSED: "bg-muted-foreground",
   TEMPORARILY_CLOSED: "bg-destructive",
+  HOURS_UNCONFIRMED: "bg-slate-500",
 };
 
-const STATUS_MESSAGE_KEY: Record<BranchStatusValue, "openNow" | "closed" | "openingSoon" | "closingSoon" | "temporarilyClosed"> = {
+const STATUS_MESSAGE_KEY: Record<BranchStatusValue, "openNow" | "closed" | "openingSoon" | "closingSoon" | "temporarilyClosed" | "hoursUnconfirmed"> = {
   OPEN: "openNow",
   CLOSED: "closed",
   OPENING_SOON: "openingSoon",
   CLOSING_SOON: "closingSoon",
   TEMPORARILY_CLOSED: "temporarilyClosed",
+  HOURS_UNCONFIRMED: "hoursUnconfirmed",
 };
 
-export function BranchStatus({ viewModel, className }: BranchStatusProps) {
+export function BranchStatus({ viewModel, saturdayEveningHours, className }: BranchStatusProps) {
   const t = useTranslations("branches");
   const { status, isSpecialDay, specialDayTitle, minutesUntilChange, closingTime, nextOpening, todayHours } =
     viewModel;
 
   // Badge court (§6) : libellé fixe par statut, inchangé depuis la Phase 4.
   const badgeKey =
-    status === "CLOSED" && todayHours === null && !isSpecialDay ? "closedToday" : STATUS_MESSAGE_KEY[status];
+    status === "CLOSED" && todayHours === null && !isSpecialDay
+      ? "closedToday"
+      : STATUS_MESSAGE_KEY[status];
 
   // Ligne de détail (§7/§9) : construite UNIQUEMENT à partir de champs déjà
   // calculés (`closingTime`, `minutesUntilChange`, `nextOpening`) — jamais une

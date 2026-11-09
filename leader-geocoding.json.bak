@@ -1,0 +1,662 @@
+{
+  "117": {
+    "magasin_he": "אופקים – מתחם מבנה",
+    "adresse_source": "יהדות דרום אפריקה 14, אופקים",
+    "requete": "יהדות דרום אפריקה 14, אופקים, ישראל",
+    "statut": "OK",
+    "latitude": 31.3152413,
+    "longitude": 34.623763,
+    "precision": "ROOFTOP",
+    "adresse_google": "Sderot Yahadut Drom Afrika 14, Ofakim, 8757313, Israel",
+    "types": [
+      "street_address",
+      "subpremise"
+    ]
+  },
+  "107": {
+    "magasin_he": "אור יהודה – קניון עזריאלי",
+    "adresse_source": "שדרות אליהו סעדון 120, אור יהודה",
+    "requete": "שדרות אליהו סעדון 120, אור יהודה, ישראל",
+    "statut": "OK",
+    "latitude": 32.0253581,
+    "longitude": 34.8580191,
+    "precision": "GEOMETRIC_CENTER",
+    "adresse_google": "Sderot Eliyahu Sa'adon 120, Or Yehuda, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "108": {
+    "magasin_he": "אלעד",
+    "adresse_source": "בן שטח 8, אלעד",
+    "requete": "בן שטח 8, אלעד, ישראל",
+    "statut": "OK",
+    "latitude": 32.0552762,
+    "longitude": 34.9605933,
+    "precision": "ROOFTOP",
+    "adresse_google": "Rabbi Shimon ben Shetach St 8, El'ad, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "449054": {
+    "magasin_he": "אשדוד – הרב לוין",
+    "adresse_source": "הרב לוין 35 אשדוד",
+    "requete": "הרב לוין 35 אשדוד, ישראל",
+    "statut": "OK",
+    "latitude": 31.7917776,
+    "longitude": 34.6598226,
+    "precision": "ROOFTOP",
+    "adresse_google": "Sderot HaRav Levin 35, Ashdod, Israel",
+    "types": [
+      "street_address"
+    ]
+  },
+  "119": {
+    "magasin_he": "אשדוד – רובע ז'",
+    "adresse_source": "רשב\"י 15, אשדוד",
+    "requete": "רשב\"י 15, אשדוד, ישראל",
+    "statut": "OK",
+    "latitude": 31.7890493,
+    "longitude": 34.6649395,
+    "precision": "ROOFTOP",
+    "adresse_google": "Rashbi St 15, Ashdod, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "120": {
+    "magasin_he": "אשקלון – מרכז העיר",
+    "adresse_source": "כיכר גולומב 1' אשקלון",
+    "requete": "כיכר גולומב 1' אשקלון, ישראל",
+    "statut": "OK",
+    "latitude": 31.6669366,
+    "longitude": 34.5868549,
+    "precision": "ROOFTOP",
+    "adresse_google": "גולומב 1, Ashkelon, 7859201, Israel",
+    "types": [
+      "street_address"
+    ]
+  },
+  "121": {
+    "magasin_he": "אשקלון – נצבא סנטר",
+    "adresse_source": "פאואר סנטר אשקלון",
+    "requete": "נצבא סנטר, פאואר סנטר, אשקלון, ישראל",
+    "statut": "OK",
+    "latitude": 31.6748007,
+    "longitude": 34.6060214,
+    "precision": "GEOMETRIC_CENTER",
+    "adresse_google": "פאוור סנטר, צומת, כפר סילבר, Israel",
+    "types": [
+      "establishment",
+      "point_of_interest",
+      "shopping_mall"
+    ]
+  },
+  "122": {
+    "magasin_he": "באר שבע",
+    "adresse_source": "התקווה 10, באר שבע",
+    "requete": "התקווה 10, באר שבע, ישראל",
+    "statut": "OK",
+    "latitude": 31.2480232,
+    "longitude": 34.7993178,
+    "precision": "ROOFTOP",
+    "adresse_google": "Ha-Tikva St 10, Be'er Sheva, 55550, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "356735": {
+    "magasin_he": "בארות יצחק – מבנה",
+    "adresse_source": "בארות יצחק",
+    "requete": "מתחם מבנה, בארות יצחק, ישראל",
+    "statut": "OK",
+    "latitude": 32.0465888,
+    "longitude": 34.9092826,
+    "precision": "GEOMETRIC_CENTER",
+    "adresse_google": "קיבוץ בארת יצחק, Be'erot Yitshak, Israel",
+    "types": [
+      "establishment",
+      "point_of_interest",
+      "shopping_mall"
+    ]
+  },
+  "42682": {
+    "magasin_he": "בית שמש – לב הרמה",
+    "adresse_source": "שדרות נהר הירדן 1 בית שמש",
+    "requete": "שדרות נהר הירדן 1 בית שמש, ישראל",
+    "statut": "OK",
+    "latitude": 31.7363114,
+    "longitude": 34.9930648,
+    "precision": "ROOFTOP",
+    "adresse_google": "קניון לב הרמה, שדרות נהר הירדן 1, בית שמש, 9931101, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "15224": {
+    "magasin_he": "בית שמש – סאן מול",
+    "adresse_source": "שדרות האמוראים 2 בית שמש",
+    "requete": "שדרות האמוראים 2 בית שמש, ישראל",
+    "statut": "OK",
+    "latitude": 31.7041798,
+    "longitude": 34.9751587,
+    "precision": "ROOFTOP",
+    "adresse_google": "שדרות האמוראים 2, Beit Shemesh, Israel",
+    "types": [
+      "street_address"
+    ]
+  },
+  "102": {
+    "magasin_he": "בית שמש – קניון נעימי",
+    "adresse_source": "דרך יצחק רבין 2, בית שמש",
+    "requete": "דרך יצחק רבין 2, בית שמש, ישראל",
+    "statut": "OK",
+    "latitude": 31.7475007,
+    "longitude": 34.99291,
+    "precision": "ROOFTOP",
+    "adresse_google": "Derech Yitshak Rabin 2, Beit Shemesh, Israel",
+    "types": [
+      "street_address",
+      "subpremise"
+    ]
+  },
+  "99": {
+    "magasin_he": "בית שמש – רמה א'",
+    "adresse_source": "נחל ניצנים 3' בית שמש",
+    "requete": "נחל ניצנים 3' בית שמש, ישראל",
+    "statut": "OK",
+    "latitude": 31.7142273,
+    "longitude": 34.9880857,
+    "precision": "ROOFTOP",
+    "adresse_google": "Nachal Nisanim St 3, Bet Shemesh, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "103": {
+    "magasin_he": "ביתר עילית – גבעה A",
+    "adresse_source": "רבי עקיבא 11, ביתר עילית",
+    "requete": "רבי עקיבא 11, ביתר עילית, ישראל",
+    "statut": "OK",
+    "latitude": 31.046051,
+    "longitude": 34.851612,
+    "precision": "APPROXIMATE",
+    "adresse_google": "Israel",
+    "types": [
+      "country",
+      "political"
+    ]
+  },
+  "104": {
+    "magasin_he": "ביתר עילית – גבעה B",
+    "adresse_source": "הר\"ן 6, ביתר עילית",
+    "requete": "הר\"ן 6, ביתר עילית, ישראל",
+    "statut": "OK",
+    "latitude": 31.70446359999999,
+    "longitude": 35.1170847,
+    "precision": "ROOFTOP",
+    "adresse_google": "Haran St 6, Betar Illit",
+    "types": [
+      "street_address",
+      "subpremise"
+    ]
+  },
+  "386896": {
+    "magasin_he": "בני ברק – הושע",
+    "adresse_source": "הושע 24 בני ברק",
+    "requete": "הושע 24 בני ברק, ישראל",
+    "statut": "OK",
+    "latitude": 32.0883191,
+    "longitude": 34.8379993,
+    "precision": "ROOFTOP",
+    "adresse_google": "Hoshe'a St 24, Bnei Brak, Israel",
+    "types": [
+      "street_address"
+    ]
+  },
+  "133052": {
+    "magasin_he": "בני ברק – כהנמן",
+    "adresse_source": "כהנמן 100 בני ברק",
+    "requete": "כהנמן 100 בני ברק, ישראל",
+    "statut": "OK",
+    "latitude": 32.0781565,
+    "longitude": 34.8419952,
+    "precision": "ROOFTOP",
+    "adresse_google": "HaRav Kahanman St 100, Bnei Brak, Israel",
+    "types": [
+      "street_address"
+    ]
+  },
+  "672134": {
+    "magasin_he": "בני ברק – רבי עקיבא",
+    "adresse_source": "רבי עקיבא 36 בני ברק",
+    "requete": "רבי עקיבא 36 בני ברק, ישראל",
+    "statut": "OK",
+    "latitude": 32.0885383,
+    "longitude": 34.8267221,
+    "precision": "ROOFTOP",
+    "adresse_google": "Rabi Akiva St 36, Bnei Brak, 5127239, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "110": {
+    "magasin_he": "בת ים",
+    "adresse_source": "העצמאות 56, בת ים",
+    "requete": "העצמאות 56, בת ים, ישראל",
+    "statut": "OK",
+    "latitude": 32.0262419,
+    "longitude": 34.7485111,
+    "precision": "ROOFTOP",
+    "adresse_google": "Ha'Atsmaut Blvd 56, Bat Yam, 5939115, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "128": {
+    "magasin_he": "חדרה",
+    "adresse_source": "הרב עובדיה יוסף 7, חדרה",
+    "requete": "הרב עובדיה יוסף 7, חדרה, ישראל",
+    "statut": "OK",
+    "latitude": 32.4417704,
+    "longitude": 34.9130205,
+    "precision": "ROOFTOP",
+    "adresse_google": "HaRav Ovadia Yosef St 7, Hadera, 3842207, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "129": {
+    "magasin_he": "חיפה",
+    "adresse_source": "ארלוזורוב 13, חיפה",
+    "requete": "ארלוזורוב 13, חיפה, ישראל",
+    "statut": "OK",
+    "latitude": 32.8059221,
+    "longitude": 35.0008975,
+    "precision": "ROOFTOP",
+    "adresse_google": "Arlozorov St 13, Haifa, 3313605, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "117953": {
+    "magasin_he": "חריש – קניון מור",
+    "adresse_source": "דרך ארץ 2 חריש",
+    "requete": "דרך ארץ 2 חריש, ישראל",
+    "statut": "OK",
+    "latitude": 32.4705928,
+    "longitude": 35.0391716,
+    "precision": "ROOFTOP",
+    "adresse_google": "Erets Rd 2, Harish, Israel",
+    "types": [
+      "street_address"
+    ]
+  },
+  "130": {
+    "magasin_he": "טבריה",
+    "adresse_source": "הגליל 29, טבריה",
+    "requete": "הגליל 29, טבריה, ישראל",
+    "statut": "OK",
+    "latitude": 32.7857971,
+    "longitude": 35.5402686,
+    "precision": "ROOFTOP",
+    "adresse_google": "HaGalil St 29, Tiberias, 1420065, Israel",
+    "types": [
+      "street_address"
+    ]
+  },
+  "93": {
+    "magasin_he": "ירושלים – גאולה",
+    "adresse_source": "מלכי ישראל 18, ירושלים",
+    "requete": "מלכי ישראל 18, ירושלים, ישראל",
+    "statut": "OK",
+    "latitude": 31.7890762,
+    "longitude": 35.2163356,
+    "precision": "ROOFTOP",
+    "adresse_google": "Malkei Israel St 18, Jerusalem, 9550133, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "92": {
+    "magasin_he": "ירושלים – גבעת שאול",
+    "adresse_source": "כנפי נשרים 22, ירושלים",
+    "requete": "כנפי נשרים 22, ירושלים, ישראל",
+    "statut": "OK",
+    "latitude": 31.7878319,
+    "longitude": 35.1892063,
+    "precision": "ROOFTOP",
+    "adresse_google": "Kanfei Nesharim St 22, Jerusalem, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "95": {
+    "magasin_he": "ירושלים – מרכז העיר",
+    "adresse_source": "יפו 97, ירושלים",
+    "requete": "יפו 97, ירושלים, ישראל",
+    "statut": "OK",
+    "latitude": 31.784294,
+    "longitude": 35.214896,
+    "precision": "ROOFTOP",
+    "adresse_google": "Clal Building, Yafo 97, Jerusalem, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "96": {
+    "magasin_he": "ירושלים – עודפים",
+    "adresse_source": "מאה שערים 17, ירושלים",
+    "requete": "מאה שערים 17, ירושלים, ישראל",
+    "statut": "OK",
+    "latitude": 31.7881318,
+    "longitude": 35.22018,
+    "precision": "ROOFTOP",
+    "adresse_google": "Me'a She'arim St 17, Jerusalem, Israel",
+    "types": [
+      "street_address"
+    ]
+  },
+  "98": {
+    "magasin_he": "ירושלים – קניון לב הפסגה",
+    "adresse_source": "שד' משה דיין 106, ירושלים",
+    "requete": "שד' משה דיין 106, ירושלים, ישראל",
+    "statut": "OK",
+    "latitude": 31.8241625,
+    "longitude": 35.2372038,
+    "precision": "ROOFTOP",
+    "adresse_google": "Moshe Dayan 106, Jerusalem",
+    "types": [
+      "street_address",
+      "subpremise"
+    ]
+  },
+  "97": {
+    "magasin_he": "ירושלים – קניון עזריאלי מלחה",
+    "adresse_source": "אגודת ספורט ביתר 1, ירושלים",
+    "requete": "אגודת ספורט ביתר 1, ירושלים, ישראל",
+    "statut": "OK",
+    "latitude": 31.7511833,
+    "longitude": 35.1872485,
+    "precision": "ROOFTOP",
+    "adresse_google": "קניון מלחה, אגודת ספורט ביתר 1, ירושלים, Israel",
+    "types": [
+      "street_address",
+      "subpremise"
+    ]
+  },
+  "598619": {
+    "magasin_he": "ירושלים – קניון רמות",
+    "adresse_source": "גולדה מאיר 255 ירושלים",
+    "requete": "גולדה מאיר 255 ירושלים, ישראל",
+    "statut": "OK",
+    "latitude": 31.7974754,
+    "longitude": 35.2176821,
+    "precision": "ROOFTOP",
+    "adresse_google": "Sderot Golda Me'ir 255, Jerusalem, Israel",
+    "types": [
+      "establishment",
+      "health",
+      "point_of_interest"
+    ]
+  },
+  "105": {
+    "magasin_he": "מודיעין עילית – ברכפלד",
+    "adresse_source": "שד' יחזקאל 2, מודיעין עילית",
+    "requete": "שד' יחזקאל 2, מודיעין עילית, ישראל",
+    "statut": "OK",
+    "latitude": 31.046051,
+    "longitude": 34.851612,
+    "precision": "APPROXIMATE",
+    "adresse_google": "Israel",
+    "types": [
+      "country",
+      "political"
+    ]
+  },
+  "106": {
+    "magasin_he": "מודיעין עילית – קרית ספר",
+    "adresse_source": "אבני נזר 46, מודיעין עילית",
+    "requete": "אבני נזר 46, מודיעין עילית, ישראל",
+    "statut": "OK",
+    "latitude": 31.046051,
+    "longitude": 34.851612,
+    "precision": "APPROXIMATE",
+    "adresse_google": "Israel",
+    "types": [
+      "country",
+      "political"
+    ]
+  },
+  "132": {
+    "magasin_he": "נהריה",
+    "adresse_source": "ויצמן 58, נהריה",
+    "requete": "ויצמן 58, נהריה, ישראל",
+    "statut": "OK",
+    "latitude": 33.0078056,
+    "longitude": 35.0928364,
+    "precision": "ROOFTOP",
+    "adresse_google": "Weizman St 58, Nahariyya, 2238016, Israel",
+    "types": [
+      "street_address"
+    ]
+  },
+  "123": {
+    "magasin_he": "נתיבות",
+    "adresse_source": "שד' ירושלים 19, נתיבות",
+    "requete": "שד' ירושלים 19, נתיבות, ישראל",
+    "statut": "OK",
+    "latitude": 31.4217194,
+    "longitude": 34.5719241,
+    "precision": "GEOMETRIC_CENTER",
+    "adresse_google": "שד' ירושלים, Netivot, Israel",
+    "types": [
+      "route"
+    ]
+  },
+  "133": {
+    "magasin_he": "נתניה – מרכז העיר",
+    "adresse_source": "שמואל הנציב 5, נתניה",
+    "requete": "שמואל הנציב 5, נתניה, ישראל",
+    "statut": "OK",
+    "latitude": 32.3294882,
+    "longitude": 34.85645330000001,
+    "precision": "ROOFTOP",
+    "adresse_google": "Shmuel HaNatziv St 5, Netanya, Israel",
+    "types": [
+      "street_address"
+    ]
+  },
+  "134": {
+    "magasin_he": "נתניה – קניון השרון",
+    "adresse_source": "הרצל 60, נתניה",
+    "requete": "הרצל 60, נתניה, ישראל",
+    "statut": "OK",
+    "latitude": 32.3264108,
+    "longitude": 34.8618993,
+    "precision": "ROOFTOP",
+    "adresse_google": "Herzl St 60, Netanya, 4239222, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "135": {
+    "magasin_he": "עפולה",
+    "adresse_source": "ארלוזורוב 17, עפולה",
+    "requete": "ארלוזורוב 17, עפולה, ישראל",
+    "statut": "OK",
+    "latitude": 32.608314,
+    "longitude": 35.2882306,
+    "precision": "ROOFTOP",
+    "adresse_google": "Sderot Arlozorov 17, Afula, Israel",
+    "types": [
+      "street_address"
+    ]
+  },
+  "737326": {
+    "magasin_he": "עפולה עודפים",
+    "adresse_source": "ויצמן 11, עפולה",
+    "requete": "ויצמן 11, עפולה, ישראל",
+    "statut": "OK",
+    "latitude": 32.6100615,
+    "longitude": 35.2890368,
+    "precision": "ROOFTOP",
+    "adresse_google": "Ha-Nasi Weizman St 11, Afula, 1828904, Israel",
+    "types": [
+      "street_address",
+      "subpremise"
+    ]
+  },
+  "124": {
+    "magasin_he": "ערד – צים אורבן",
+    "adresse_source": "התעשייה 60, ערד",
+    "requete": "התעשייה 60, ערד, ישראל",
+    "statut": "OK",
+    "latitude": 31.2478919,
+    "longitude": 35.1996837,
+    "precision": "ROOFTOP",
+    "adresse_google": "Ha-Ta'asiya St 60, Arad, Israel",
+    "types": [
+      "street_address",
+      "subpremise"
+    ]
+  },
+  "112": {
+    "magasin_he": "פתח תקווה  – מרכז העיר",
+    "adresse_source": "חובבי ציון 40, פתח תקווה",
+    "requete": "חובבי ציון 40, פתח תקווה, ישראל",
+    "statut": "OK",
+    "latitude": 32.0892463,
+    "longitude": 34.885454,
+    "precision": "ROOFTOP",
+    "adresse_google": "Hovevei Tsiyon St 40, Petah Tikva, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "113": {
+    "magasin_he": "פתח תקווה – קניון סירקין",
+    "adresse_source": "אלעזר פרידמן 9, פתח תקווה",
+    "requete": "אלעזר פרידמן 9, פתח תקווה, ישראל",
+    "statut": "OK",
+    "latitude": 32.0794457,
+    "longitude": 34.9025999,
+    "precision": "ROOFTOP",
+    "adresse_google": "Elazar Fridman St 9, Petah Tikva, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "136": {
+    "magasin_he": "צפת",
+    "adresse_source": "ז'בוטינסקי 1, צפת",
+    "requete": "ז'בוטינסקי 1, צפת, ישראל",
+    "statut": "OK",
+    "latitude": 32.9643406,
+    "longitude": 35.4970529,
+    "precision": "ROOFTOP",
+    "adresse_google": "Derech Jabotinsky 1, Tsfat, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "137": {
+    "magasin_he": "קרית אתא – מרכז העיר",
+    "adresse_source": "העצמאות 91, קרית אתא",
+    "requete": "העצמאות 91, קרית אתא, ישראל",
+    "statut": "OK",
+    "latitude": 32.8103977,
+    "longitude": 35.1042152,
+    "precision": "ROOFTOP",
+    "adresse_google": "Ha-Atsma'ut St 91, Kiryat Ata, 2821929, Israel",
+    "types": [
+      "street_address"
+    ]
+  },
+  "125": {
+    "magasin_he": "קרית גת – ישפרו סנטר",
+    "adresse_source": "מלכי ישראל 178, קרית גת",
+    "requete": "מלכי ישראל 178, קרית גת, ישראל",
+    "statut": "OK",
+    "latitude": 31.6031361,
+    "longitude": 34.7574882,
+    "precision": "ROOFTOP",
+    "adresse_google": "Sderot Malhei Israel 178, Kiryat Gat, 8205002, Israel",
+    "types": [
+      "street_address",
+      "subpremise"
+    ]
+  },
+  "126": {
+    "magasin_he": "קרית מלאכי",
+    "adresse_source": "ז'בוטינסקי 43, קרית מלאכי",
+    "requete": "ז'בוטינסקי 43, קרית מלאכי, ישראל",
+    "statut": "OK",
+    "latitude": 31.7301649,
+    "longitude": 34.7463459,
+    "precision": "ROOFTOP",
+    "adresse_google": "Jabotinski St 43, Kiryat Malakhi, 8305172, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  },
+  "115": {
+    "magasin_he": "ראש העין – נצבא סנטר",
+    "adresse_source": "יהושע בן נון 77, ראש העין",
+    "requete": "יהושע בן נון 77, ראש העין, ישראל",
+    "statut": "OK",
+    "latitude": 32.1050615,
+    "longitude": 34.94234400000001,
+    "precision": "ROOFTOP",
+    "adresse_google": "Yehoshu'a Bin Nun St 77, Rosh Haayin, Israel",
+    "types": [
+      "street_address"
+    ]
+  },
+  "116": {
+    "magasin_he": "רחובות",
+    "adresse_source": "הרצל 160, רחובות",
+    "requete": "הרצל 160, רחובות, ישראל",
+    "statut": "OK",
+    "latitude": 31.893621,
+    "longitude": 34.8119765,
+    "precision": "ROOFTOP",
+    "adresse_google": "Herzl St 160, Rehovot, Israel",
+    "types": [
+      "street_address"
+    ]
+  },
+  "392336": {
+    "magasin_he": "רמלה – קניון עזריאלי",
+    "adresse_source": "שדרות דוד רזיאל 1 רמלה",
+    "requete": "שדרות דוד רזיאל 1 רמלה, ישראל",
+    "statut": "OK",
+    "latitude": 31.9256881,
+    "longitude": 34.8639686,
+    "precision": "ROOFTOP",
+    "adresse_google": "Sderot David Razi'el 1, Ramla, Israel",
+    "types": [
+      "premise",
+      "street_address"
+    ]
+  }
+}

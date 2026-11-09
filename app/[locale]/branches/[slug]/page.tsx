@@ -31,23 +31,17 @@ interface BranchDetailPageParams {
 }
 
 /**
- * Stratégie de cache/ISR (Phase 8, §34) : la page est régénérée au maximum
- * toutes les 60 secondes (même fréquence que le moteur
- * d'horaires, `lib/opening-hours/config.ts`) — jamais des heures, jamais
- * `force-static`/`revalidate: false`. Ce choix n'est PAS arbitraire : c'est
- * exactement la même cadence que le timer client (`useNow`, §8/§20) qui
- * rafraîchit le statut « ouvert/fermé » après hydratation. Concrètement :
- * - Le HTML servi par le CDN/ISR ne peut donc jamais afficher un statut vieux
- *   de plus de 60 s au tout premier rendu (avant même l'hydratation).
- * - Une fois hydratée, la page continue de se rafraîchir côté client toutes
- *   les 60 s indépendamment de toute régénération serveur (§8, impératif :
- *   « ne jamais mettre en cache statiquement le texte "ouvert maintenant"
- *   pendant des heures »).
- * Le reste du contenu (nom, adresse, galerie, services, promotions, SEO) est
- * parfaitement statique entre deux régénérations — bénéficier du cache ISR
- * pour CE contenu-là est sans risque, contrairement au statut horaire.
+ * Rendu dynamique des fiches magasins.
+ *
+ * Les magasins sont créés et modifiés depuis l'administration,
+ * y compris après le build de production.
+ *
+ * Le rendu à la demande évite les erreurs DYNAMIC_SERVER_USAGE
+ * rencontrées avec ISR sur les nouvelles fiches.
+ *
+ * Le statut ouvert/fermé reste actualisé côté client.
  */
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 /**
  * Dédoublonne l'appel entre `generateMetadata()` et le composant de page —
@@ -224,7 +218,7 @@ export default async function BranchDetailPage(props: {
             <h2 id="branch-hours-heading" className="text-lg font-semibold tracking-tight">
               {t("hours.sectionTitle")}
             </h2>
-            <OpeningHoursLive openingHours={branch.openingHours} specialHours={branch.specialHours} />
+            <OpeningHoursLive openingHours={branch.openingHours} specialHours={branch.specialHours} saturdayEveningHours={branch.saturdayEveningHours} />
           </section>
 
           <BranchDetailMap branch={branch} locale={appLocale} />

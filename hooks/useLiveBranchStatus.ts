@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import { buildBranchStatusViewModel } from "@/lib/opening-hours/view-model";
 import type { BranchStatusViewModel, OpeningHoursEntry, SpecialHoursEntry } from "@/types/opening-hours";
 import { useNowContext } from "@/components/branches/NowProvider";
+import type { SaturdayEveningHours } from "@/types/branch";
 
 /**
  * Statut horaire vivant d'UN magasin (fiche détail, Phase 8 §8) — appelle
@@ -22,11 +23,12 @@ import { useNowContext } from "@/components/branches/NowProvider";
  */
 export function useLiveBranchStatus(
   openingHours: readonly OpeningHoursEntry[],
-  specialHours: readonly SpecialHoursEntry[]
+  specialHours: readonly SpecialHoursEntry[],
+  saturdayEveningHours?: SaturdayEveningHours | null
 ): BranchStatusViewModel {
   const now = useNowContext();
   return useMemo(
-    () => buildBranchStatusViewModel({ openingHours, specialHours }, now),
-    [openingHours, specialHours, now]
+    () => buildBranchStatusViewModel({ openingHours, specialHours, saturdayEveningHours }, now),
+    [openingHours, specialHours, saturdayEveningHours, now]
   );
 }

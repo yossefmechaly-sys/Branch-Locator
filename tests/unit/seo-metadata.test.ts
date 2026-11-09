@@ -10,15 +10,15 @@ function makeInput(overrides: Partial<BranchMetadataInput> = {}): BranchMetadata
     seoDescription: null,
     description: null,
     mainImage: null,
-    fallbackTitle: "Maayan 2000 – Ramot Jérusalem – Horaires, adresse et itinéraire",
-    fallbackDescription: "Tout sur le magasin Maayan 2000 de Ramot à Jérusalem.",
+    fallbackTitle: "Zol Uvegadol – Ramot Jérusalem – Horaires, adresse et itinéraire",
+    fallbackDescription: "Tout sur le magasin Zol Uvegadol de Ramot à Jérusalem.",
     ...overrides,
   };
 }
 
 describe("buildBranchMetadata (§5/§18/§19/§20/§28 Phase 8)", () => {
   beforeEach(() => {
-    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://maayan2000.co.il");
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://zol-uvegadol.tobedev.com");
   });
 
   afterEach(() => {
@@ -36,7 +36,7 @@ describe("buildBranchMetadata (§5/§18/§19/§20/§28 Phase 8)", () => {
   it("retombe sur fallbackTitle quand seoTitle est absent", () => {
     const metadata = buildBranchMetadata(makeInput());
     expect(metadata.title).toBe(
-      "Maayan 2000 – Ramot Jérusalem – Horaires, adresse et itinéraire"
+      "Zol Uvegadol – Ramot Jérusalem – Horaires, adresse et itinéraire"
     );
   });
 
@@ -47,31 +47,31 @@ describe("buildBranchMetadata (§5/§18/§19/§20/§28 Phase 8)", () => {
 
   it("retombe sur fallbackDescription quand ni seoDescription ni description ne sont disponibles", () => {
     const metadata = buildBranchMetadata(makeInput());
-    expect(metadata.description).toBe("Tout sur le magasin Maayan 2000 de Ramot à Jérusalem.");
+    expect(metadata.description).toBe("Tout sur le magasin Zol Uvegadol de Ramot à Jérusalem.");
   });
 
   it("canonical est propre à CETTE langue, jamais toutes les langues vers l'hébreu (§19)", () => {
     const metadata = buildBranchMetadata(makeInput({ locale: "fr" }));
-    expect(metadata.alternates?.canonical).toBe("https://maayan2000.co.il/fr/branches/jerusalem-ramot");
+    expect(metadata.alternates?.canonical).toBe("https://zol-uvegadol.tobedev.com/fr/branches/jerusalem-ramot");
   });
 
   it("alternates.languages inclut x-default vers la version hébraïque (§20)", () => {
     const metadata = buildBranchMetadata(makeInput());
     const languages = metadata.alternates?.languages as Record<string, string>;
-    expect(languages["x-default"]).toBe("https://maayan2000.co.il/he/branches/jerusalem-ramot");
-    expect(languages.he).toBe("https://maayan2000.co.il/he/branches/jerusalem-ramot");
+    expect(languages["x-default"]).toBe("https://zol-uvegadol.tobedev.com/he/branches/jerusalem-ramot");
+    expect(languages.he).toBe("https://zol-uvegadol.tobedev.com/he/branches/jerusalem-ramot");
   });
 
   it("utilise l'image générique de repli quand aucune photo n'est disponible (§28)", () => {
     const metadata = buildBranchMetadata(makeInput({ mainImage: null }));
     const openGraphImages = metadata.openGraph?.images as { url: string }[];
-    expect(openGraphImages[0].url).toBe(`https://maayan2000.co.il${DEFAULT_OG_IMAGE_PATH}`);
+    expect(openGraphImages[0].url).toBe(`https://zol-uvegadol.tobedev.com${DEFAULT_OG_IMAGE_PATH}`);
   });
 
   it("rend absolue une image relative du magasin", () => {
     const metadata = buildBranchMetadata(makeInput({ mainImage: "/uploads/branch-42.jpg" }));
     const openGraphImages = metadata.openGraph?.images as { url: string }[];
-    expect(openGraphImages[0].url).toBe("https://maayan2000.co.il/uploads/branch-42.jpg");
+    expect(openGraphImages[0].url).toBe("https://zol-uvegadol.tobedev.com/uploads/branch-42.jpg");
   });
 
   it("laisse une image déjà absolue inchangée", () => {

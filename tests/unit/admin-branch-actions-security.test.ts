@@ -46,7 +46,7 @@ const VALID_BRANCH_PAYLOAD = {
   openingHours: [],
   specialHours: [],
   images: [],
-  translations: [{ locale: "he", displayName: "מעיין 2000 – רמות", description: null, seoTitle: null, seoDescription: null }],
+  translations: [{ locale: "he", displayName: "זול ובגדול – רמות", description: null, seoTitle: null, seoDescription: null }],
 };
 
 function sessionFor(role: "SUPER_ADMIN" | "ADMIN" | "EDITOR") {

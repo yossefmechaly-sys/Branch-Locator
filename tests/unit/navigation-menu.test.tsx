@@ -10,7 +10,7 @@ import { makeBranchSummary } from "./helpers/branch-fixture";
 
 const BRANCH: BranchSummary = makeBranchSummary({
   id: "jerusalem-ramot",
-  displayName: "Maayan 2000 – Ramot",
+  displayName: "Zol Uvegadol – Ramot",
   city: { id: "jerusalem", slug: "jerusalem", name: "Jerusalem", latitude: 31.77, longitude: 35.21 },
   address: "Ramot Blvd 1",
   latitude: 31.8,

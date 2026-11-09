@@ -15,7 +15,7 @@ export interface NearbyBranchesProps {
 }
 
 /**
- * Liens internes « autres magasins Maayan 2000 dans cette ville » (Phase 8,
+ * Liens internes « autres magasins Leader dans cette ville » (Phase 8,
  * §30) — Server Component pur, cartes-liens simples (pas de sélection croisée
  * avec une carte, pas d'expansion, contrairement à `BranchCard` du Store
  * Locator : cette section n'a pas la même mission, d'où un composant DÉDIÉ

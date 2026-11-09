@@ -42,7 +42,7 @@ function baseRow(overrides: Partial<Record<string, string>> = {}): Record<string
     isActive: "vrai",
     sortOrder: "0",
     serviceSlugs: "kosher;parking",
-    displayName_he: "מעיין 2000 – ירושלים",
+    displayName_he: "זול ובגדול – ירושלים",
     displayName_en: "",
     displayName_ru: "",
     displayName_fr: "",

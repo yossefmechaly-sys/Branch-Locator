@@ -309,7 +309,16 @@ async function seedAdminUsers() {
 }
 
 async function main() {
-  console.log("Seed Maayan 2000 — données DEMO\n");
+  // Sécurité Zol Uvegadol : ce seed contient uniquement des données de
+  // démonstration héritées du projet modèle. Il ne doit jamais modifier
+  // une base de production.
+  if (process.env.NODE_ENV === "production") {
+    throw new Error(
+      "SECURITE : le seed de demonstration est interdit en production."
+    );
+  }
+
+  console.log("Seed de demonstration — environnement hors production\n");
 
   console.log("Villes…");
   const cityIdBySlug = await seedCities();

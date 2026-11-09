@@ -25,13 +25,13 @@ describe("rowsToCsv (Phase 10, §42)", () => {
   it("préserve les accents, l'hébreu et le russe", () => {
     const rows: FixtureRow[] = [
       { name: "Café à côté", note: "éàè" },
-      { name: "מעיין 2000 – ירושלים", note: "עברית" },
+      { name: "זול ובגדול – ירושלים", note: "עברית" },
       { name: "Магазин", note: "русский" },
     ];
     const csv = rowsToCsv(COLUMNS, rows);
     const parsed = Papa.parse<Record<string, string>>(csv, { header: true, skipEmptyLines: true });
     expect(parsed.data[0].Nom).toBe("Café à côté");
-    expect(parsed.data[1].Nom).toBe("מעיין 2000 – ירושלים");
+    expect(parsed.data[1].Nom).toBe("זול ובגדול – ירושלים");
     expect(parsed.data[2].Nom).toBe("Магазин");
   });
 
@@ -55,14 +55,14 @@ describe("buildXlsxWorkbook (Phase 10, §42)", () => {
     const otherColumns: ExportColumn<OtherRow>[] = [{ key: "count", label: "Compte", value: (r) => String(r.count) }];
 
     const buffer = await buildXlsxWorkbook([
-      sheet("Fixture", COLUMNS, [{ name: "מעיין 2000", note: "Магазин" }]),
+      sheet("Fixture", COLUMNS, [{ name: "זול ובגדול", note: "Магазин" }]),
       sheet("Autre", otherColumns, [{ count: 42 }]),
     ]);
 
     const workbook = new ExcelJS.Workbook();
     await workbook.xlsx.load(buffer as unknown as Parameters<typeof workbook.xlsx.load>[0]);
     expect(workbook.worksheets.map((s) => s.name)).toEqual(["Fixture", "Autre"]);
-    expect(workbook.worksheets[0].getRow(2).getCell(1).value).toBe("מעיין 2000");
+    expect(workbook.worksheets[0].getRow(2).getCell(1).value).toBe("זול ובגדול");
     expect(workbook.worksheets[0].getRow(2).getCell(2).value).toBe("Магазин");
     expect(workbook.worksheets[1].getRow(2).getCell(1).value).toBe("42");
   });

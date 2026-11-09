@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "title": "Maayan 2000 – Branch Locator",
-    "description": "Find the nearest Maayan 2000 store: address, opening hours, services and navigation."
+    "title": "Leader – Branch Locator",
+    "description": "Find the nearest Leader store: address, opening hours, services and navigation."
   },
   "nav": {
-    "brand": "Maayan 2000",
+    "brand": "Leader",
     "branches": "Branches",
     "skipToContent": "Skip to main content"
   },
@@ -14,7 +14,7 @@
   },
   "branches": {
     "title": "Our branches",
-    "subtitle": "Find the nearest Maayan 2000 branch",
+    "subtitle": "Find the nearest Leader branch",
     "search": "Search by city, address or branch name",
     "nearMe": "Find a branch near me",
     "openNow": "Open now",
@@ -51,7 +51,9 @@
     "opensInDaysAt": "{days, plural, one {Opens in # day at {time}} other {Opens in # days at {time}}}",
     "exceptionalHoursToday": "Exceptional hours today",
     "todayIndicator": "Today",
-    "closedLabel": "Closed"
+    "closedLabel": "Closed",
+    "opensAfterShabbat": "Opens after Shabbat",
+    "hoursUnconfirmed": "Hours unconfirmed"
   },
   "days": {
     "sunday": "Sunday",
@@ -91,7 +93,7 @@
   },
   "common": {
     "loading": "Loading…",
-    "demoNotice": "Demo data only — does not represent Maayan 2000's actual branches",
+    "demoNotice": "Demo data only — does not represent Leader's actual branches",
     "comingSoon": "Coming soon",
     "retry": "Retry"
   },
@@ -136,7 +138,7 @@
       "sectionTitle": "About this branch"
     },
     "nearby": {
-      "sectionTitle": "Other Maayan 2000 branches in {cityName}"
+      "sectionTitle": "Other Leader branches in {cityName}"
     },
     "seo": {
       "fallbackTitle": "{displayName} {cityName} – Hours, Address & Directions",
