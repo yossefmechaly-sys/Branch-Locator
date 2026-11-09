@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { BranchLocator } from "@/components/branches/BranchLocator";
@@ -6,6 +7,13 @@ import { StorefrontIllustration } from "@/components/branches/StorefrontIllustra
 import { getBranchLocatorData } from "@/services/branch.service";
 import { buildLocaleHreflangAlternates } from "@/lib/seo/branch-urls";
 import type { AppLocale } from "@/types/i18n";
+
+const hebrewHeading = localFont({
+  src: "../../../assets/fonts/Heebo-Variable.ttf",
+  weight: "100 900",
+  display: "swap",
+  fallback: ["Arial", "sans-serif"],
+});
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -56,7 +64,9 @@ export default async function BranchesPage(props: {
       <section className="locator-hero" aria-labelledby="locator-heading">
         <div className="locator-hero-inner">
           <div className="locator-hero-copy">
-            <h1 id="locator-heading">{tDesign("heroTitle")}</h1>
+            <h1 id="locator-heading" className={appLocale === "he" ? hebrewHeading.className : undefined}>
+              {tDesign("heroTitle")}
+            </h1>
             <p>{tDesign("heroSubtitle")}</p>
           </div>
           <div className="locator-illustration"><StorefrontIllustration /></div>

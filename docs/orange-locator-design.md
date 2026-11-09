@@ -20,9 +20,18 @@ Le tri propose le nom du magasin ou la proximité lorsque la géolocalisation
 est disponible. Sans position, le tri par proximité est désactivé.
 
 Les nouveaux textes sont dans l'espace `locator` des cinq fichiers de
-traduction. L'illustration est un SVG décoratif intégré ; aucun service ni
-fichier image externe supplémentaire n'est nécessaire. Les styles du locator
+traduction. L'illustration décorative est extraite de la maquette approuvée et
+enregistrée dans `assets/maayan-storefront.png`, sur fond transparent. Le texte
+« 2000 » fait partie de l'image : il reste bien placé dans l'enseigne dans les
+cinq langues, y compris en hébreu. Next.js optimise et sert cette image locale.
+Les styles du locator
 sont limités à son conteneur ; l'administration conserve son thème.
+
+Le titre hébreu utilise Heebo Black (graisse 900), avec les formes épaisses
+sans empattements de la maquette. La police variable est fournie localement
+via `next/font/local`, dans `assets/fonts/Heebo-Variable.ttf` ; sa licence libre
+SIL Open Font License est incluse dans `Heebo-OFL.txt`. Le navigateur charge la
+police depuis le site, sans dépendre des polices installées sur l'appareil.
 
 Cette mise à jour ne modifie ni le schéma ni les données de la base.
 

@@ -9,12 +9,9 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { getSiteUrl } from "@/lib/seo/site";
 import "../globals.css";
 
-// Pas de police web chargée à distance (`next/font/google`) : aucune police
-// latine courante (Geist inclus) ne couvre nativement l'hébreu, et une police
-// variable auto-hébergée avec un jeu de glyphes he/en/ru/fr/es sera introduite
-// plus tard si besoin. La pile système ci-dessous (définie dans `globals.css`)
-// couvre correctement les cinq langues sur toutes les plateformes, sans
-// dépendance réseau ni bascule de police visible (FOUT) au chargement.
+// Le texte courant utilise la pile système de `globals.css`. Le titre hébreu
+// du locator charge sa police Heebo locale dans la page concernée ; aucune
+// police n'est demandée à un service externe par le navigateur.
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

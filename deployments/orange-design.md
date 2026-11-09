@@ -1,5 +1,8 @@
 # Branch Locator — présentation orange
 
+Après cette installation, appliquer la [correction de l'illustration et du
+titre hébreu](mockup-correction.md) pour retrouver le rendu de la maquette.
+
 Mise à jour de la liste des magasins dans les cinq langues : hébreu, français,
 anglais, russe et espagnol. Les avis modérés, moyennes, photos, recherches,
 filtres et itinéraires sont conservés. [Détails du design](../docs/orange-locator-design.md).
