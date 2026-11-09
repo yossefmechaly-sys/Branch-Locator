@@ -31,3 +31,9 @@ stars to each branch card. See [deployment instructions](list-ratings.md).
 `branch-locator-list-photos.tar.gz` adds rounded main-photo thumbnails to branch
 cards and includes the list ratings update. It accepts either of the preceding
 review releases. See [deployment instructions](list-photos.md).
+
+## Leader and Zol Uvegadol
+
+`leader-zol-customer-experience.tar.gz` contains separately targeted updates for
+Leader and Zol Uvegadol, retaining each site's branding and data bindings.
+See [deployment instructions and validation](enseignes.md).
