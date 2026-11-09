@@ -53,4 +53,12 @@ describe("BranchGallery (Phase 8, §13)", () => {
     fireEvent.click(screen.getAllByRole("button")[2]);
     expect(screen.getByAltText("Ramot – main photo")).toBeTruthy();
   });
+
+  it("gère une photo indisponible et permet de passer à une autre photo", () => {
+    renderWithIntl(<BranchGallery images={IMAGES} branchName="Ramot" />);
+    fireEvent.error(screen.getByAltText("Façade du magasin"));
+    expect(screen.getByText("No photo available yet")).toBeTruthy();
+    fireEvent.click(screen.getAllByRole("button")[1]);
+    expect(screen.getByAltText("Rayon fruits et légumes")).toBeTruthy();
+  });
 });

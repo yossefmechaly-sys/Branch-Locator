@@ -66,7 +66,7 @@ export function buildClusterRenderer(maps: typeof google.maps, locale: string, f
         icon: toGoogleIcon(buildClusterIconSpec(count), maps),
         label: {
           text: label,
-          color: "#ffffff",
+          color: "#292b25",
           fontSize: "13px",
           fontWeight: "600",
         },

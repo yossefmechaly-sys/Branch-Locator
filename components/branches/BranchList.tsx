@@ -21,6 +21,7 @@ export interface BranchListProps {
   onHoverBranch?: (branchId: string | null) => void;
   onRetry: () => void;
   className?: string;
+  showCount?: boolean;
 }
 
 /** Identifiant DOM stable d'une fiche — utilisé par le défilement automatique
@@ -51,6 +52,7 @@ export function BranchList({
   onHoverBranch,
   onRetry,
   className,
+  showCount = true,
 }: BranchListProps) {
   const t = useTranslations("branches");
 
@@ -75,9 +77,9 @@ export function BranchList({
 
   return (
     <div className={className}>
-      <p className="mb-3 text-sm text-muted-foreground" aria-live="polite">
+      {showCount && <p className="mb-3 text-sm text-muted-foreground" aria-live="polite">
         {t("resultsCount", { count: branches.length })}
-      </p>
+      </p>}
       <ul className={status === "loading" ? "flex flex-col gap-3 opacity-60" : "flex flex-col gap-3"}>
         {branches.map((branch) => (
           <li key={branch.id} id={branchCardElementId(branch.id)}>

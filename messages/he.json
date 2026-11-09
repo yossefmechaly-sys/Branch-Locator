@@ -104,7 +104,8 @@
       "sectionTitle": "תמונות",
       "mainImageAlt": "{name} – תמונה ראשית",
       "thumbnailAlt": "{name} – תמונה {index}",
-      "noImage": "אין תמונה זמינה כרגע"
+      "noImage": "אין תמונה זמינה כרגע",
+      "position": "תמונה {current} מתוך {total}"
     },
     "services": {
       "sectionTitle": "שירותים",
@@ -146,6 +147,11 @@
       "title": "הסניף לא נמצא",
       "description": "הסניף הזה אינו קיים או אינו פעיל עוד.",
       "cta": "חזרה לכל הסניפים"
+    },
+    "design": {
+      "hoursNote": "בחגים ובמועדים ייתכנו שינויים בשעות הפתיחה.",
+      "reviewsTitle": "חוות דעת לקוחות",
+      "reviewPrompt": "שתפו אותנו בחוויה שלכם"
     }
   },
   "errorBoundary": {
@@ -180,5 +186,12 @@
     "previous": "הקודם",
     "next": "הבא",
     "page": "עמוד {page} מתוך {total}"
+  },
+  "locator": {
+    "heroTitle": "הסניף שלכם, קרוב אליכם",
+    "heroSubtitle": "מוצאים בקלות את סניף זול ובגדול הקרוב, ובאים לקנות בנחת",
+    "sortLabel": "מיון הסניפים",
+    "sortName": "לפי שם הסניף",
+    "sortDistance": "הקרוב ביותר"
   }
 }

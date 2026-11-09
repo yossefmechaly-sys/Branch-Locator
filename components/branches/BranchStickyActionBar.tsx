@@ -27,7 +27,7 @@ export interface BranchStickyActionBarProps {
 export function BranchStickyActionBar({ branch }: BranchStickyActionBarProps) {
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-40 border-t bg-background/95 p-3 backdrop-blur-sm md:hidden"
+      className="branch-detail-sticky fixed inset-x-0 bottom-0 z-40 border-t bg-background/95 p-3 backdrop-blur-sm md:hidden"
       style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
     >
       <BranchActions branch={branch} className="flex flex-wrap justify-center gap-2" />

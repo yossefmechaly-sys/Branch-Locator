@@ -104,7 +104,8 @@
       "sectionTitle": "Photos",
       "mainImageAlt": "{name} – main photo",
       "thumbnailAlt": "{name} – photo {index}",
-      "noImage": "No photo available yet"
+      "noImage": "No photo available yet",
+      "position": "Photo {current} of {total}"
     },
     "services": {
       "sectionTitle": "Services",
@@ -146,6 +147,11 @@
       "title": "Branch not found",
       "description": "This branch doesn't exist or is no longer active.",
       "cta": "Back to all branches"
+    },
+    "design": {
+      "hoursNote": "Opening hours may vary on holidays.",
+      "reviewsTitle": "What our customers say",
+      "reviewPrompt": "Share your experience with us"
     }
   },
   "errorBoundary": {
@@ -180,5 +186,12 @@
     "previous": "Previous",
     "next": "Next",
     "page": "Page {page} of {total}"
+  },
+  "locator": {
+    "heroTitle": "Your neighbourhood store, closer to you",
+    "heroSubtitle": "Find your nearest Zol Uvegadol and enjoy an easier shopping trip.",
+    "sortLabel": "Sort branches",
+    "sortName": "By branch name",
+    "sortDistance": "Nearest first"
   }
 }
