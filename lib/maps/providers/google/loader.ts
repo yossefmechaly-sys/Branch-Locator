@@ -27,8 +27,8 @@ export class GoogleMapsLoadError extends Error {
   }
 }
 
-const SCRIPT_ELEMENT_ID = "maayan2000-google-maps-script";
-const CALLBACK_NAME = "__maayan2000GoogleMapsLoaded";
+const SCRIPT_ELEMENT_ID = "zol-uvegadol-google-maps-script";
+const CALLBACK_NAME = "__zolUvegadolGoogleMapsLoaded";
 
 declare global {
   interface Window {

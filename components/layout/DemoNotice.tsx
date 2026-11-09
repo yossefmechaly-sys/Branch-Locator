@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 
 /**
  * Bandeau "données de démonstration" (cahier des charges §74 : les données DEMO ne
- * doivent jamais être présentées comme les données réelles de Maayan 2000).
+ * doivent jamais être présentées comme les données réelles de Zol Uvegadol).
  *
  * Volontairement un bloc pleine largeur avec texte qui retourne à la ligne — et non
  * un `Badge` (conçu pour des libellés courts et `whitespace-nowrap`) : un badge sur

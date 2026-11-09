@@ -75,7 +75,7 @@ export function AdminSidebar({
   return (
     <aside className="hidden w-60 shrink-0 border-e bg-background md:flex md:flex-col">
       <div className="flex h-14 items-center border-b px-4 font-semibold tracking-tight">
-        Maayan 2000 — Admin
+        Zol Uvegadol — Admin
       </div>
 
       <nav className="flex flex-1 flex-col gap-1 p-3">

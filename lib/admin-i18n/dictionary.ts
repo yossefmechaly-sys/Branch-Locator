@@ -796,7 +796,7 @@ const fr = {
     promotion: "Promotion",
   },
   login: {
-    title: "Administration Maayan 2000",
+    title: "Administration Zol Uvegadol",
     description: "Connectez-vous avec votre compte administrateur.",
     email: "Email",
     password: "Mot de passe",
@@ -1237,7 +1237,7 @@ const en = {
   },
 
   login: {
-    title: "Maayan 2000 Administration",
+    title: "Zol Uvegadol Administration",
     description: "Sign in with your administrator account.",
     email: "Email",
     password: "Password",
@@ -1654,7 +1654,7 @@ const he = {
     promotion: "מבצע",
   },
   login: {
-    title: "ניהול Maayan 2000",
+    title: "ניהול Zol Uvegadol",
     description: "התחברו באמצעות חשבון מנהל המערכת.",
     email: "אימייל",
     password: "סיסמה",

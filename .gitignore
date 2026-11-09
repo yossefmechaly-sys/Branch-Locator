@@ -50,3 +50,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Métadonnées de collecte du VPS
+/zol-uvegadol-branch-locator-info.txt

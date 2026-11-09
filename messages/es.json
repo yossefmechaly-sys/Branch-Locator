@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "title": "Maayan 2000 – Localizador de tiendas",
-    "description": "Encuentra la tienda Maayan 2000 más cercana: dirección, horarios, servicios y navegación."
+    "title": "Zol Uvegadol – Localizador de tiendas",
+    "description": "Encuentra la tienda Zol Uvegadol más cercana: dirección, horarios, servicios y navegación."
   },
   "nav": {
-    "brand": "Maayan 2000",
+    "brand": "Zol Uvegadol",
     "branches": "Tiendas",
     "skipToContent": "Ir al contenido principal"
   },
@@ -14,7 +14,7 @@
   },
   "branches": {
     "title": "Nuestras tiendas",
-    "subtitle": "Encuentra la tienda Maayan 2000 más cercana",
+    "subtitle": "Encuentra la tienda Zol Uvegadol más cercana",
     "search": "Buscar por ciudad, dirección o nombre de tienda",
     "nearMe": "Encontrar una tienda cerca de mí",
     "openNow": "Abierto ahora",
@@ -91,7 +91,7 @@
   },
   "common": {
     "loading": "Cargando…",
-    "demoNotice": "Datos de demostración únicamente — no representan las tiendas reales de Maayan 2000",
+    "demoNotice": "Datos de demostración únicamente — no representan las tiendas reales de Zol Uvegadol",
     "comingSoon": "Próximamente",
     "retry": "Reintentar"
   },
@@ -136,11 +136,11 @@
       "sectionTitle": "Sobre esta tienda"
     },
     "nearby": {
-      "sectionTitle": "Otras tiendas Maayan 2000 en {cityName}"
+      "sectionTitle": "Otras tiendas Zol Uvegadol en {cityName}"
     },
     "seo": {
-      "fallbackTitle": "Maayan 2000 {displayName} {cityName} – Horarios, dirección y cómo llegar",
-      "fallbackDescription": "Toda la información sobre la tienda Maayan 2000 {displayName} en {cityName}: dirección, horarios, servicios y cómo llegar."
+      "fallbackTitle": "Zol Uvegadol {displayName} {cityName} – Horarios, dirección y cómo llegar",
+      "fallbackDescription": "Toda la información sobre la tienda Zol Uvegadol {displayName} en {cityName}: dirección, horarios, servicios y cómo llegar."
     },
     "notFound": {
       "title": "Tienda no encontrada",

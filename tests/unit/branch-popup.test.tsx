@@ -11,7 +11,7 @@ const TODAY_HOURS = { openingTime: "08:00", closingTime: "20:00", openingTime2: 
 
 const BRANCH: BranchSummary = makeBranchSummary({
   id: "jerusalem-ramot",
-  displayName: "Maayan 2000 – Ramot",
+  displayName: "Zol Uvegadol – Ramot",
   city: { id: "jerusalem", slug: "jerusalem", name: "Jerusalem", latitude: 31.77, longitude: 35.21 },
   address: "Ramot Blvd 1",
   latitude: 31.8,
@@ -38,7 +38,7 @@ describe("BranchPopup", () => {
     renderWithIntl(
       <BranchPopup branch={BRANCH} locale="en" variant="panel" onClose={vi.fn()} onViewDetails={vi.fn()} />
     );
-    expect(screen.getByText("Maayan 2000 – Ramot")).toBeTruthy();
+    expect(screen.getByText("Zol Uvegadol – Ramot")).toBeTruthy();
     expect(screen.getByText(/Jerusalem/)).toBeTruthy();
     expect(screen.getByText("Open now")).toBeTruthy();
   });

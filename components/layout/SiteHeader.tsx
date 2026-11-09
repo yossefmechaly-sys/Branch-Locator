@@ -17,15 +17,15 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-      <div className="mx-auto flex h-14 max-w-6xl items-center gap-4 px-4">
+      <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-4">
         <Link href="/branches" className="shrink-0" aria-label={t("brand")}>
           <Image
-            src="/images/maayan-2000-logo.png"
+            src="/images/zol-uvegadol-logo.png"
             alt={t("brand")}
-            width={2000}
-            height={453}
+            width={509}
+            height={450}
             priority
-            className="h-8 w-auto sm:h-11"
+            className="h-12 w-auto sm:h-14"
           />
         </Link>
         <nav className="hidden items-center gap-4 text-sm text-muted-foreground sm:flex">

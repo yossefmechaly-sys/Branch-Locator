@@ -8,13 +8,13 @@ describe("getSiteUrl (§27 Phase 8)", () => {
   });
 
   it("lit NEXT_PUBLIC_SITE_URL et retire un éventuel slash final", () => {
-    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://maayan2000.co.il/");
-    expect(getSiteUrl()).toBe("https://maayan2000.co.il");
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://zol-uvegadol.tobedev.com/");
+    expect(getSiteUrl()).toBe("https://zol-uvegadol.tobedev.com");
   });
 
   it("laisse l'URL inchangée quand elle n'a pas de slash final", () => {
-    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://maayan2000.co.il");
-    expect(getSiteUrl()).toBe("https://maayan2000.co.il");
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://zol-uvegadol.tobedev.com");
+    expect(getSiteUrl()).toBe("https://zol-uvegadol.tobedev.com");
   });
 
   it("retombe sur http://localhost:3000 quand la variable est absente — jamais un domaine de staging codé en dur", () => {

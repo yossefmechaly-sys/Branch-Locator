@@ -1,4 +1,4 @@
-// Maayan 2000 — Smart Branch Locator
+// Zol Uvegadol — Smart Branch Locator
 // Schéma de données validé en Phase 1 (voir le document d'architecture).
 //
 // Principe directeur : toute entité visible par l'utilisateur (Branch, City,
@@ -393,7 +393,7 @@ model Promotion {
   priority      Int                     @default(0)
   /// Même convention que `Branch.isDemo` (Phase 3) — TOUTES les promotions
   /// DEMO du seed doivent porter `true` : ne jamais présenter une promotion
-  /// fictive comme une vraie offre Maayan 2000 (§22).
+  /// fictive comme une vraie offre Zol Uvegadol (§22).
   isDemo        Boolean                 @default(true)
   createdAt     DateTime                @default(now())
   updatedAt     DateTime                @updatedAt

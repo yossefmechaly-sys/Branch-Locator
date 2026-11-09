@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "title": "Maayan 2000 – Поиск филиала",
-    "description": "Найдите ближайший магазин Maayan 2000: адрес, часы работы, услуги и маршрут проезда."
+    "title": "Zol Uvegadol – Поиск филиала",
+    "description": "Найдите ближайший магазин Zol Uvegadol: адрес, часы работы, услуги и маршрут проезда."
   },
   "nav": {
-    "brand": "Maayan 2000",
+    "brand": "Zol Uvegadol",
     "branches": "Филиалы",
     "skipToContent": "Перейти к основному содержимому"
   },
@@ -14,7 +14,7 @@
   },
   "branches": {
     "title": "Наши филиалы",
-    "subtitle": "Найдите ближайший филиал Maayan 2000",
+    "subtitle": "Найдите ближайший филиал Zol Uvegadol",
     "search": "Поиск по городу, адресу или названию филиала",
     "nearMe": "Найти филиал рядом со мной",
     "openNow": "Открыто сейчас",
@@ -91,7 +91,7 @@
   },
   "common": {
     "loading": "Загрузка…",
-    "demoNotice": "Только демонстрационные данные — не отражают реальные филиалы Maayan 2000",
+    "demoNotice": "Только демонстрационные данные — не отражают реальные филиалы Zol Uvegadol",
     "comingSoon": "Скоро",
     "retry": "Повторить"
   },
@@ -136,11 +136,11 @@
       "sectionTitle": "О филиале"
     },
     "nearby": {
-      "sectionTitle": "Другие филиалы Maayan 2000 в {cityName}"
+      "sectionTitle": "Другие филиалы Zol Uvegadol в {cityName}"
     },
     "seo": {
-      "fallbackTitle": "Maayan 2000 {displayName} {cityName} — часы работы, адрес и маршрут",
-      "fallbackDescription": "Вся информация о филиале Maayan 2000 {displayName} в {cityName}: адрес, часы работы, услуги и маршрут."
+      "fallbackTitle": "Zol Uvegadol {displayName} {cityName} — часы работы, адрес и маршрут",
+      "fallbackDescription": "Вся информация о филиале Zol Uvegadol {displayName} в {cityName}: адрес, часы работы, услуги и маршрут."
     },
     "notFound": {
       "title": "Филиал не найден",

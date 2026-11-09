@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "title": "Maayan 2000 – Branch Locator",
-    "description": "Find the nearest Maayan 2000 store: address, opening hours, services and navigation."
+    "title": "Zol Uvegadol – Branch Locator",
+    "description": "Find the nearest Zol Uvegadol store: address, opening hours, services and navigation."
   },
   "nav": {
-    "brand": "Maayan 2000",
+    "brand": "Zol Uvegadol",
     "branches": "Branches",
     "skipToContent": "Skip to main content"
   },
@@ -14,7 +14,7 @@
   },
   "branches": {
     "title": "Our branches",
-    "subtitle": "Find the nearest Maayan 2000 branch",
+    "subtitle": "Find the nearest Zol Uvegadol branch",
     "search": "Search by city, address or branch name",
     "nearMe": "Find a branch near me",
     "openNow": "Open now",
@@ -91,7 +91,7 @@
   },
   "common": {
     "loading": "Loading…",
-    "demoNotice": "Demo data only — does not represent Maayan 2000's actual branches",
+    "demoNotice": "Demo data only — does not represent Zol Uvegadol's actual branches",
     "comingSoon": "Coming soon",
     "retry": "Retry"
   },
@@ -136,7 +136,7 @@
       "sectionTitle": "About this branch"
     },
     "nearby": {
-      "sectionTitle": "Other Maayan 2000 branches in {cityName}"
+      "sectionTitle": "Other Zol Uvegadol branches in {cityName}"
     },
     "seo": {
       "fallbackTitle": "{displayName} {cityName} – Hours, Address & Directions",

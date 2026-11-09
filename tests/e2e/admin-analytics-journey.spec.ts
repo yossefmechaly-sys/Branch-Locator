@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { BRANCHES } from "../../prisma/seed-data";
 
 import { loginAsSuperAdmin } from "./helpers/auth";
 
@@ -34,7 +35,7 @@ import { loginAsSuperAdmin } from "./helpers/auth";
  */
 
 const BRANCH_SLUG = "jerusalem-ramot";
-const BRANCH_HE_LABEL = "מעיין 2000 – רמות";
+const BRANCH_HE_LABEL = BRANCHES.find((branch) => branch.slug === BRANCH_SLUG)!.translations.he.displayName;
 const PUBLIC_LOCALE = "fr";
 
 test.describe.configure({ mode: "serial" });

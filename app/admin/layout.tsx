@@ -8,7 +8,7 @@ import { getAdminDictionary } from "@/lib/admin-i18n/dictionary";
 import { AdminI18nProvider } from "@/components/admin/AdminI18nProvider";
 
 export const metadata: Metadata = {
-  title: { default: "Administration", template: "%s · Administration Maayan 2000" },
+  title: { default: "Administration", template: "%s · Administration Zol Uvegadol" },
   robots: { index: false, follow: false },
 };
 

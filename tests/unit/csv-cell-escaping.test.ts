@@ -23,7 +23,7 @@ describe("neutralizeCsvFormulaCell (Phase 10, §36)", () => {
   });
 
   it("laisse une valeur normale intacte", () => {
-    expect(neutralizeCsvFormulaCell("Maayan 2000 – Ramot")).toBe("Maayan 2000 – Ramot");
+    expect(neutralizeCsvFormulaCell("Zol Uvegadol – Ramot")).toBe("Zol Uvegadol – Ramot");
     expect(neutralizeCsvFormulaCell("")).toBe("");
     expect(neutralizeCsvFormulaCell("+972-2-1234567".slice(5))).toBe("2-1234567");
   });

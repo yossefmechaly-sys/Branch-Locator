@@ -1,4 +1,4 @@
-# Maayan 2000 — Store Locator — image de production
+# Zol Uvegadol — Store Locator — image de production
 #
 # Build multi-étapes standard pour une sortie Next.js `output: "standalone"`
 # (voir next.config.ts). Voir docs/production-deployment.md §3 pour le

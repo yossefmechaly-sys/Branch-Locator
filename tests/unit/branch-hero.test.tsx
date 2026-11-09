@@ -21,7 +21,7 @@ describe("BranchHero (Phase 8, §7)", () => {
       <BranchHero
         branch={makeBranchDetail({
           id: "jerusalem-ramot",
-          displayName: "Maayan 2000 – Ramot",
+          displayName: "Zol Uvegadol – Ramot",
           city: { id: "jerusalem", slug: "jerusalem", name: "Jerusalem", latitude: 31.8, longitude: 35.2 },
           district: "North",
           address: "Ramot Blvd 1",
@@ -29,7 +29,7 @@ describe("BranchHero (Phase 8, §7)", () => {
       />
     );
 
-    expect(screen.getByRole("heading", { level: 1, name: "Maayan 2000 – Ramot" })).toBeTruthy();
+    expect(screen.getByRole("heading", { level: 1, name: "Zol Uvegadol – Ramot" })).toBeTruthy();
     expect(screen.getByText(/Jerusalem/)).toBeTruthy();
     expect(screen.getByText(/North/)).toBeTruthy();
     expect(screen.getByText(/Ramot Blvd 1/)).toBeTruthy();
@@ -48,12 +48,12 @@ describe("BranchHero (Phase 8, §7)", () => {
       <BranchHero
         branch={makeBranchDetail({
           id: "with-photo",
-          displayName: "Maayan 2000 – Ramot",
+          displayName: "Zol Uvegadol – Ramot",
           mainImage: "https://cdn.example.com/ramot.jpg",
         })}
       />
     );
-    expect(screen.getByAltText("Maayan 2000 – Ramot")).toBeTruthy();
+    expect(screen.getByAltText("Zol Uvegadol – Ramot")).toBeTruthy();
   });
 
   it("inclut le statut horaire en direct et les actions (Navigation/Appeler/WhatsApp)", () => {
