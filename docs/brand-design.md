@@ -1,0 +1,28 @@
+# Leader — vêtements pour enfants — nouveau design
+
+Le bleu du logo est `#3c87da`. Les boutons utilisent un bleu plus soutenu
+`#2874c9` pour garder des libellés blancs lisibles. L’illustration montre une
+boutique de vêtements pour enfants. Les textes des cinq langues et le type
+Schema.org `ClothingStore` reflètent cette activité.
+
+La logique spécifique de Leader est conservée : horaires du samedi soir,
+une heure après la sortie de Shabbat, état des horaires non confirmés et
+filtre Ouvert maintenant calculé sur les statuts actualisés.
+
+La liste, les fiches magasin, les encadrés de carte et leurs repères reprennent
+les améliorations de Branch Locator. Les cartes de la liste se sélectionnent
+au clic dans leur espace blanc ; les liens et les boutons gardent leurs actions.
+Les filtres mobiles sont lisibles, le titre hébreu utilise Heebo Black, les
+photos principales et les notes publiques sont affichées lorsqu'elles existent.
+Les avis en attente ou refusés ne sont jamais comptabilisés publiquement.
+
+Les logos existants et les données propres à l'enseigne sont conservés.
+Les photos et la configuration privées restent sur le VPS. Le code des règles
+horaires, les dépôts de données et les migrations existantes ne sont pas remplacés.
+Aucune migration ni insertion de démonstration n'est exécutée en production.
+
+Validation : compilation, TypeScript et lint réussis ; 752 tests unitaires
+et 16 parcours navigateur réussis. Les cinq langues ont été vérifiées aux
+largeurs 320, 390, 768, 1280 et 1586 pixels, sur la liste et sur les fiches,
+sans débordement ni erreur JavaScript. Les tests utilisent des données locales
+de démonstration et un SDK Maps simulé pour les parcours cartographiques.

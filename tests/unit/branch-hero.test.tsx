@@ -6,6 +6,10 @@ import { BranchHero } from "@/components/branches/BranchHero";
 import { renderWithIntl } from "./helpers/render-with-intl";
 import { makeBranchDetail } from "./helpers/branch-fixture";
 
+vi.mock("@/components/branches/StorefrontIllustration", () => ({
+  StorefrontIllustration: () => <svg aria-hidden="true" />,
+}));
+
 describe("BranchHero (Phase 8, §7)", () => {
   beforeEach(() => {
     vi.useFakeTimers();
@@ -21,7 +25,7 @@ describe("BranchHero (Phase 8, §7)", () => {
       <BranchHero
         branch={makeBranchDetail({
           id: "jerusalem-ramot",
-          displayName: "Zol Uvegadol – Ramot",
+          displayName: "Maayan 2000 – Ramot",
           city: { id: "jerusalem", slug: "jerusalem", name: "Jerusalem", latitude: 31.8, longitude: 35.2 },
           district: "North",
           address: "Ramot Blvd 1",
@@ -29,7 +33,7 @@ describe("BranchHero (Phase 8, §7)", () => {
       />
     );
 
-    expect(screen.getByRole("heading", { level: 1, name: "Zol Uvegadol – Ramot" })).toBeTruthy();
+    expect(screen.getByRole("heading", { level: 1, name: "Maayan 2000 – Ramot" })).toBeTruthy();
     expect(screen.getByText(/Jerusalem/)).toBeTruthy();
     expect(screen.getByText(/North/)).toBeTruthy();
     expect(screen.getByText(/Ramot Blvd 1/)).toBeTruthy();
@@ -43,17 +47,18 @@ describe("BranchHero (Phase 8, §7)", () => {
     expect(container.querySelector("svg")).not.toBeNull();
   });
 
-  it("affiche l'image principale quand elle est disponible", () => {
+  it("réserve la photo principale à la galerie pour éviter de la dupliquer dans le bandeau", () => {
     renderWithIntl(
       <BranchHero
         branch={makeBranchDetail({
           id: "with-photo",
-          displayName: "Zol Uvegadol – Ramot",
+          displayName: "Maayan 2000 – Ramot",
           mainImage: "https://cdn.example.com/ramot.jpg",
         })}
       />
     );
-    expect(screen.getByAltText("Zol Uvegadol – Ramot")).toBeTruthy();
+    expect(screen.queryByAltText("Maayan 2000 – Ramot")).toBeNull();
+    expect(screen.getByRole("heading", { level: 1, name: "Maayan 2000 – Ramot" })).toBeTruthy();
   });
 
   it("inclut le statut horaire en direct et les actions (Navigation/Appeler/WhatsApp)", () => {

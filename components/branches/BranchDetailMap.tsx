@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
+import { MapPin } from "lucide-react";
 
 import { MapLoadingState } from "@/components/maps/MapLoadingState";
 import type { AppLocale } from "@/types/i18n";
@@ -47,20 +48,23 @@ export function BranchDetailMap({ branch, locale }: BranchDetailMapProps) {
   const branches = useMemo(() => [branch], [branch]);
 
   return (
-    <section aria-labelledby="branch-location-heading" className="flex flex-col gap-3">
+    <section aria-labelledby="branch-location-heading" className="branch-detail-map branch-detail-card flex min-w-0 flex-col gap-3">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h2 id="branch-location-heading" className="text-lg font-semibold tracking-tight">
+        <h2 id="branch-location-heading" className="branch-detail-section-heading">
+          <MapPin aria-hidden="true" />
           {t("sectionTitle")}
         </h2>
         <BranchDistance latitude={branch.latitude} longitude={branch.longitude} locale={locale} />
       </div>
+
+      <p className="text-sm text-muted-foreground">{branch.address}, {branch.city.name}</p>
 
       <BranchMap
         branches={branches}
         selectedBranchId={selectedBranchId}
         onSelectBranch={setSelectedBranchId}
         locale={locale}
-        className="h-[320px] sm:h-[400px]"
+        className="branch-detail-map-canvas h-[280px]"
       />
     </section>
   );

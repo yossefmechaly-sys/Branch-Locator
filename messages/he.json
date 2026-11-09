@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Leader – מציאת סניף",
-    "description": "מצאו את סניף Leader הקרוב אליכם: כתובת, שעות פתיחה, שירותים וניווט."
+    "description": "מצאו את חנות בגדי הילדים לידר הקרובה אליכם."
   },
   "nav": {
     "brand": "Leader",
@@ -14,7 +14,7 @@
   },
   "branches": {
     "title": "הסניפים שלנו",
-    "subtitle": "מצאו את סניף Leader הקרוב אליכם",
+    "subtitle": "מצאו את חנות בגדי הילדים לידר הקרובה אליכם.",
     "search": "חיפוש לפי עיר, כתובת או שם סניף",
     "nearMe": "מצא סניף קרוב אליי",
     "openNow": "פתוח עכשיו",
@@ -106,7 +106,8 @@
       "sectionTitle": "תמונות",
       "mainImageAlt": "{name} – תמונה ראשית",
       "thumbnailAlt": "{name} – תמונה {index}",
-      "noImage": "אין תמונה זמינה כרגע"
+      "noImage": "אין תמונה זמינה כרגע",
+      "position": "תמונה {current} מתוך {total}"
     },
     "services": {
       "sectionTitle": "שירותים",
@@ -142,12 +143,17 @@
     },
     "seo": {
       "fallbackTitle": "Leader {displayName} {cityName} – שעות פתיחה, כתובת וניווט",
-      "fallbackDescription": "כל המידע על סניף Leader {displayName} ב{cityName}: כתובת, שעות פתיחה, שירותים וניווט."
+      "fallbackDescription": "כל המידע על חנות בגדי הילדים לידר {displayName} ב{cityName}: כתובת, שעות פתיחה, שירותים וניווט."
     },
     "notFound": {
       "title": "הסניף לא נמצא",
       "description": "הסניף הזה אינו קיים או אינו פעיל עוד.",
       "cta": "חזרה לכל הסניפים"
+    },
+    "design": {
+      "hoursNote": "בחגים ובמועדים ייתכנו שינויים בשעות הפתיחה.",
+      "reviewsTitle": "חוות דעת לקוחות",
+      "reviewPrompt": "שתפו אותנו בחוויה שלכם"
     }
   },
   "errorBoundary": {
@@ -182,5 +188,12 @@
     "previous": "הקודם",
     "next": "הבא",
     "page": "עמוד {page} מתוך {total}"
+  },
+  "locator": {
+    "heroTitle": "הסגנון שלהם, קרוב אליכם",
+    "heroSubtitle": "בגדי ילדים שאוהבים, בסניף לידר הקרוב אליכם",
+    "sortLabel": "מיון הסניפים",
+    "sortName": "לפי שם הסניף",
+    "sortDistance": "הקרוב ביותר"
   }
 }

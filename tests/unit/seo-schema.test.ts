@@ -25,6 +25,12 @@ function makeInput(overrides: Partial<GroceryStoreSchemaInput> = {}): GrocerySto
 }
 
 describe("buildGroceryStoreSchema (§21-§24 Phase 8 : ne jamais inventer de donnée)", () => {
+  it("identifie Leader comme boutique de vêtements", () => {
+    const schema = buildGroceryStoreSchema(makeInput({storeType: "ClothingStore", name: "Leader"}));
+    expect(schema["@type"]).toBe("ClothingStore");
+    expect(schema.name).toBe("Leader");
+  });
+
   it("produit un GroceryStore minimal valide même sans aucune donnée optionnelle", () => {
     const schema = buildGroceryStoreSchema(makeInput());
 

@@ -1,7 +1,9 @@
 import { cache } from "react";
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Clock3, Info } from "lucide-react";
 
 import { JsonLd } from "@/components/seo/JsonLd";
 import { NowProvider } from "@/components/branches/NowProvider";
@@ -16,6 +18,7 @@ import { NearbyBranches } from "@/components/branches/NearbyBranches";
 import { BranchStickyActionBar } from "@/components/branches/BranchStickyActionBar";
 import { BranchViewTracker } from "@/components/branches/BranchViewTracker";
 import { BranchReviews } from "@/components/branches/BranchReviews";
+import { BranchReviewOverview } from "@/components/branches/BranchReviewOverview";
 import { getPublicBranchReviews } from "@/services/review.service";
 import { getBranchDetailBySlug, getBranchLocatorData } from "@/services/branch.service";
 import { getSiteUrl } from "@/lib/seo/site";
@@ -25,23 +28,37 @@ import { buildGroceryStoreSchema } from "@/lib/seo/schema";
 import { buildGoogleMapsUrl } from "@/lib/navigation/google-maps";
 import { locales, defaultLocale, type AppLocale } from "@/types/i18n";
 
+const detailHeading = localFont({
+  src: "../../../../assets/fonts/Heebo-Variable.ttf",
+  variable: "--font-detail-heading",
+  weight: "100 900",
+  display: "swap",
+  fallback: ["Arial", "sans-serif"],
+});
+
 interface BranchDetailPageParams {
   locale: string;
   slug: string;
 }
 
 /**
- * Rendu dynamique des fiches magasins.
- *
- * Les magasins sont créés et modifiés depuis l'administration,
- * y compris après le build de production.
- *
- * Le rendu à la demande évite les erreurs DYNAMIC_SERVER_USAGE
- * rencontrées avec ISR sur les nouvelles fiches.
- *
- * Le statut ouvert/fermé reste actualisé côté client.
+ * Stratégie de cache/ISR (Phase 8, §34) : la page est régénérée au maximum
+ * toutes les 60 secondes (même fréquence que le moteur
+ * d'horaires, `lib/opening-hours/config.ts`) — jamais des heures, jamais
+ * `force-static`/`revalidate: false`. Ce choix n'est PAS arbitraire : c'est
+ * exactement la même cadence que le timer client (`useNow`, §8/§20) qui
+ * rafraîchit le statut « ouvert/fermé » après hydratation. Concrètement :
+ * - Le HTML servi par le CDN/ISR ne peut donc jamais afficher un statut vieux
+ *   de plus de 60 s au tout premier rendu (avant même l'hydratation).
+ * - Une fois hydratée, la page continue de se rafraîchir côté client toutes
+ *   les 60 s indépendamment de toute régénération serveur (§8, impératif :
+ *   « ne jamais mettre en cache statiquement le texte "ouvert maintenant"
+ *   pendant des heures »).
+ * Le reste du contenu (nom, adresse, galerie, services, promotions, SEO) est
+ * parfaitement statique entre deux régénérations — bénéficier du cache ISR
+ * pour CE contenu-là est sans risque, contrairement au statut horaire.
  */
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 /**
  * Dédoublonne l'appel entre `generateMetadata()` et le composant de page —
@@ -155,6 +172,7 @@ export default async function BranchDetailPage(props: {
     }));
 
   const schema = buildGroceryStoreSchema({
+    storeType: "ClothingStore",
     name: branch.displayName,
     url: buildBranchUrl(appLocale, branch.slug),
     image: branch.mainImage,
@@ -177,59 +195,67 @@ export default async function BranchDetailPage(props: {
   const cityResult = await getBranchLocatorData({ locale: appLocale, citySlug: branch.city.slug });
   const nearbyBranches = cityResult.branches.filter((other) => other.id !== branch.id).slice(0, 4);
   const reviews = await getPublicBranchReviews(branch.slug);
+  const mainPhoto = branch.images.find((image) => image.imageUrl === branch.mainImage);
+  const galleryImages = branch.mainImage ? [
+    mainPhoto ?? { imageUrl: branch.mainImage, alt: branch.displayName },
+    ...branch.images.filter((image) => image.imageUrl !== branch.mainImage),
+  ] : branch.images;
 
   return (
     <NowProvider>
       <JsonLd data={schema} />
       <BranchViewTracker branchId={branch.id} />
 
-      <div className="mx-auto max-w-5xl px-4 py-6 pb-24 sm:py-10 md:pb-10">
-
-        <Breadcrumbs
-          locale={appLocale}
-          cityName={branch.city.name}
-          citySlug={branch.city.slug}
-          branchDisplayName={branch.displayName}
-          homeUrl={homeUrl}
-          branchesUrl={branchesUrl}
-        />
-
-        <div className="mt-4 flex flex-col gap-8">
-          <BranchHero branch={branch} />
-
-          <BranchGallery images={branch.images} branchName={branch.displayName} />
-
-          {branch.description && (
-            <section aria-labelledby="branch-about-heading" className="flex flex-col gap-3">
-              <h2 id="branch-about-heading" className="text-lg font-semibold tracking-tight">
-                {t("about.sectionTitle")}
+      <div className={`branch-detail ${detailHeading.variable}`} data-design="brand-branch-detail">
+        <div className="branch-detail-container branch-detail-breadcrumbs">
+          <Breadcrumbs
+            locale={appLocale}
+            cityName={branch.city.name}
+            citySlug={branch.city.slug}
+            branchDisplayName={branch.displayName}
+            homeUrl={homeUrl}
+            branchesUrl={branchesUrl}
+          />
+        </div>
+        <BranchHero branch={branch} rating={reviews.summary} />
+        <div className="branch-detail-container branch-detail-content">
+          <div className="branch-detail-primary-grid">
+            <BranchGallery images={galleryImages} branchName={branch.displayName} />
+            <section aria-labelledby="branch-hours-heading" className="branch-detail-hours branch-detail-card">
+              <h2 id="branch-hours-heading" className="branch-detail-section-heading">
+                <Clock3 aria-hidden="true" />{t("hours.sectionTitle")}
               </h2>
-              <p className="whitespace-pre-line text-sm leading-relaxed text-muted-foreground">
-                {branch.description}
-              </p>
+              <OpeningHoursLive openingHours={branch.openingHours} specialHours={branch.specialHours} saturdayEveningHours={branch.saturdayEveningHours} />
+              <p className="branch-detail-hours-note"><Info className="size-4 shrink-0" aria-hidden="true" />{t("design.hoursNote")}</p>
             </section>
+          </div>
+          <div className="branch-detail-secondary-grid">
+            <BranchDetailMap branch={branch} locale={appLocale} />
+            <BranchReviewOverview rating={reviews.summary} slug={branch.slug} />
+          </div>
+          {(branch.description || branch.services.length > 0) && (
+            <div className="branch-detail-additional-grid">
+              {branch.description && (
+                <section aria-labelledby="branch-about-heading" className="branch-detail-card">
+                  <h2 id="branch-about-heading" className="branch-detail-section-heading">
+                    {t("about.sectionTitle")}
+                  </h2>
+                  <p className="mt-4 whitespace-pre-line text-sm leading-relaxed text-muted-foreground">
+                    {branch.description}
+                  </p>
+                </section>
+              )}
+              {branch.services.length > 0 && <div className="branch-detail-card"><BranchServices services={branch.services} /></div>}
+            </div>
           )}
-
-          <BranchPromotions promotions={branch.promotions} branchId={branch.id} locale={appLocale} />
-
-          <BranchServices services={branch.services} />
-
-          <section aria-labelledby="branch-hours-heading" className="flex flex-col gap-3">
-            <h2 id="branch-hours-heading" className="text-lg font-semibold tracking-tight">
-              {t("hours.sectionTitle")}
-            </h2>
-            <OpeningHoursLive openingHours={branch.openingHours} specialHours={branch.specialHours} saturdayEveningHours={branch.saturdayEveningHours} />
-          </section>
-
-          <BranchDetailMap branch={branch} locale={appLocale} />
-
+          {branch.promotions.length > 0 && <div className="branch-detail-card">
+            <BranchPromotions promotions={branch.promotions} branchId={branch.id} locale={appLocale} />
+          </div>}
           <BranchReviews key={branch.slug} slug={branch.slug} initial={reviews} />
-
           <NearbyBranches branches={nearbyBranches} cityName={branch.city.name} locale={appLocale} />
         </div>
+        <BranchStickyActionBar branch={branch} />
       </div>
-
-      <BranchStickyActionBar branch={branch} />
     </NowProvider>
   );
 }

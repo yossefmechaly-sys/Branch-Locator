@@ -16,8 +16,8 @@ export function SiteHeader() {
   const t = useTranslations("nav");
 
   return (
-    <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-      <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-4">
+    <header className="site-header sticky top-0 z-40 border-b bg-[#ffffff]/95 backdrop-blur supports-[backdrop-filter]:bg-[#ffffff]/90">
+      <div className="mx-auto flex h-18 max-w-[1600px] items-center gap-5 px-4 sm:h-20 sm:px-6 lg:px-10">
         <Link href="/branches" className="shrink-0" aria-label={t("brand")}>
           <Image
             src="/images/leader-logo.jpg"
@@ -25,7 +25,7 @@ export function SiteHeader() {
             width={500}
             height={109}
             priority
-            className="h-7 w-auto sm:h-11"
+            className="h-8 w-auto sm:h-11"
           />
         </Link>
         <nav className="hidden items-center gap-4 text-sm text-muted-foreground sm:flex">

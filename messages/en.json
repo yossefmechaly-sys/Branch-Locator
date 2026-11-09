@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Leader – Branch Locator",
-    "description": "Find the nearest Leader store: address, opening hours, services and navigation."
+    "description": "Find your nearest Leader children’s clothing store."
   },
   "nav": {
     "brand": "Leader",
@@ -14,7 +14,7 @@
   },
   "branches": {
     "title": "Our branches",
-    "subtitle": "Find the nearest Leader branch",
+    "subtitle": "Find your nearest Leader children’s clothing store.",
     "search": "Search by city, address or branch name",
     "nearMe": "Find a branch near me",
     "openNow": "Open now",
@@ -106,7 +106,8 @@
       "sectionTitle": "Photos",
       "mainImageAlt": "{name} – main photo",
       "thumbnailAlt": "{name} – photo {index}",
-      "noImage": "No photo available yet"
+      "noImage": "No photo available yet",
+      "position": "Photo {current} of {total}"
     },
     "services": {
       "sectionTitle": "Services",
@@ -142,12 +143,17 @@
     },
     "seo": {
       "fallbackTitle": "{displayName} {cityName} – Hours, Address & Directions",
-      "fallbackDescription": "Everything about the {displayName} branch in {cityName}: address, opening hours, services and directions."
+      "fallbackDescription": "Everything about Leader children’s clothing store {displayName} in {cityName}: address, opening hours, services and directions."
     },
     "notFound": {
       "title": "Branch not found",
       "description": "This branch doesn't exist or is no longer active.",
       "cta": "Back to all branches"
+    },
+    "design": {
+      "hoursNote": "Opening hours may vary on holidays.",
+      "reviewsTitle": "What our customers say",
+      "reviewPrompt": "Share your experience with us"
     }
   },
   "errorBoundary": {
@@ -182,5 +188,12 @@
     "previous": "Previous",
     "next": "Next",
     "page": "Page {page} of {total}"
+  },
+  "locator": {
+    "heroTitle": "Little styles, close to home",
+    "heroSubtitle": "Find your nearest Leader children’s clothing store.",
+    "sortLabel": "Sort branches",
+    "sortName": "By branch name",
+    "sortDistance": "Nearest first"
   }
 }

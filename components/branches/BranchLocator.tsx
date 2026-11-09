@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
+import { ChevronDown } from "lucide-react";
 
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MapLoadingState } from "@/components/maps/MapLoadingState";
@@ -50,7 +51,7 @@ export interface BranchLocatorProps {
  * `useBranches` et `BranchMap`) : ce composant ne fait que tenir l'état de
  * l'UI et brancher les callbacks (§7 Phase 4, §1/§26 Phase 5 — non réécrit).
  *
- * Layout : desktop = split permanent 40 % liste / 60 % carte (`md:grid-cols-[40%_1fr]`) ;
+ * Layout : desktop = split permanent 45 % liste / 55 % carte ;
  * mobile = liste prioritaire, la carte est derrière un onglet (§10 Phase 4).
  * `BranchList` et `BranchMap` ne sont montés QU'UNE SEULE FOIS chacun — la
  * bascule mobile liste/carte et le split desktop sont purement des classes CSS
@@ -67,6 +68,8 @@ export interface BranchLocatorProps {
 export function BranchLocator({ locale, initialData, initialCitySlug = null }: BranchLocatorProps) {
   const tMobile = useTranslations("mobileView");
   const tGeolocation = useTranslations("geolocation");
+  const t = useTranslations("branches");
+  const tDesign = useTranslations("locator");
   const isDesktop = useIsDesktopViewport();
 
   const [query, setQuery] = useState("");
@@ -77,23 +80,14 @@ export function BranchLocator({ locale, initialData, initialCitySlug = null }: B
   const [selectedBranchId, setSelectedBranchId] = useState<string | null>(null);
   const [hoveredBranchId, setHoveredBranchId] = useState<string | null>(null);
   const [mobileTab, setMobileTab] = useState<"list" | "map">("list");
+  const [sortOrder, setSortOrder] = useState<"name" | "distance" | null>(null);
   // Une fois vrai, le reste — jamais remis à `false` : on ne recharge pas la
   // carte/le SDK Google à chaque va-et-vient entre les onglets mobiles (§22).
   const [hasOpenedMapOnce, setHasOpenedMapOnce] = useState(false);
 
-  // Le filtre "Ouvert maintenant" est appliqué sur les statuts actualisés
-  // côté client, afin de suivre les ouvertures et fermetures sans rechargement.
-  // La recherche, la ville et les services restent filtrés par l'API.
-  const apiFilters = useMemo(
-    () => ({ ...filters, isOpenNow: false }),
-    [filters.citySlug, filters.serviceSlug]
-  );
-  const { data, status, error, refetch } = useBranches({
-    locale,
-    query,
-    filters: apiFilters,
-    initialData,
-  });
+  // Leader's Saturday-evening status is refreshed locally, including the open-now filter.
+  const apiFilters = useMemo(() => ({ citySlug: filters.citySlug, serviceSlug: filters.serviceSlug, isOpenNow: false }), [filters.citySlug, filters.serviceSlug]);
+  const { data, status, error, refetch } = useBranches({ locale, query, filters: apiFilters, initialData });
 
   const { state: geolocationState, requestLocation } = useGeolocation();
   const userLocation = geolocationState.status === "granted" ? geolocationState.coordinates : null;
@@ -101,7 +95,7 @@ export function BranchLocator({ locale, initialData, initialCitySlug = null }: B
   // Store Locator : demander automatiquement la position au premier montage.
   // Si l'utilisateur accepte, `applyUserDistance()` trie ensuite les magasins
   // du plus proche au plus éloigné. En cas de refus/erreur, la liste reste
-  // utilisable dans son ordre serveur et le bouton « près de moi » permet
+  // utilisable dans l'ordre alphabétique et le bouton « près de moi » permet
   // toujours de réessayer manuellement.
   useEffect(() => {
     requestLocation();
@@ -148,10 +142,13 @@ export function BranchLocator({ locale, initialData, initialCitySlug = null }: B
   // toujours sans perte : `data.branches` reste la liste déjà filtrée, ce
   // hook ne fait qu'annoter/trier ce sous-ensemble. Inchangé (donc pas de
   // tri) tant que `userLocation` est `null`.
-  const sortedBranches = useMemo(
-    () => applyUserDistance(data.branches, userLocation),
-    [data.branches, userLocation]
-  );
+  const activeSort = sortOrder === "name" || !userLocation ? "name" : "distance";
+  const sortedBranches = useMemo(() => {
+    const branches = applyUserDistance(data.branches, userLocation);
+    return activeSort === "name"
+      ? [...branches].sort((a, b) => a.displayName.localeCompare(b.displayName, locale))
+      : branches;
+  }, [data.branches, userLocation, activeSort, locale]);
 
   // Rafraîchissement léger du statut horaire (Phase 7, §19/§20/§21) — un seul
   // timer central (`useNow`, jamais un par `BranchCard`), qui redéclenche ce
@@ -163,25 +160,13 @@ export function BranchLocator({ locale, initialData, initialCitySlug = null }: B
   const now = useNow();
   const liveBranches = useMemo(() => {
     const refreshed = refreshBranchStatuses(sortedBranches, now);
-    if (!filters.isOpenNow) return refreshed;
-    return refreshed.filter(
-      (branch) =>
-        branch.status === "OPEN" || branch.status === "CLOSING_SOON"
-    );
+    return filters.isOpenNow ? refreshed.filter((branch) => branch.status === "OPEN" || branch.status === "CLOSING_SOON") : refreshed;
   }, [sortedBranches, now, filters.isOpenNow]);
 
   const handleMobileTabChange = useCallback((value: string) => {
     const nextTab = value as "list" | "map";
     setMobileTab(nextTab);
     if (nextTab === "map") setHasOpenedMapOnce(true);
-  }, []);
-
-  // Bouton « détails » de `BranchPopup` (§9) : la sélection déclenche déjà le
-  // surlignage/défilement de la fiche dans `BranchList` (ci-dessous) — sur
-  // mobile, il faut en plus revenir à l'onglet liste pour la voir.
-  const handleViewDetails = useCallback((branchId: string) => {
-    setSelectedBranchId(branchId);
-    setMobileTab("list");
   }, []);
 
   const shouldMountMap = useMemo(
@@ -227,19 +212,22 @@ export function BranchLocator({ locale, initialData, initialCitySlug = null }: B
     hoveredBranchId,
     onHoverBranch: setHoveredBranchId,
     locale,
-    onViewDetails: handleViewDetails,
     userLocation,
+    className: "locator-map",
   };
 
   return (
-    <div className="mt-6 flex flex-col gap-4">
-      <div className="flex flex-col gap-3 sm:flex-row">
+    <div className="locator-workspace flex flex-col gap-5 sm:gap-7">
+      <div className="locator-controls">
         <BranchSearch
           value={query}
           onChange={setQuery}
           onRequestLocation={handleRequestLocation}
           geolocationStatus={geolocationState.status}
+          className="locator-search"
         />
+        <BranchFilters filters={filters} onFiltersChange={handleFiltersChange}
+          cities={data.cities} services={data.services} className="locator-filters" />
       </div>
 
       {/* Message non bloquant (§7/§8) — n'empêche jamais la recherche/les
@@ -249,13 +237,6 @@ export function BranchLocator({ locale, initialData, initialCitySlug = null }: B
           {geolocationMessage}
         </p>
       )}
-
-      <BranchFilters
-        filters={filters}
-        onFiltersChange={handleFiltersChange}
-        cities={data.cities}
-        services={data.services}
-      />
 
       {error && (
         <p role="alert" className="sr-only">
@@ -278,12 +259,26 @@ export function BranchLocator({ locale, initialData, initialCitySlug = null }: B
       </Tabs>
 
       {/* Mobile (< md) : un seul des deux blocs visible, selon `mobileTab`.
-          Desktop (≥ md) : les deux visibles simultanément, 40 % / 60 % (§9/§10). */}
-      <div className="grid gap-6 md:grid-cols-[40%_1fr] md:items-start">
-        <div className={cn(mobileTab !== "list" && "hidden", "md:block")}>
-          <BranchList {...branchListProps} />
+          Desktop (≥ md) : les deux visibles simultanément, 45 % / 55 %. */}
+      <div className="grid gap-6 md:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)] md:items-start lg:gap-8">
+        <div className={cn("min-w-0", mobileTab !== "list" && "hidden", "md:block")}>
+          <div className="locator-results-heading">
+            <div className="flex min-w-0 flex-wrap items-baseline gap-x-3 gap-y-1">
+              <h2 className="text-2xl font-bold tracking-tight">{t("title")}</h2>
+              <p className="text-sm text-muted-foreground" aria-live="polite">{t("resultsCount", { count: liveBranches.length })}</p>
+            </div>
+            <div className="relative shrink-0">
+              <select className="locator-sort" aria-label={tDesign("sortLabel")} value={activeSort}
+                onChange={(event) => setSortOrder(event.target.value as "name" | "distance")}>
+                <option value="name">{tDesign("sortName")}</option>
+                <option value="distance" disabled={!userLocation}>{tDesign("sortDistance")}</option>
+              </select>
+              <ChevronDown className="pointer-events-none absolute end-3 top-3 size-3.5" aria-hidden="true" />
+            </div>
+          </div>
+          <BranchList {...branchListProps} showCount={false} />
         </div>
-        <div className={cn(mobileTab !== "map" && "hidden", "md:sticky md:top-20 md:block")}>
+        <div className={cn("locator-map-column min-w-0", mobileTab !== "map" && "hidden", "md:sticky md:top-28 md:block")}>
           {/* Sur mobile, la carte n'est montée qu'après le premier passage sur
               l'onglet « Carte » (§4) — `shouldMountMap` le décide une fois pour
               toutes ; le bloc reste ensuite monté même si l'onglet redevient

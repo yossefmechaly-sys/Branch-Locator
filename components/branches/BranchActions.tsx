@@ -38,7 +38,7 @@ export function BranchActions({ branch, className }: BranchActionsProps) {
 
   return (
     <div className={className}>
-      <NavigationMenu branch={branch} />
+      <NavigationMenu branch={branch} className="branch-navigation-action" />
       {branch.phone && (
         <Button asChild variant="outline" size="sm" className="gap-1.5">
           <a href={toTelHref(branch.phone)} onClick={() => track({ name: "phone_click", branchId: branch.id })}>

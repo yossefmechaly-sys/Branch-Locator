@@ -15,6 +15,7 @@ import { absoluteImageUrl } from "./site";
  */
 
 export interface GroceryStoreSchemaInput {
+  storeType?: "GroceryStore" | "ClothingStore";
   name: string;
   /** URL canonique de la fiche (§19), utilisée aussi comme `url` du schéma. */
   url: string;
@@ -80,7 +81,7 @@ export function buildGroceryStoreSchema(input: GroceryStoreSchemaInput): Record<
 
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": "GroceryStore",
+    "@type": input.storeType ?? "GroceryStore",
     name: input.name,
     url: input.url,
     address,

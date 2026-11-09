@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Leader – Recherche de magasin",
-    "description": "Trouvez le magasin Leader le plus proche : adresse, horaires, services et navigation."
+    "description": "Trouvez la boutique Leader de vêtements pour enfants la plus proche."
   },
   "nav": {
     "brand": "Leader",
@@ -14,7 +14,7 @@
   },
   "branches": {
     "title": "Nos magasins",
-    "subtitle": "Trouvez le magasin Leader le plus proche",
+    "subtitle": "Trouvez la boutique Leader de vêtements pour enfants la plus proche.",
     "search": "Recherche par ville, adresse ou nom de magasin",
     "nearMe": "Trouver un magasin près de moi",
     "openNow": "Ouvert maintenant",
@@ -106,7 +106,8 @@
       "sectionTitle": "Photos",
       "mainImageAlt": "{name} – photo principale",
       "thumbnailAlt": "{name} – photo {index}",
-      "noImage": "Aucune photo disponible pour le moment"
+      "noImage": "Aucune photo disponible pour le moment",
+      "position": "Photo {current} sur {total}"
     },
     "services": {
       "sectionTitle": "Services",
@@ -142,12 +143,17 @@
     },
     "seo": {
       "fallbackTitle": "Leader {displayName} {cityName} – Horaires, adresse et navigation",
-      "fallbackDescription": "Toutes les informations sur le magasin Leader {displayName} à {cityName} : adresse, horaires, services et itinéraire."
+      "fallbackDescription": "Toutes les informations sur la boutique de vêtements pour enfants Leader {displayName} à {cityName} : adresse, horaires, services et itinéraire."
     },
     "notFound": {
       "title": "Magasin introuvable",
       "description": "Ce magasin n'existe pas ou n'est plus actif.",
       "cta": "Retour à tous les magasins"
+    },
+    "design": {
+      "hoursNote": "Les horaires peuvent varier les jours fériés.",
+      "reviewsTitle": "L’avis de nos clients",
+      "reviewPrompt": "Partagez votre expérience avec nous"
     }
   },
   "errorBoundary": {
@@ -182,5 +188,12 @@
     "previous": "Précédent",
     "next": "Suivant",
     "page": "Page {page} sur {total}"
+  },
+  "locator": {
+    "heroTitle": "Le style des petits, tout près de vous",
+    "heroSubtitle": "Trouvez votre boutique Leader de vêtements pour enfants.",
+    "sortLabel": "Trier les magasins",
+    "sortName": "Par nom",
+    "sortDistance": "Les plus proches"
   }
 }

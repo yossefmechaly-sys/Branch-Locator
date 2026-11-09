@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Leader – Localizador de tiendas",
-    "description": "Encuentra la tienda Leader más cercana: dirección, horarios, servicios y navegación."
+    "description": "Encuentra tu tienda Leader de ropa infantil más cercana."
   },
   "nav": {
     "brand": "Leader",
@@ -14,7 +14,7 @@
   },
   "branches": {
     "title": "Nuestras tiendas",
-    "subtitle": "Encuentra la tienda Leader más cercana",
+    "subtitle": "Encuentra tu tienda Leader de ropa infantil más cercana.",
     "search": "Buscar por ciudad, dirección o nombre de tienda",
     "nearMe": "Encontrar una tienda cerca de mí",
     "openNow": "Abierto ahora",
@@ -106,7 +106,8 @@
       "sectionTitle": "Fotos",
       "mainImageAlt": "{name} – foto principal",
       "thumbnailAlt": "{name} – foto {index}",
-      "noImage": "Aún no hay fotos disponibles"
+      "noImage": "Aún no hay fotos disponibles",
+      "position": "Foto {current} de {total}"
     },
     "services": {
       "sectionTitle": "Servicios",
@@ -142,12 +143,17 @@
     },
     "seo": {
       "fallbackTitle": "Leader {displayName} {cityName} – Horarios, dirección y cómo llegar",
-      "fallbackDescription": "Toda la información sobre la tienda Leader {displayName} en {cityName}: dirección, horarios, servicios y cómo llegar."
+      "fallbackDescription": "Toda la información de la tienda de ropa infantil Leader {displayName} en {cityName}: dirección, horarios, servicios y cómo llegar."
     },
     "notFound": {
       "title": "Tienda no encontrada",
       "description": "Esta tienda no existe o ya no está activa.",
       "cta": "Volver a todas las tiendas"
+    },
+    "design": {
+      "hoursNote": "Los horarios pueden variar en días festivos.",
+      "reviewsTitle": "La opinión de nuestros clientes",
+      "reviewPrompt": "Comparte tu experiencia con nosotros"
     }
   },
   "errorBoundary": {
@@ -182,5 +188,12 @@
     "previous": "Anterior",
     "next": "Siguiente",
     "page": "Página {page} de {total}"
+  },
+  "locator": {
+    "heroTitle": "Moda infantil, más cerca de ti",
+    "heroSubtitle": "Encuentra tu tienda Leader de ropa infantil más cercana.",
+    "sortLabel": "Ordenar tiendas",
+    "sortName": "Por nombre",
+    "sortDistance": "Más cercanas"
   }
 }

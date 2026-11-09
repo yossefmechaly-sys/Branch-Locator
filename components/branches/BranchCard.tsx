@@ -3,10 +3,9 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { ChevronDown, Flame, MapPin, Phone } from "lucide-react";
+import { ChevronDown, Flame, MapPin, MessageCircle, Phone } from "lucide-react";
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { track } from "@/lib/analytics/track";
 import { cn, toTelHref, toWhatsAppHref } from "@/lib/utils";
@@ -22,8 +21,6 @@ import { OpeningHours } from "./OpeningHours";
 import { PromotionPrice } from "./PromotionPrice";
 import { ServiceIcon } from "./ServiceIcon";
 
-const ESSENTIAL_SERVICES_LIMIT = 4;
-
 export interface BranchCardProps {
   branch: BranchSummary;
   locale: AppLocale;
@@ -36,33 +33,39 @@ export function BranchCard({ branch, locale, isSelected, onSelect, onHover }: Br
   const t = useTranslations("branches");
   const [expanded, setExpanded] = useState(false);
 
-  const visibleServices = branch.services.slice(0, ESSENTIAL_SERVICES_LIMIT);
-  const hiddenServiceCount = branch.services.length - visibleServices.length;
+  const selectBranch = () => {
+    track({ name: "branch_card_click", branchId: branch.id });
+    onSelect(branch.id);
+  };
 
   return (
     <Card
       data-selected={isSelected || undefined}
       onMouseEnter={() => onHover?.(branch.id)}
       onMouseLeave={() => onHover?.(null)}
+      onClick={(event) => {
+        const target = event.target;
+        // Links, controls and portaled menus keep their own actions.
+        if (!(target instanceof Element) || !event.currentTarget.contains(target) ||
+            target.closest("a, button, input, select, textarea, [role='button'], [role='link']")) return;
+        const selection = window.getSelection();
+        if (selection && !selection.isCollapsed && selection.containsNode(event.currentTarget, true)) return;
+        selectBranch();
+      }}
       className={cn(
-        "transition-colors",
-        isSelected && "border-primary ring-1 ring-primary"
+        "locator-card cursor-pointer transition-colors",
+        isSelected && "locator-card-selected"
       )}
     >
-      <CardHeader className="flex-row items-start gap-3 sm:gap-4">
+      <CardHeader className="locator-card-header flex-row items-start gap-3 px-0 sm:gap-4">
         <BranchThumbnail key={branch.mainImage ?? "no-photo"} src={branch.mainImage}
           name={branch.displayName} slug={branch.slug} locale={locale} />
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-start justify-between gap-x-2 gap-y-1">
             <button
               type="button"
-              onClick={() => {
-                // Phase 10, §3 — clic sur la carte (liste), distinct de
-                // `branch_view` (montage réel de la fiche détaillée complète).
-                track({ name: "branch_card_click", branchId: branch.id });
-                onSelect(branch.id);
-              }}
-              className="min-w-0 break-words rounded-sm text-start font-semibold leading-tight outline-none hover:underline focus-visible:ring-2 focus-visible:ring-ring"
+              onClick={selectBranch}
+              className="min-w-0 break-words rounded-sm text-start text-lg font-bold leading-tight outline-none sm:text-xl hover:underline focus-visible:ring-2 focus-visible:ring-ring"
             >
               {branch.displayName}
             </button>
@@ -76,24 +79,11 @@ export function BranchCard({ branch, locale, isSelected, onSelect, onHover }: Br
             </span>
           </p>
           <BranchRating rating={branch.reviewRating} slug={branch.slug} locale={locale} />
+          <BranchStatus viewModel={branch.statusViewModel} saturdayEveningHours={branch.saturdayEveningHours} className="mt-2" />
         </div>
       </CardHeader>
 
-      <CardContent className="flex flex-col gap-4">
-        <BranchStatus viewModel={branch.statusViewModel} saturdayEveningHours={branch.saturdayEveningHours} />
-
-        {/*
-         * Aperçu compact de la promotion "du jour" (Phase 9, §13) — rendu
-         * UNIQUEMENT quand `branch.featuredPromotion` est renseigné, c'est-à-
-         * dire une promotion réellement active, `isFeatured: true` ET la plus
-         * prioritaire pour CE magasin (voir
-         * `lib/promotions/priority.ts#selectFeaturedPromotion()`, appliqué en
-         * amont par `services/branch.service.ts`). Aucun autre changement
-         * n'est apporté à `BranchCard` : quand `featuredPromotion` est `null`
-         * (le cas normal, la grande majorité des magasins), ce bloc entier
-         * est absent et la carte reste PIXEL POUR PIXEL identique à avant la
-         * Phase 9 (§13, contrainte impérative de non-régression).
-         */}
+      <CardContent className="flex flex-col gap-3 px-0">
         {branch.featuredPromotion && (
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1 rounded-md border border-destructive/30 bg-destructive/5 px-2.5 py-1.5">
             <span className="flex min-w-0 items-center gap-1 text-xs font-semibold text-destructive">
@@ -115,65 +105,42 @@ export function BranchCard({ branch, locale, isSelected, onSelect, onHover }: Br
           </div>
         )}
 
-        {visibleServices.length > 0 && (
-          <div className="flex flex-wrap gap-1.5">
-            {visibleServices.map((service) => (
-              <Badge key={service.id} variant="outline" className="gap-1 font-normal">
-                <ServiceIcon icon={service.icon} className="size-3" />
-                {service.name}
-              </Badge>
-            ))}
-            {hiddenServiceCount > 0 && (
-              <Badge
-                asChild
-                variant="outline"
-                className="cursor-pointer font-normal text-muted-foreground"
-              >
-                <button type="button" onClick={() => setExpanded((value) => !value)}>
-                  {t("moreServicesCount", { count: hiddenServiceCount })}
-                </button>
-              </Badge>
-            )}
-          </div>
-        )}
-
-        <div className="flex flex-wrap gap-2">
-          {branch.whatsappNumber && (
-            <Button asChild variant="outline" size="sm" className="gap-1.5">
-              <a
-                href={toWhatsAppHref(branch.whatsappNumber)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t("whatsapp")}
-              </a>
-            </Button>
-          )}
-          {branch.phone && (
-            <Button asChild variant="outline" size="sm" className="gap-1.5">
-              <a href={toTelHref(branch.phone)}>
-                <Phone className="size-3.5" />
-                {t("call")}
-              </a>
-            </Button>
-          )}
-          <NavigationMenu branch={branch} className="gap-1.5" />
-
+        <div className="locator-card-actions flex flex-wrap gap-2">
+          <NavigationMenu branch={branch} className="locator-action-primary gap-1.5" />
           <Button asChild variant="outline" size="sm">
             <Link href={`/${locale}/branches/${branch.slug}`}>
               {t("viewPage")}
             </Link>
           </Button>
-
+          {branch.whatsappNumber && (
+            <Button asChild variant="outline" size="sm" className="size-8 shrink-0 px-0">
+              <a
+                href={toWhatsAppHref(branch.whatsappNumber)}
+                aria-label={t("whatsapp")} title={t("whatsapp")}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MessageCircle className="size-3.5" aria-hidden="true" />
+              </a>
+            </Button>
+          )}
+          {branch.phone && (
+            <Button asChild variant="outline" size="sm" className="size-8 shrink-0 px-0">
+              <a href={toTelHref(branch.phone)} aria-label={t("call")} title={t("call")}>
+                <Phone className="size-3.5" aria-hidden="true" />
+              </a>
+            </Button>
+          )}
           <Button
             type="button"
             variant="ghost"
             size="sm"
-            className="ms-auto gap-1"
+            className="ms-auto size-8 shrink-0 px-0"
             aria-expanded={expanded}
+            title={expanded ? t("showLess") : t("details")}
             onClick={() => setExpanded((value) => !value)}
           >
-            {expanded ? t("showLess") : t("details")}
+            <span className="sr-only">{expanded ? t("showLess") : t("details")}</span>
             <ChevronDown className={cn("size-3.5 transition-transform", expanded && "rotate-180")} />
           </Button>
         </div>

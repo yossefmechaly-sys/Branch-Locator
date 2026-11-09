@@ -21,6 +21,7 @@ import {
   SELECTED_BRANCH_ZOOM,
 } from "@/lib/maps/types";
 import { GoogleMapsLoadError, loadGoogleMaps } from "@/lib/maps/providers/google/loader";
+import { LOCATOR_MAP_STYLES } from "@/lib/maps/providers/google/styles";
 import { useIsDesktopViewport } from "@/hooks/useIsDesktopViewport";
 import { track } from "@/lib/analytics/track";
 
@@ -71,7 +72,6 @@ export function BranchMap({
   hoveredBranchId = null,
   onHoverBranch,
   locale,
-  onViewDetails,
   userLocation = null,
   className,
 }: BranchMapViewProps) {
@@ -106,12 +106,10 @@ export function BranchMap({
   // règle `react-hooks/refs`.
   const onSelectBranchRef = useRef(onSelectBranch);
   const onHoverBranchRef = useRef(onHoverBranch);
-  const onViewDetailsRef = useRef(onViewDetails);
 
   useEffect(() => {
     onSelectBranchRef.current = onSelectBranch;
     onHoverBranchRef.current = onHoverBranch;
-    onViewDetailsRef.current = onViewDetails;
     isDesktopRef.current = isDesktop;
   });
 
@@ -120,13 +118,6 @@ export function BranchMap({
   const isFirstLoadRef = useRef(true);
 
   const handleRetry = useCallback(() => setRetryToken((token) => token + 1), []);
-
-  const handleViewDetails = useCallback(
-    (branchId: string) => {
-      onViewDetailsRef.current?.(branchId);
-    },
-    []
-  );
 
   const formatClusterTitle = useCallback((count: number) => t("clusterCount", { count }), [t]);
 
@@ -179,6 +170,7 @@ export function BranchMap({
       streetViewControl: false,
       mapTypeControl: false,
       clickableIcons: false,
+      styles: LOCATOR_MAP_STYLES,
     });
   }, [loadState.status]);
 
@@ -400,7 +392,7 @@ export function BranchMap({
     if (!marker) return;
 
     if (!infoWindowRef.current) {
-      infoWindowRef.current = new maps.InfoWindow();
+      infoWindowRef.current = new maps.InfoWindow({ headerDisabled: true, maxWidth: 360 });
       maps.event.addListener(infoWindowRef.current, "closeclick", () => onSelectBranchRef.current(null));
     }
     if (!infoWindowContainerRef.current) {
@@ -418,13 +410,12 @@ export function BranchMap({
           locale={locale}
           variant="panel"
           onClose={handleClosePopup}
-          onViewDetails={handleViewDetails}
         />
       </NextIntlClientProvider>
     );
     infoWindowRef.current.setContent(infoWindowContainerRef.current);
     infoWindowRef.current.open({ map, anchor: marker });
-  }, [selectedBranch, isDesktop, locale, messages, handleClosePopup, handleViewDetails]);
+  }, [selectedBranch, isDesktop, locale, messages, handleClosePopup]);
 
   // Nettoyage complet au démontage — jamais d'écouteur/racine React qui fuit
   // (§22). `markers` capturé ici (au montage) plutôt que relu via la ref au
@@ -494,7 +485,6 @@ export function BranchMap({
             locale={locale}
             variant="sheet"
             onClose={handleClosePopup}
-            onViewDetails={handleViewDetails}
           />
         </div>
       )}

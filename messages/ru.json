@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Leader – Поиск филиала",
-    "description": "Найдите ближайший магазин Leader: адрес, часы работы, услуги и маршрут проезда."
+    "description": "Найдите ближайший магазин детской одежды Leader."
   },
   "nav": {
     "brand": "Leader",
@@ -14,7 +14,7 @@
   },
   "branches": {
     "title": "Наши филиалы",
-    "subtitle": "Найдите ближайший филиал Leader",
+    "subtitle": "Найдите ближайший магазин детской одежды Leader.",
     "search": "Поиск по городу, адресу или названию филиала",
     "nearMe": "Найти филиал рядом со мной",
     "openNow": "Открыто сейчас",
@@ -106,7 +106,8 @@
       "sectionTitle": "Фото",
       "mainImageAlt": "{name} — главное фото",
       "thumbnailAlt": "{name} — фото {index}",
-      "noImage": "Фото пока недоступно"
+      "noImage": "Фото пока недоступно",
+      "position": "Фото {current} из {total}"
     },
     "services": {
       "sectionTitle": "Услуги",
@@ -142,12 +143,17 @@
     },
     "seo": {
       "fallbackTitle": "Leader {displayName} {cityName} — часы работы, адрес и маршрут",
-      "fallbackDescription": "Вся информация о филиале Leader {displayName} в {cityName}: адрес, часы работы, услуги и маршрут."
+      "fallbackDescription": "Всё о магазине детской одежды Leader {displayName} в {cityName}: адрес, часы работы, услуги и маршрут."
     },
     "notFound": {
       "title": "Филиал не найден",
       "description": "Этот филиал не существует или больше не активен.",
       "cta": "Ко всем филиалам"
+    },
+    "design": {
+      "hoursNote": "В праздничные дни часы работы могут меняться.",
+      "reviewsTitle": "Отзывы покупателей",
+      "reviewPrompt": "Поделитесь своими впечатлениями"
     }
   },
   "errorBoundary": {
@@ -182,5 +188,12 @@
     "previous": "Назад",
     "next": "Далее",
     "page": "Страница {page} из {total}"
+  },
+  "locator": {
+    "heroTitle": "Детская мода — рядом с вами",
+    "heroSubtitle": "Найдите ближайший магазин детской одежды Leader.",
+    "sortLabel": "Сортировка магазинов",
+    "sortName": "По названию",
+    "sortDistance": "Ближайшие"
   }
 }

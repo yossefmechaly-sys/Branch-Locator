@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { BranchLocator } from "@/components/branches/BranchLocator";
+import { StorefrontIllustration } from "@/components/branches/StorefrontIllustration";
 import { getBranchLocatorData } from "@/services/branch.service";
 import { buildLocaleHreflangAlternates } from "@/lib/seo/branch-urls";
 import type { AppLocale } from "@/types/i18n";
+
+const hebrewHeading = localFont({
+  src: "../../../assets/fonts/Heebo-Variable.ttf",
+  weight: "100 900",
+  display: "swap",
+  fallback: ["Arial", "sans-serif"],
+});
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -43,7 +52,7 @@ export default async function BranchesPage(props: {
   setRequestLocale(locale);
   const appLocale = locale as AppLocale;
 
-  const t = await getTranslations("branches");
+  const tDesign = await getTranslations("locator");
   const citySlug = searchParams.city?.trim() || null;
   const initialData = await getBranchLocatorData({
     locale: appLocale,
@@ -51,16 +60,21 @@ export default async function BranchesPage(props: {
   });
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-6 sm:py-10">
-
-      <h1 className="text-3xl font-semibold tracking-tight">{t("title")}</h1>
-      <p className="mt-2 text-muted-foreground">{t("subtitle")}</p>
-
-      <BranchLocator
-        locale={appLocale}
-        initialData={initialData}
-        initialCitySlug={citySlug}
-      />
+    <div className="locator-shell" data-design="brand-locator">
+      <section className="locator-hero" aria-labelledby="locator-heading">
+        <div className="locator-hero-inner">
+          <div className="locator-hero-copy">
+            <h1 id="locator-heading" className={appLocale === "he" ? hebrewHeading.className : undefined}>
+              {tDesign("heroTitle")}
+            </h1>
+            <p>{tDesign("heroSubtitle")}</p>
+          </div>
+          <div className="locator-illustration"><StorefrontIllustration /></div>
+        </div>
+      </section>
+      <div className="locator-content">
+        <BranchLocator locale={appLocale} initialData={initialData} initialCitySlug={citySlug} />
+      </div>
     </div>
   );
 }
