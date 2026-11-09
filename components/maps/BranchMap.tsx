@@ -21,6 +21,7 @@ import {
   SELECTED_BRANCH_ZOOM,
 } from "@/lib/maps/types";
 import { GoogleMapsLoadError, loadGoogleMaps } from "@/lib/maps/providers/google/loader";
+import { LOCATOR_MAP_STYLES } from "@/lib/maps/providers/google/styles";
 import { useIsDesktopViewport } from "@/hooks/useIsDesktopViewport";
 import { track } from "@/lib/analytics/track";
 
@@ -179,6 +180,7 @@ export function BranchMap({
       streetViewControl: false,
       mapTypeControl: false,
       clickableIcons: false,
+      styles: LOCATOR_MAP_STYLES,
     });
   }, [loadState.status]);
 

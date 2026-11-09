@@ -12,6 +12,13 @@
     "label": "Langue",
     "srLabel": "Choisir la langue d'affichage"
   },
+  "locator": {
+    "heroTitle": "Votre magasin, tout près de vous",
+    "heroSubtitle": "Trouvez votre Maayan 2000 et faites vos courses en toute tranquillité.",
+    "sortLabel": "Trier les magasins",
+    "sortName": "Par nom",
+    "sortDistance": "Les plus proches"
+  },
   "branches": {
     "title": "Nos magasins",
     "subtitle": "Trouvez le magasin Maayan 2000 le plus proche",

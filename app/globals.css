@@ -100,3 +100,76 @@
     font-family: var(--font-sans);
   }
 }
+
+/* The public locator has its own palette; administration keeps its theme. */
+.site-header { --background: #fbf8f2; --foreground: #242726; --muted-foreground: #696e66; --input: #e4e3dc; color: #242726; }
+.locator-shell {
+  --background: #f8f7f2; --foreground: #252826;
+  --card: #ffffff; --card-foreground: #252826;
+  --primary: #ffc20a; --primary-foreground: #252826;
+  --muted: #eeeee7; --muted-foreground: #6c716a;
+  --accent: #fff4d4; --accent-foreground: #252826;
+  --border: #e5e4dc; --input: #dfdfd7; --ring: #976400;
+  min-height: calc(100svh - 5rem);
+  background: var(--background); color: var(--foreground);
+  padding-bottom: 3rem;
+}
+.locator-hero { background: #ffc20a; overflow: hidden; }
+.locator-hero-inner { position: relative; max-width: 1600px; margin-inline: auto; padding: 3rem 2.5rem 5.8rem; }
+.locator-hero-copy { position: relative; z-index: 1; width: 65%; }
+.locator-hero h1 { font-size: clamp(2rem, 3.7vw, 3.6rem); font-weight: 800; letter-spacing: -.035em; line-height: 1.18; text-wrap: balance; }
+.locator-hero p { max-width: 44rem; margin-top: .8rem; font-size: clamp(1rem, 1.5vw, 1.3rem); line-height: 1.6; }
+.locator-illustration { position: absolute; inset-inline-end: 2.5rem; bottom: 0; width: 34%; max-width: 500px; color: #6b4e0a; opacity: .8; }
+.locator-illustration svg { display: block; width: 100%; }
+.locator-content { position: relative; max-width: 1600px; margin-inline: auto; padding-inline: 2.5rem; }
+.locator-workspace { margin-top: -3rem; }
+.locator-controls { position: relative; z-index: 10; display: flex; flex-direction: column; gap: 1rem; border: 1px solid #eeede5; border-radius: 22px; background: #fff; padding: 1.25rem; box-shadow: 0 8px 24px #382c0b0b, 0 2px 4px #382c0b05; }
+.locator-search input { height: 48px; border-radius: 13px; background: #fbfbf9; font-size: 14px; }
+.locator-search > button { min-height: 48px; border: 0; border-radius: 13px; background: #ffc20a; color: #252826; padding-inline: 1.5rem; font-size: 14px; font-weight: 700; box-shadow: none; }
+.locator-search > button:hover { background: #f3b700; }
+.locator-filters [data-slot="select-trigger"], .locator-filters [role="switch"] { min-height: 42px; border-radius: 11px; background: #fbfbf9; font-size: 13px; }
+.locator-filters [data-slot="select-trigger"] { min-width: 118px; }
+.locator-filters [role="switch"] { color: #363a35; }
+.locator-results-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .7rem; margin-bottom: 1rem; min-height: 40px; }
+.locator-sort { max-width: 100%; appearance: none; border: 1px solid var(--border); background: #fff; border-radius: 10px; height: 38px; padding-inline: .8rem 2rem; font-size: 12px; color: #444a43; outline-color: var(--ring); }
+.locator-card { border-radius: 20px; border-color: #e6e5de; background: #fff; padding: 1rem; gap: .8rem; box-shadow: 0 3px 10px #302a1006, 0 1px 2px #302a1004; }
+.locator-card:hover { border-color: #d5cfbb; }
+.locator-card-selected, .locator-card-selected:hover { border-color: #eaa600; background: #fffaf0; box-shadow: 0 0 0 1px #eaa600, 0 4px 16px #a8750010; }
+.locator-card-header > [data-slot="branch-thumbnail"] { width: 80px; height: 104px; border-radius: 14px; box-shadow: none; }
+.locator-card-actions [data-slot="button"] { border-radius: 9px; box-shadow: none; }
+.locator-card-actions .locator-action-primary { background: #ffc20a; border-color: #ffc20a; color: #252826; font-weight: 700; }
+.locator-card-actions .locator-action-primary:hover { background: #f3b700; border-color: #f3b700; }
+.locator-map { height: clamp(420px, calc(100svh - 170px), 720px); min-height: 420px; }
+.locator-map > [role="region"], .locator-map > [role="status"], .locator-map > [role="alert"] { border-radius: 22px; border-color: #e4e3da; }
+.locator-map-column > [role="status"] { height: clamp(420px, calc(100svh - 170px), 720px); border-radius: 22px; }
+.locator-shell [data-slot="tabs-list"] { background: #ecebe2; border-radius: 12px; height: 44px; padding: 4px; }
+.locator-shell [data-slot="tabs-trigger"][data-state="active"] { background: #fff; border-radius: 9px; box-shadow: 0 1px 4px #302a1010; }
+@media (min-width: 640px) {
+  .locator-card { padding: 1rem 1.15rem; }
+  .locator-card-header > [data-slot="branch-thumbnail"] { width: 112px; height: 128px; }
+}
+@media (min-width: 768px) {
+  .locator-map-column { padding-top: 56px; }
+}
+@media (min-width: 1280px) {
+  .locator-controls { display: grid; grid-template-columns: minmax(230px,1fr) auto auto; gap: 1.25rem; align-items: center; }
+  .locator-search { display: contents; }
+  .locator-search > div { grid-column: 1; grid-row: 1; min-width: 0; }
+  .locator-search > button { grid-column: 3; grid-row: 1; }
+  .locator-filters { grid-column: 2; grid-row: 1; }
+}
+@media (max-width: 767px) {
+  .locator-hero-inner { padding: 2rem 1.25rem 4.8rem; }
+  .locator-hero-copy { width: 100%; }
+  .locator-hero h1 { max-width: 24rem; font-size: clamp(1.9rem, 6.5vw, 2.6rem); }
+  .locator-hero p { max-width: 28rem; font-size: 1rem; }
+  .locator-illustration { width: 65%; max-width: 340px; inset-inline-end: -2rem; opacity: .12; }
+  .locator-content { padding-inline: 1rem; }
+  .locator-controls { padding: .9rem; gap: .8rem; border-radius: 18px; }
+  .locator-filters { gap: .5rem; }
+  .locator-filters [data-slot="select-trigger"] { flex: 1; min-width: 0; max-width: 100%; }
+  .locator-results-heading h2 { font-size: 1.35rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .locator-shell *, .locator-shell *::before, .locator-shell *::after { scroll-behavior: auto; transition-duration: 0s !important; }
+}

@@ -20,7 +20,7 @@ export function BranchThumbnail({ src, name, slug, locale }: {
       aria-label={`${t("viewPage")} – ${name}`}
       className="group relative flex size-20 shrink-0 items-center justify-center overflow-hidden rounded-xl border bg-gradient-to-br from-muted to-muted/40 shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:size-24">
       {hasImage ? (
-        <Image src={image} alt={name} fill sizes="(min-width: 640px) 96px, 80px"
+        <Image src={image} alt={name} fill sizes="(min-width: 640px) 112px, 80px"
           loading="lazy"
           unoptimized={image.startsWith("/uploads/branches/") || !image.startsWith("/") || image.startsWith("//")}
           onError={() => setFailed(true)}

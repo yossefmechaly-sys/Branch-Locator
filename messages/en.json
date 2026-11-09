@@ -12,6 +12,13 @@
     "label": "Language",
     "srLabel": "Choose display language"
   },
+  "locator": {
+    "heroTitle": "Your neighbourhood store, closer to you",
+    "heroSubtitle": "Find your nearest Maayan 2000 and enjoy an easier shopping trip.",
+    "sortLabel": "Sort branches",
+    "sortName": "By branch name",
+    "sortDistance": "Nearest first"
+  },
   "branches": {
     "title": "Our branches",
     "subtitle": "Find the nearest Maayan 2000 branch",

@@ -1,6 +1,6 @@
 "use client";
 
-import { Clock3, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
@@ -75,13 +75,16 @@ export function BranchFilters({ filters, onFiltersChange, cities, services, clas
         aria-checked={filters.isOpenNow}
         onClick={() => onFiltersChange({ ...filters, isOpenNow: !filters.isOpenNow })}
         className={cn(
-          "inline-flex h-8 items-center gap-1.5 rounded-md border px-3 text-xs font-medium transition-colors",
+          "inline-flex h-8 items-center gap-2 rounded-md border px-3 text-xs font-medium transition-colors",
           filters.isOpenNow
-            ? "border-success bg-success/15 text-foreground"
+            ? "border-amber-500 bg-amber-50 text-foreground"
             : "border-input bg-background text-muted-foreground hover:bg-accent"
         )}
       >
-        <Clock3 className="size-3.5" aria-hidden="true" />
+        <span aria-hidden="true" className={cn("relative inline-flex h-5 w-9 shrink-0 rounded-full", filters.isOpenNow ? "bg-amber-400" : "bg-stone-300")}>
+          <span className="absolute top-0.5 size-4 rounded-full bg-white shadow-sm transition-[inset-inline-start]"
+            style={{ insetInlineStart: filters.isOpenNow ? "18px" : "2px" }} />
+        </span>
         {t("openNow")}
       </button>
 

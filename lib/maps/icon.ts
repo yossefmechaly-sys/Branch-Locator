@@ -11,7 +11,7 @@ export interface MarkerIconSpec {
   url: string;
   width: number;
   height: number;
-  /** Point d'ancrage (généralement le centre, ce marqueur étant un simple disque). */
+  /** Point d'ancrage : pointe du repère magasin ou centre d'un disque. */
   anchorX: number;
   anchorY: number;
 }
@@ -19,12 +19,7 @@ export interface MarkerIconSpec {
 export type MarkerVisualState = "default" | "hover" | "selected";
 
 /**
- * Couleur par statut — réutilise le même code couleur que `BranchStatus`
- * (badges de la Phase 4) pour que la carte et la liste racontent la même
- * histoire visuelle. Disque simple plutôt qu'un pin illustré détaillé : lisible
- * à petite taille, bon marché à générer/faire varier (§7 — pas de design
- * complexe au détriment des performances), et facilement remplaçable plus tard
- * (changer cette seule fonction suffit à changer l'icône partout sur la carte).
+ * Le petit indicateur du repère conserve les couleurs des statuts de la liste.
  */
 const STATUS_COLORS: Record<BranchStatus, string> = {
   OPEN: "#16a34a",
@@ -42,29 +37,21 @@ function toDataUri(svg: string): string {
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
 }
 
-/** Marqueur de magasin : disque coloré par statut, anneau sombre distinctif à
- * l'état `selected` (même langage visuel que la sélection de `BranchCard` —
- * `border-primary ring-primary`). */
+/** Repère doré avec pictogramme magasin et halo à l'état sélectionné. */
 export function buildBranchMarkerIconSpec(status: BranchStatus, state: MarkerVisualState): MarkerIconSpec {
   const color = getBranchStatusColor(status);
   const isSelected = state === "selected";
   const isHover = state === "hover";
-  const radius = isSelected ? 11 : isHover ? 9.5 : 8.5;
-  const size = 40;
-  const center = size / 2;
-
-  const selectionRing = isSelected
-    ? `<circle cx="${center}" cy="${center}" r="${radius + 4}" fill="none" stroke="#111827" stroke-width="2.5" />`
+  const width = isSelected ? 52 : isHover ? 46 : 40;
+  const height = width * 56 / 48;
+  const halo = isSelected
+    ? '<circle cx="24" cy="24" r="23" fill="#ffc20a" opacity=".3" />'
     : "";
-
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">${selectionRing}<circle cx="${center}" cy="${center}" r="${radius}" fill="${color}" stroke="white" stroke-width="3" /></svg>`;
-
-  return { url: toDataUri(svg), width: size, height: size, anchorX: center, anchorY: center };
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="56" viewBox="0 0 48 56">${halo}<path d="M24 52C20 46 6 34 6 23a18 18 0 0 1 36 0c0 11-14 23-18 29Z" fill="#ffc20a" stroke="white" stroke-width="2.5"/><circle cx="24" cy="23" r="12" fill="#292b25"/><g fill="none" stroke="white" stroke-width="1.5" stroke-linejoin="round"><path d="M16 22l2-6h12l2 6M16 22q2 3 4 0 2 3 4 0 2 3 4 0 2 3 4 0M18 24v7h12v-7M22 31v-5h4v5"/></g><circle cx="36" cy="37" r="4" fill="${color}" stroke="white" stroke-width="1.5"/></svg>`;
+  return { url: toDataUri(svg), width, height, anchorX: width / 2, anchorY: height * 52 / 56 };
 }
 
-/** Prêt pour la Phase 6 (géolocalisation réelle) : point bleu classique,
- * distinct des marqueurs de magasin. Non utilisé tant que `userLocation` n'est
- * pas fourni (§16 — aucune géolocalisation déclenchée dans cette phase). */
+/** Position de l'utilisateur : point bleu distinct des repères magasin. */
 export function buildUserLocationMarkerIconSpec(): MarkerIconSpec {
   const size = 24;
   const center = size / 2;
@@ -73,9 +60,7 @@ export function buildUserLocationMarkerIconSpec(): MarkerIconSpec {
 }
 
 /**
- * Icône de groupe (cluster) — un disque bleu de marque, volontairement
- * distinct des couleurs de statut (vert/ambre/gris/rouge) pour ne jamais
- * laisser croire qu'un groupe de magasins partage un seul statut. La taille
+ * Icône de groupe (cluster) — disque doré sans indicateur de statut partagé. La taille
  * varie par palier grossier (pas de calcul continu coûteux) selon le nombre de
  * magasins regroupés — simple lisibilité, pas de design élaboré (§7).
  *
@@ -87,6 +72,6 @@ export function buildClusterIconSpec(count: number): MarkerIconSpec {
   const size = count >= 50 ? 56 : count >= 10 ? 48 : 40;
   const center = size / 2;
   const radius = center - 4;
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}"><circle cx="${center}" cy="${center}" r="${radius}" fill="#1d4ed8" stroke="white" stroke-width="3" opacity="0.92" /></svg>`;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}"><circle cx="${center}" cy="${center}" r="${radius}" fill="#ffdf83" stroke="white" stroke-width="3" /><circle cx="${center}" cy="${center}" r="${radius - 3}" fill="none" stroke="#b98100" stroke-width="1" /></svg>`;
   return { url: toDataUri(svg), width: size, height: size, anchorX: center, anchorY: center };
 }
