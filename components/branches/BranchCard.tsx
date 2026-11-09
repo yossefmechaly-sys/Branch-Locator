@@ -33,13 +33,27 @@ export function BranchCard({ branch, locale, isSelected, onSelect, onHover }: Br
   const t = useTranslations("branches");
   const [expanded, setExpanded] = useState(false);
 
+  const selectBranch = () => {
+    track({ name: "branch_card_click", branchId: branch.id });
+    onSelect(branch.id);
+  };
+
   return (
     <Card
       data-selected={isSelected || undefined}
       onMouseEnter={() => onHover?.(branch.id)}
       onMouseLeave={() => onHover?.(null)}
+      onClick={(event) => {
+        const target = event.target;
+        // Links, controls and portaled menus keep their own actions.
+        if (!(target instanceof Element) || !event.currentTarget.contains(target) ||
+            target.closest("a, button, input, select, textarea, [role='button'], [role='link']")) return;
+        const selection = window.getSelection();
+        if (selection && !selection.isCollapsed && selection.containsNode(event.currentTarget, true)) return;
+        selectBranch();
+      }}
       className={cn(
-        "locator-card transition-colors",
+        "locator-card cursor-pointer transition-colors",
         isSelected && "locator-card-selected"
       )}
     >
@@ -50,12 +64,7 @@ export function BranchCard({ branch, locale, isSelected, onSelect, onHover }: Br
           <div className="flex flex-wrap items-start justify-between gap-x-2 gap-y-1">
             <button
               type="button"
-              onClick={() => {
-                // Phase 10, §3 — clic sur la carte (liste), distinct de
-                // `branch_view` (montage réel de la fiche détaillée complète).
-                track({ name: "branch_card_click", branchId: branch.id });
-                onSelect(branch.id);
-              }}
+              onClick={selectBranch}
               className="min-w-0 break-words rounded-sm text-start text-lg font-bold leading-tight outline-none sm:text-xl hover:underline focus-visible:ring-2 focus-visible:ring-ring"
             >
               {branch.displayName}

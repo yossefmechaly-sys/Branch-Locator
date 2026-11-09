@@ -8,9 +8,9 @@ export async function installGoogleMapsStub(page: Page) {
       constructor(public element: HTMLElement) {}
       fitBounds() {}
       getZoom() { return this.zoom; }
-      setZoom(zoom: number) { this.zoom = zoom; }
+      setZoom(zoom: number) { this.zoom = zoom; this.element.dataset.mapZoom = String(zoom); }
       setCenter() {}
-      panTo() {}
+      panTo(coordinates: unknown) { this.element.dataset.mapCenter = JSON.stringify(coordinates); }
       panBy() {}
     }
     class TestMarker {

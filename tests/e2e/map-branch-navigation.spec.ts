@@ -20,6 +20,28 @@ for (const mobile of [false, true]) {
         expect(branch).toBeTruthy();
         await installGoogleMapsStub(page);
 
+        await page.goto(`/${locale}/branches`);
+        if (mobile) await page.getByRole("tab", { name: messages.mobileView.map, exact: true }).click();
+        await expect(page.getByRole("button", { name: `Map marker: ${branch.displayName}`, exact: true })).toBeVisible();
+        const otherBranch = branches.find((entry: { id: string }) => entry.id !== branch.id);
+        for (const selected of [branch, otherBranch]) {
+          if (mobile) await page.getByRole("tab", { name: messages.mobileView.list, exact: true }).click();
+          const card = page.locator(`[id="branch-card-${selected.id}"] .locator-card`);
+          if (mobile) await card.tap({ position: { x: 8, y: 8 } });
+          else await card.click({ position: { x: 8, y: 8 } });
+          await expect(card).toHaveAttribute("data-selected", "true");
+          await expect(page.locator('.locator-card[data-selected="true"]')).toHaveCount(1);
+          await expect(page).toHaveURL(new RegExp(`/${locale}/branches$`));
+          if (mobile) await page.getByRole("tab", { name: messages.mobileView.map, exact: true }).click();
+          await expect(page.locator("[data-map-center]")).toHaveAttribute("data-map-center",
+            JSON.stringify({ lat: selected.latitude, lng: selected.longitude }));
+          await expect(page.locator("[data-map-zoom]")).toHaveAttribute("data-map-zoom", "14");
+          const selectionPopup = mobile
+            ? page.getByRole("dialog", { name: selected.displayName }) : page.getByTestId("map-info-window");
+          await expect(selectionPopup.getByRole("link", { name: messages.branches.details, exact: true }))
+            .toHaveAttribute("href", `/${locale}/branches/${selected.slug}`);
+        }
+
         for (const label of [messages.branches.details, branch.displayName]) {
           await page.goto(`/${locale}/branches`);
           if (mobile) await page.getByRole("tab", { name: messages.mobileView.map, exact: true }).click();
