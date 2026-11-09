@@ -40,6 +40,12 @@ for (const mobile of [false, true]) {
             ? page.getByRole("dialog", { name: selected.displayName }) : page.getByTestId("map-info-window");
           await expect(selectionPopup.getByRole("link", { name: messages.branches.details, exact: true }))
             .toHaveAttribute("href", `/${locale}/branches/${selected.slug}`);
+          if (!mobile) await expect(selectionPopup).toHaveAttribute("data-native-header-disabled", "true");
+          const close = selectionPopup.getByRole("button", { name: messages.map.closePopup, exact: true });
+          if (mobile) await close.tap();
+          else await close.click();
+          await expect(selectionPopup).not.toBeVisible();
+          await expect(page.locator('.locator-card[data-selected="true"]')).toHaveCount(0);
         }
 
         for (const label of [messages.branches.details, branch.displayName]) {

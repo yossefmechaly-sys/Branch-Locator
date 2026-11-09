@@ -72,11 +72,13 @@ describe("BranchPopup", () => {
     }
   }
 
-  it("variante panel (InfoWindow Google) : pas de bouton de fermeture propre — Google fournit déjà le sien (§15)", () => {
+  it("variante panel : son bouton ferme l'encadré sans l'en-tête natif encombrant", () => {
+    const onClose = vi.fn();
     renderWithIntl(
-      <BranchPopup branch={BRANCH} locale="en" variant="panel" onClose={vi.fn()} />
+      <BranchPopup branch={BRANCH} locale="en" variant="panel" onClose={onClose} />
     );
-    expect(screen.queryByRole("button", { name: "Close" })).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Close" }));
+    expect(onClose).toHaveBeenCalledOnce();
   });
 
   it("variante sheet (fiche mobile) : bouton de fermeture propre, appelle onClose (§15)", () => {

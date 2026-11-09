@@ -277,3 +277,35 @@
   .branch-detail-thumbnails > button { width: 76px; height: 54px; }
   .branch-detail #reviews > .grid > div { padding: 1rem; }
 }
+
+/* Shared by the Google InfoWindow root and the mobile map sheet. */
+.map-branch-popup {
+  --background: #fff; --foreground: #252826; --card: #fff; --card-foreground: #252826;
+  --primary: #ffc20a; --primary-foreground: #252826; --muted: #eeeee7; --muted-foreground: #6c716a;
+  --border: #e5e4dc; --input: #dfdfd7; --ring: #976400; --accent: #fff4d4; --accent-foreground: #252826;
+  position: relative; display: flex; flex-direction: column; gap: 12px;
+  box-sizing: border-box; padding: 16px; border-top: 3px solid #ffc20a;
+  background: #fff; color: #252826; font-family: Arial, "Noto Sans", sans-serif; text-align: start;
+}
+.map-branch-popup-panel { width: 320px; max-width: calc(100vw - 3rem); border-radius: 14px; }
+.map-branch-popup-sheet { width: 100%; max-height: min(75svh, 560px); overflow-y: auto; border-radius: 22px 22px 0 0; padding-bottom: max(1rem, env(safe-area-inset-bottom)); box-shadow: 0 -8px 36px #24220d20; }
+.map-popup-close { position: absolute; inset-inline-end: 4px; top: 4px; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px; color: #72766d; cursor: pointer; }
+.map-popup-close:hover { color: #252826; background: #f4f3ec; }
+.map-popup-close:focus-visible, .map-branch-popup a:focus-visible { outline: 2px solid #976400; outline-offset: 2px; }
+.map-popup-heading { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.map-popup-photo { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 64px; height: 72px; overflow: hidden; border: 1px solid #efe4be; border-radius: 13px; background: #fff5d7; color: #9b6b00; }
+.map-popup-title-block { flex: 1; min-width: 0; padding-inline-end: 28px; }
+.map-popup-title { display: inline-block; border-radius: 4px; font-size: 18px; line-height: 1.2; font-weight: 750; overflow-wrap: anywhere; text-decoration: none; }
+.map-popup-title:hover { text-decoration: underline; text-underline-offset: 3px; }
+.map-popup-address { display: flex; align-items: start; gap: 4px; margin-top: 6px; color: #6c716a; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.map-popup-rating { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 4px; margin-top: 6px; border-radius: 3px; font-size: 12px; font-weight: 600; }
+.map-popup-status { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 10px; border: 1px solid #eeede5; border-radius: 12px; background: #f8f8f3; }
+.map-popup-opening { flex: 1 1 150px; gap: 6px; }
+.map-popup-opening [data-slot="badge"] { border-radius: 6px; padding: 3px 7px; font-size: 11px; }
+.map-popup-opening > span[dir] { font-size: 11px; }
+.map-popup-distance { margin-inline-start: auto; background: #fff; border: 1px solid #e8e7dd; white-space: nowrap; }
+.map-popup-promotion { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 10px; padding: 9px; border-radius: 10px; background: #fff7e8; overflow-wrap: anywhere; }
+.map-popup-contact-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.map-popup-contact-actions [data-slot="button"] { flex: 1 1 100px; min-width: 0; min-height: 42px; height: auto; padding: 9px 10px; border-radius: 10px; background: #fff; gap: 6px; font-size: 12px; white-space: normal; box-shadow: none; }
+.map-branch-popup .map-popup-primary { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; height: auto; width: 100%; padding: 10px 12px; border: 1px solid #ffc20a; border-radius: 11px; background: #ffc20a; color: #252826; font-size: 13px; font-weight: 700; white-space: normal; box-shadow: none; }
+.map-branch-popup .map-popup-primary:hover { background: #f3b700; border-color: #f3b700; }

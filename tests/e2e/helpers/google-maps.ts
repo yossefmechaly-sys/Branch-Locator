@@ -36,10 +36,12 @@ export async function installGoogleMapsStub(page: Page) {
     }
     class TestInfoWindow {
       content?: HTMLElement;
+      constructor(private options: { headerDisabled?: boolean } = {}) {}
       setContent(content: HTMLElement) { this.content = content; }
       open({ map }: { map: TestMap }) {
         if (!this.content) return;
         this.content.dataset.testid = "map-info-window";
+        this.content.dataset.nativeHeaderDisabled = String(this.options.headerDisabled);
         map.element.append(this.content);
       }
       close() { this.content?.remove(); }

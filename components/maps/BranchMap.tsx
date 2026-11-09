@@ -392,7 +392,7 @@ export function BranchMap({
     if (!marker) return;
 
     if (!infoWindowRef.current) {
-      infoWindowRef.current = new maps.InfoWindow();
+      infoWindowRef.current = new maps.InfoWindow({ headerDisabled: true, maxWidth: 360 });
       maps.event.addListener(infoWindowRef.current, "closeclick", () => onSelectBranchRef.current(null));
     }
     if (!infoWindowContainerRef.current) {
