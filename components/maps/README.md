@@ -21,7 +21,9 @@ Composants présentationnels, sans dépendance à `google.maps.*` :
 
 - `BranchPopup.tsx` — contenu compact d'un magasin sélectionné ; monté soit
   dans une `InfoWindow` Google (desktop, via `createRoot`), soit directement
-  en React comme fiche fixe bas d'écran (mobile) — §10/§15.
+  en React comme fiche fixe bas d'écran (mobile) — §10/§15. Son titre et son
+  bouton Détails sont des liens natifs vers la fiche dans la langue active ;
+  ils fonctionnent aussi dans la racine React séparée de l'InfoWindow.
 - `MapLoadingState.tsx` — pendant le chargement différé du SDK (§4).
 - `MapErrorState.tsx` — clé API absente ou échec réseau/quota/script (§18/§19).
 

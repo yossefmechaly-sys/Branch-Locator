@@ -164,14 +164,6 @@ export function BranchLocator({ locale, initialData, initialCitySlug = null }: B
     if (nextTab === "map") setHasOpenedMapOnce(true);
   }, []);
 
-  // Bouton « détails » de `BranchPopup` (§9) : la sélection déclenche déjà le
-  // surlignage/défilement de la fiche dans `BranchList` (ci-dessous) — sur
-  // mobile, il faut en plus revenir à l'onglet liste pour la voir.
-  const handleViewDetails = useCallback((branchId: string) => {
-    setSelectedBranchId(branchId);
-    setMobileTab("list");
-  }, []);
-
   const shouldMountMap = useMemo(
     () => shouldMountGoogleMap({ isDesktop, mobileTab, hasOpenedMapOnce }),
     [isDesktop, mobileTab, hasOpenedMapOnce]
@@ -215,7 +207,6 @@ export function BranchLocator({ locale, initialData, initialCitySlug = null }: B
     hoveredBranchId,
     onHoverBranch: setHoveredBranchId,
     locale,
-    onViewDetails: handleViewDetails,
     userLocation,
     className: "locator-map",
   };

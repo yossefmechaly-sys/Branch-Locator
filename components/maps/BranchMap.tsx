@@ -72,7 +72,6 @@ export function BranchMap({
   hoveredBranchId = null,
   onHoverBranch,
   locale,
-  onViewDetails,
   userLocation = null,
   className,
 }: BranchMapViewProps) {
@@ -107,12 +106,10 @@ export function BranchMap({
   // règle `react-hooks/refs`.
   const onSelectBranchRef = useRef(onSelectBranch);
   const onHoverBranchRef = useRef(onHoverBranch);
-  const onViewDetailsRef = useRef(onViewDetails);
 
   useEffect(() => {
     onSelectBranchRef.current = onSelectBranch;
     onHoverBranchRef.current = onHoverBranch;
-    onViewDetailsRef.current = onViewDetails;
     isDesktopRef.current = isDesktop;
   });
 
@@ -121,13 +118,6 @@ export function BranchMap({
   const isFirstLoadRef = useRef(true);
 
   const handleRetry = useCallback(() => setRetryToken((token) => token + 1), []);
-
-  const handleViewDetails = useCallback(
-    (branchId: string) => {
-      onViewDetailsRef.current?.(branchId);
-    },
-    []
-  );
 
   const formatClusterTitle = useCallback((count: number) => t("clusterCount", { count }), [t]);
 
@@ -420,13 +410,12 @@ export function BranchMap({
           locale={locale}
           variant="panel"
           onClose={handleClosePopup}
-          onViewDetails={handleViewDetails}
         />
       </NextIntlClientProvider>
     );
     infoWindowRef.current.setContent(infoWindowContainerRef.current);
     infoWindowRef.current.open({ map, anchor: marker });
-  }, [selectedBranch, isDesktop, locale, messages, handleClosePopup, handleViewDetails]);
+  }, [selectedBranch, isDesktop, locale, messages, handleClosePopup]);
 
   // Nettoyage complet au démontage — jamais d'écouteur/racine React qui fuit
   // (§22). `markers` capturé ici (au montage) plutôt que relu via la ref au
@@ -496,7 +485,6 @@ export function BranchMap({
             locale={locale}
             variant="sheet"
             onClose={handleClosePopup}
-            onViewDetails={handleViewDetails}
           />
         </div>
       )}

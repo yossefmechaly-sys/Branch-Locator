@@ -45,17 +45,15 @@ export interface BranchPopupProps {
   locale: AppLocale;
   variant: "panel" | "sheet";
   onClose: () => void;
-  /** Bouton "détails" : signale au parent de mettre en évidence/faire défiler
-   * jusqu'à la fiche correspondante dans la liste (et, sur mobile, de revenir
-   * à l'onglet liste) — §9. Ne navigue vers aucune page dédiée (Phase 8). */
-  onViewDetails: (branchId: string) => void;
   className?: string;
 }
 
-export function BranchPopup({ branch, locale, variant, onClose, onViewDetails, className }: BranchPopupProps) {
+export function BranchPopup({ branch, locale, variant, onClose, className }: BranchPopupProps) {
   const t = useTranslations("branches");
   const tMap = useTranslations("map");
   const showOwnCloseButton = variant === "sheet";
+  // A native link also works in the detached React root of Google's InfoWindow.
+  const branchHref = `/${locale}/branches/${encodeURIComponent(branch.slug)}`;
 
   return (
     <div
@@ -79,7 +77,9 @@ export function BranchPopup({ branch, locale, variant, onClose, onViewDetails, c
       )}
 
       <div className={cn(showOwnCloseButton && "pe-6")}>
-        <p className="font-semibold leading-tight">{branch.displayName}</p>
+        <a href={branchHref} className="rounded-sm font-semibold leading-tight underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2">
+          {branch.displayName}
+        </a>
         <p className="mt-1 flex items-start gap-1 text-xs text-muted-foreground">
           <MapPin className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
           <span>
@@ -137,13 +137,11 @@ export function BranchPopup({ branch, locale, variant, onClose, onViewDetails, c
           </Button>
         )}
         <Button
-          type="button"
-          variant="ghost"
+          asChild
           size="sm"
-          className="ms-auto"
-          onClick={() => onViewDetails(branch.id)}
+          className="ms-auto min-h-11 bg-[#ffc20a] text-[#252826] hover:bg-[#f3b700]"
         >
-          {t("details")}
+          <a href={branchHref}>{t("details")}</a>
         </Button>
       </div>
     </div>
