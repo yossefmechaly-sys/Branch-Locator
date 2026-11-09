@@ -1,12 +1,13 @@
 "use client";
 
 import { X } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import type { LocalizedCity, LocalizedService } from "@/types/branch";
+import { getDirection, type AppLocale } from "@/types/i18n";
 import { defaultBranchFilterState, hasActiveBranchFilters, type BranchFilterState } from "@/lib/filters/branch-filters";
 
 /** Radix `Select.Item` n'accepte pas `value=""` — valeur sentinelle pour « tous ». */
@@ -28,10 +29,12 @@ export interface BranchFiltersProps {
  */
 export function BranchFilters({ filters, onFiltersChange, cities, services, className }: BranchFiltersProps) {
   const t = useTranslations("branches");
+  const direction = getDirection(useLocale() as AppLocale);
 
   return (
     <div className={cn("flex flex-wrap items-center gap-2", className)}>
       <Select
+        dir={direction}
         value={filters.citySlug ?? ALL_VALUE}
         onValueChange={(value) =>
           onFiltersChange({ ...filters, citySlug: value === ALL_VALUE ? null : value })
@@ -40,7 +43,7 @@ export function BranchFilters({ filters, onFiltersChange, cities, services, clas
         <SelectTrigger size="sm" aria-label={t("filterByCity")}>
           <SelectValue placeholder={t("filterByCity")} />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="locator-filter-menu" collisionPadding={16}>
           <SelectItem value={ALL_VALUE}>{t("allCities")}</SelectItem>
           {cities.map((city) => (
             <SelectItem key={city.id} value={city.slug}>
@@ -51,6 +54,7 @@ export function BranchFilters({ filters, onFiltersChange, cities, services, clas
       </Select>
 
       <Select
+        dir={direction}
         value={filters.serviceSlug ?? ALL_VALUE}
         onValueChange={(value) =>
           onFiltersChange({ ...filters, serviceSlug: value === ALL_VALUE ? null : value })
@@ -59,7 +63,7 @@ export function BranchFilters({ filters, onFiltersChange, cities, services, clas
         <SelectTrigger size="sm" aria-label={t("filterByService")}>
           <SelectValue placeholder={t("filterByService")} />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="locator-filter-menu" collisionPadding={16}>
           <SelectItem value={ALL_VALUE}>{t("allServices")}</SelectItem>
           {services.map((service) => (
             <SelectItem key={service.id} value={service.slug}>

@@ -167,9 +167,16 @@
   .locator-illustration { width: 65%; max-width: 340px; inset-inline-end: -2rem; bottom: 0; opacity: .12; }
   .locator-content { padding-inline: 1rem; }
   .locator-controls { padding: .9rem; gap: .8rem; border-radius: 18px; }
-  .locator-filters { gap: .5rem; }
-  .locator-filters [data-slot="select-trigger"] { flex: 1; min-width: 0; max-width: 100%; }
+  .locator-filters { display: grid; grid-template-columns: minmax(0, 1fr); gap: .65rem; }
+  .locator-filters [data-slot="select-trigger"] { width: 100%; min-width: 0; max-width: 100%; min-height: 46px; height: auto; padding-block: .7rem; white-space: normal; text-align: start; }
+  .locator-filters [data-slot="select-value"] { min-width: 0; overflow-wrap: anywhere; }
+  .locator-filters [role="switch"], .locator-filters > [data-slot="button"] { justify-self: start; max-width: 100%; min-height: 44px; height: auto; white-space: normal; text-align: start; }
+  .locator-filter-menu { max-width: min(calc(100vw - 2rem), 28rem); }
+  .locator-filter-menu [data-slot="select-item"] { min-height: 44px; white-space: normal; overflow-wrap: anywhere; }
   .locator-results-heading h2 { font-size: 1.35rem; }
+}
+@media (min-width: 480px) and (max-width: 767px) {
+  .locator-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (prefers-reduced-motion: reduce) {
   .locator-shell *, .locator-shell *::before, .locator-shell *::after { scroll-behavior: auto; transition-duration: 0s !important; }
