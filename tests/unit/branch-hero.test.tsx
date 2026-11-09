@@ -6,6 +6,10 @@ import { BranchHero } from "@/components/branches/BranchHero";
 import { renderWithIntl } from "./helpers/render-with-intl";
 import { makeBranchDetail } from "./helpers/branch-fixture";
 
+vi.mock("@/components/branches/StorefrontIllustration", () => ({
+  StorefrontIllustration: () => <svg aria-hidden="true" />,
+}));
+
 describe("BranchHero (Phase 8, §7)", () => {
   beforeEach(() => {
     vi.useFakeTimers();
@@ -43,7 +47,7 @@ describe("BranchHero (Phase 8, §7)", () => {
     expect(container.querySelector("svg")).not.toBeNull();
   });
 
-  it("affiche l'image principale quand elle est disponible", () => {
+  it("réserve la photo principale à la galerie pour éviter de la dupliquer dans le bandeau", () => {
     renderWithIntl(
       <BranchHero
         branch={makeBranchDetail({
@@ -53,7 +57,8 @@ describe("BranchHero (Phase 8, §7)", () => {
         })}
       />
     );
-    expect(screen.getByAltText("Maayan 2000 – Ramot")).toBeTruthy();
+    expect(screen.queryByAltText("Maayan 2000 – Ramot")).toBeNull();
+    expect(screen.getByRole("heading", { level: 1, name: "Maayan 2000 – Ramot" })).toBeTruthy();
   });
 
   it("inclut le statut horaire en direct et les actions (Navigation/Appeler/WhatsApp)", () => {

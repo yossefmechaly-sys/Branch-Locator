@@ -1,7 +1,9 @@
 import { cache } from "react";
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Clock3, Info } from "lucide-react";
 
 import { JsonLd } from "@/components/seo/JsonLd";
 import { NowProvider } from "@/components/branches/NowProvider";
@@ -16,6 +18,7 @@ import { NearbyBranches } from "@/components/branches/NearbyBranches";
 import { BranchStickyActionBar } from "@/components/branches/BranchStickyActionBar";
 import { BranchViewTracker } from "@/components/branches/BranchViewTracker";
 import { BranchReviews } from "@/components/branches/BranchReviews";
+import { BranchReviewOverview } from "@/components/branches/BranchReviewOverview";
 import { getPublicBranchReviews } from "@/services/review.service";
 import { getBranchDetailBySlug, getBranchLocatorData } from "@/services/branch.service";
 import { getSiteUrl } from "@/lib/seo/site";
@@ -24,6 +27,14 @@ import { buildBranchMetadata } from "@/lib/seo/metadata";
 import { buildGroceryStoreSchema } from "@/lib/seo/schema";
 import { buildGoogleMapsUrl } from "@/lib/navigation/google-maps";
 import { locales, defaultLocale, type AppLocale } from "@/types/i18n";
+
+const detailHeading = localFont({
+  src: "../../../../assets/fonts/Heebo-Variable.ttf",
+  variable: "--font-detail-heading",
+  weight: "100 900",
+  display: "swap",
+  fallback: ["Arial", "sans-serif"],
+});
 
 interface BranchDetailPageParams {
   locale: string;
@@ -183,59 +194,67 @@ export default async function BranchDetailPage(props: {
   const cityResult = await getBranchLocatorData({ locale: appLocale, citySlug: branch.city.slug });
   const nearbyBranches = cityResult.branches.filter((other) => other.id !== branch.id).slice(0, 4);
   const reviews = await getPublicBranchReviews(branch.slug);
+  const mainPhoto = branch.images.find((image) => image.imageUrl === branch.mainImage);
+  const galleryImages = branch.mainImage ? [
+    mainPhoto ?? { imageUrl: branch.mainImage, alt: branch.displayName },
+    ...branch.images.filter((image) => image.imageUrl !== branch.mainImage),
+  ] : branch.images;
 
   return (
     <NowProvider>
       <JsonLd data={schema} />
       <BranchViewTracker branchId={branch.id} />
 
-      <div className="mx-auto max-w-5xl px-4 py-6 pb-24 sm:py-10 md:pb-10">
-
-        <Breadcrumbs
-          locale={appLocale}
-          cityName={branch.city.name}
-          citySlug={branch.city.slug}
-          branchDisplayName={branch.displayName}
-          homeUrl={homeUrl}
-          branchesUrl={branchesUrl}
-        />
-
-        <div className="mt-4 flex flex-col gap-8">
-          <BranchHero branch={branch} />
-
-          <BranchGallery images={branch.images} branchName={branch.displayName} />
-
-          {branch.description && (
-            <section aria-labelledby="branch-about-heading" className="flex flex-col gap-3">
-              <h2 id="branch-about-heading" className="text-lg font-semibold tracking-tight">
-                {t("about.sectionTitle")}
+      <div className={`branch-detail ${detailHeading.variable}`} data-design="orange-branch-detail">
+        <div className="branch-detail-container branch-detail-breadcrumbs">
+          <Breadcrumbs
+            locale={appLocale}
+            cityName={branch.city.name}
+            citySlug={branch.city.slug}
+            branchDisplayName={branch.displayName}
+            homeUrl={homeUrl}
+            branchesUrl={branchesUrl}
+          />
+        </div>
+        <BranchHero branch={branch} rating={reviews.summary} />
+        <div className="branch-detail-container branch-detail-content">
+          <div className="branch-detail-primary-grid">
+            <BranchGallery images={galleryImages} branchName={branch.displayName} />
+            <section aria-labelledby="branch-hours-heading" className="branch-detail-hours branch-detail-card">
+              <h2 id="branch-hours-heading" className="branch-detail-section-heading">
+                <Clock3 aria-hidden="true" />{t("hours.sectionTitle")}
               </h2>
-              <p className="whitespace-pre-line text-sm leading-relaxed text-muted-foreground">
-                {branch.description}
-              </p>
+              <OpeningHoursLive openingHours={branch.openingHours} specialHours={branch.specialHours} />
+              <p className="branch-detail-hours-note"><Info className="size-4 shrink-0" aria-hidden="true" />{t("design.hoursNote")}</p>
             </section>
+          </div>
+          <div className="branch-detail-secondary-grid">
+            <BranchDetailMap branch={branch} locale={appLocale} />
+            <BranchReviewOverview rating={reviews.summary} slug={branch.slug} />
+          </div>
+          {(branch.description || branch.services.length > 0) && (
+            <div className="branch-detail-additional-grid">
+              {branch.description && (
+                <section aria-labelledby="branch-about-heading" className="branch-detail-card">
+                  <h2 id="branch-about-heading" className="branch-detail-section-heading">
+                    {t("about.sectionTitle")}
+                  </h2>
+                  <p className="mt-4 whitespace-pre-line text-sm leading-relaxed text-muted-foreground">
+                    {branch.description}
+                  </p>
+                </section>
+              )}
+              {branch.services.length > 0 && <div className="branch-detail-card"><BranchServices services={branch.services} /></div>}
+            </div>
           )}
-
-          <BranchPromotions promotions={branch.promotions} branchId={branch.id} locale={appLocale} />
-
-          <BranchServices services={branch.services} />
-
-          <section aria-labelledby="branch-hours-heading" className="flex flex-col gap-3">
-            <h2 id="branch-hours-heading" className="text-lg font-semibold tracking-tight">
-              {t("hours.sectionTitle")}
-            </h2>
-            <OpeningHoursLive openingHours={branch.openingHours} specialHours={branch.specialHours} />
-          </section>
-
-          <BranchDetailMap branch={branch} locale={appLocale} />
-
+          {branch.promotions.length > 0 && <div className="branch-detail-card">
+            <BranchPromotions promotions={branch.promotions} branchId={branch.id} locale={appLocale} />
+          </div>}
           <BranchReviews key={branch.slug} slug={branch.slug} initial={reviews} />
-
           <NearbyBranches branches={nearbyBranches} cityName={branch.city.name} locale={appLocale} />
         </div>
+        <BranchStickyActionBar branch={branch} />
       </div>
-
-      <BranchStickyActionBar branch={branch} />
     </NowProvider>
   );
 }

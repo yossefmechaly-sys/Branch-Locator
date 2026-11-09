@@ -111,7 +111,8 @@
       "sectionTitle": "Fotos",
       "mainImageAlt": "{name} – foto principal",
       "thumbnailAlt": "{name} – foto {index}",
-      "noImage": "Aún no hay fotos disponibles"
+      "noImage": "Aún no hay fotos disponibles",
+      "position": "Foto {current} de {total}"
     },
     "services": {
       "sectionTitle": "Servicios",
@@ -153,6 +154,11 @@
       "title": "Tienda no encontrada",
       "description": "Esta tienda no existe o ya no está activa.",
       "cta": "Volver a todas las tiendas"
+    },
+    "design": {
+      "hoursNote": "Los horarios pueden variar en días festivos.",
+      "reviewsTitle": "La opinión de nuestros clientes",
+      "reviewPrompt": "Comparte tu experiencia con nosotros"
     }
   },
   "errorBoundary": {

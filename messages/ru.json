@@ -111,7 +111,8 @@
       "sectionTitle": "Фото",
       "mainImageAlt": "{name} — главное фото",
       "thumbnailAlt": "{name} — фото {index}",
-      "noImage": "Фото пока недоступно"
+      "noImage": "Фото пока недоступно",
+      "position": "Фото {current} из {total}"
     },
     "services": {
       "sectionTitle": "Услуги",
@@ -153,6 +154,11 @@
       "title": "Филиал не найден",
       "description": "Этот филиал не существует или больше не активен.",
       "cta": "Ко всем филиалам"
+    },
+    "design": {
+      "hoursNote": "В праздничные дни часы работы могут меняться.",
+      "reviewsTitle": "Отзывы покупателей",
+      "reviewPrompt": "Поделитесь своими впечатлениями"
     }
   },
   "errorBoundary": {

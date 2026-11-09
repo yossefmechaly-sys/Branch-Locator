@@ -111,7 +111,8 @@
       "sectionTitle": "Photos",
       "mainImageAlt": "{name} – photo principale",
       "thumbnailAlt": "{name} – photo {index}",
-      "noImage": "Aucune photo disponible pour le moment"
+      "noImage": "Aucune photo disponible pour le moment",
+      "position": "Photo {current} sur {total}"
     },
     "services": {
       "sectionTitle": "Services",
@@ -153,6 +154,11 @@
       "title": "Magasin introuvable",
       "description": "Ce magasin n'existe pas ou n'est plus actif.",
       "cta": "Retour à tous les magasins"
+    },
+    "design": {
+      "hoursNote": "Les horaires peuvent varier les jours fériés.",
+      "reviewsTitle": "L’avis de nos clients",
+      "reviewPrompt": "Partagez votre expérience avec nous"
     }
   },
   "errorBoundary": {

@@ -181,3 +181,99 @@
 @media (prefers-reduced-motion: reduce) {
   .locator-shell *, .locator-shell *::before, .locator-shell *::after { scroll-behavior: auto; transition-duration: 0s !important; }
 }
+
+/* Store detail pages share the locator palette, with their own page layout. */
+.branch-detail {
+  --background: #f8f7f2; --foreground: #252826;
+  --card: #fff; --card-foreground: #252826;
+  --primary: #ffc20a; --primary-foreground: #252826;
+  --muted: #eeeee7; --muted-foreground: #6c716a;
+  --accent: #fff2cc; --accent-foreground: #252826;
+  --border: #e5e4dc; --input: #dfdfd7; --ring: #976400;
+  min-height: calc(100svh - 5rem); padding-bottom: 3rem;
+  background: var(--background); color: var(--foreground);
+  font-family: Arial, "Noto Sans", sans-serif;
+}
+.branch-detail-container { max-width: 1520px; margin-inline: auto; padding-inline: 2.5rem; }
+.branch-detail-breadcrumbs { padding-block: 1.1rem; }
+.branch-detail-breadcrumbs nav { font-size: 13px; }
+.branch-detail-hero { overflow: hidden; background: #ffc20a; }
+.branch-detail-hero-inner { position: relative; padding-block: 2rem 4.5rem; }
+.branch-detail-hero-copy { position: relative; z-index: 1; width: 70%; }
+.branch-detail-hero h1 { overflow-wrap: anywhere; font-size: clamp(2.2rem, 3.7vw, 3.5rem); line-height: 1.12; font-weight: 800; letter-spacing: -.025em; }
+.branch-detail:lang(he) h1 { font-family: var(--font-detail-heading), Arial, sans-serif; font-weight: 900; letter-spacing: -.02em; }
+.branch-detail-hero p { font-size: 1.05rem; line-height: 1.5; }
+.branch-detail-illustration { position: absolute; width: 28%; max-width: 350px; inset-inline-end: 2.5rem; bottom: 1rem; opacity: .2; }
+.branch-detail-actionbar { position: relative; z-index: 10; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: -2.5rem; border: 1px solid #eeede5; border-radius: 22px; padding: 1.15rem 1.4rem; background: #fff; box-shadow: 0 8px 26px #382c0b12, 0 2px 4px #382c0b06; }
+.branch-detail-status { flex: 1 1 220px; }
+.branch-detail-status [data-slot="badge"] { padding: .35rem .75rem; border-radius: 8px; }
+.branch-detail-header-rating { flex: 1 1 200px; }
+.branch-detail-header-rating > a { margin-top: 0; }
+.branch-detail-actions { margin-inline-start: auto; }
+.branch-detail [data-slot="button"] { border-radius: 11px; box-shadow: none; }
+.branch-detail-actions [data-slot="button"] { min-height: 42px; padding-inline: 1rem; font-weight: 600; }
+.branch-detail .branch-navigation-action { background: #ffc20a; border-color: #ffc20a; color: #252826; font-weight: 700; }
+.branch-detail .branch-navigation-action:hover { background: #f3b700; border-color: #f3b700; }
+.branch-detail-content { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+.branch-detail-primary-grid, .branch-detail-secondary-grid, .branch-detail-additional-grid { display: grid; gap: 1.5rem; min-width: 0; }
+.branch-detail-card, .branch-detail #reviews { min-width: 0; padding: 1.5rem; border: 1px solid #e9e6dd; border-radius: 22px; background: #fff; box-shadow: 0 3px 14px #302a1007, 0 1px 3px #302a1006; }
+.branch-detail-section-heading { display: flex; align-items: center; gap: .65rem; font-size: 1.25rem; font-weight: 750; letter-spacing: -.02em; line-height: 1.35; }
+.branch-detail-section-heading > svg { width: 24px; height: 24px; color: #c58300; flex-shrink: 0; }
+.branch-detail-gallery { display: flex; flex-direction: column; gap: .65rem; padding: .45rem; }
+.branch-detail-gallery-stage { position: relative; flex: 1; min-height: 260px; aspect-ratio: 16 / 7; overflow: hidden; border-radius: 17px; background: #f0efe8; }
+.branch-detail-photo-count { position: absolute; bottom: .7rem; inset-inline-start: .7rem; padding: .3rem .65rem; border-radius: 999px; background: #252826cc; color: #fff; font-size: 12px; font-variant-numeric: tabular-nums; }
+.branch-detail-thumbnails { display: flex; gap: .65rem; overflow-x: auto; max-width: 100%; padding: .15rem .5rem .35rem; scrollbar-width: thin; }
+.branch-detail-thumbnails > button { width: 96px; height: 64px; min-height: 44px; background: #f0efe8; }
+.branch-detail-hours { display: flex; flex-direction: column; gap: 1rem; }
+.branch-detail-hours [role="row"] { min-height: 40px; align-items: center; border-bottom: 1px solid #f0eee7; border-radius: 9px; padding: .55rem .65rem; font-size: 14px; }
+.branch-detail-hours [data-today="true"] { background: #fff0c6; color: #252826; border-color: transparent; }
+.branch-detail-hours [data-today="true"] [role="rowheader"] > span { background: #fff9e8; color: #8c5a00; border: 1px solid #ffe1a0; }
+.branch-detail-hours-note { display: flex; align-items: start; gap: .6rem; margin-top: auto; border-top: 1px solid var(--border); padding-top: .9rem; font-size: 12px; line-height: 1.6; color: var(--muted-foreground); }
+.branch-detail-map-canvas { border-radius: 14px; overflow: hidden; }
+.branch-detail-map > [role="status"] { min-height: 280px; border-radius: 14px; }
+.branch-detail-review-overview { display: flex; flex-direction: column; gap: 1rem; }
+.branch-detail-overview-rating { display: flex; flex: 1; align-items: center; justify-content: center; padding-block: .5rem; }
+.branch-detail-overview-rating > a { display: flex; flex-wrap: wrap; justify-content: center; gap: .65rem; margin-top: 0; text-align: center; }
+.branch-detail-overview-rating > a > span:nth-child(2) { font-size: 3rem; line-height: 1; font-weight: 800; }
+.branch-detail-overview-rating > a > span:nth-child(2) > span { font-size: 1rem; font-weight: 400; }
+.branch-detail-overview-rating > a > span:last-child { flex-basis: 100%; }
+.branch-detail-overview-rating > a > span[aria-hidden] > span, .branch-detail-overview-rating svg { width: 24px; height: 24px; }
+.branch-detail-review-invitation { border-top: 1px solid var(--border); padding-top: 1rem; text-align: center; font-size: 14px; }
+.branch-detail-review-invitation [data-slot="button"] { min-height: 44px; max-width: 100%; height: auto; white-space: normal; border-color: #c58300; color: #8c5a00; }
+.branch-detail #reviews { scroll-margin-top: 7rem; }
+.branch-detail #reviews fieldset { min-width: 0; }
+.branch-detail #reviews form fieldset > div.flex { gap: 0; justify-content: space-between; max-width: 280px; }
+.branch-detail #reviews [data-slot="input"], .branch-detail #reviews textarea { background: #fcfcfa; }
+.branch-detail #reviews > .grid > div { min-width: 0; }
+.branch-detail #branch-nearby-heading, .branch-detail #branch-services-heading, .branch-detail #branch-promotions-heading { font-size: 1.25rem; font-weight: 750; }
+.branch-detail #branch-nearby-heading { margin-block: .5rem; }
+.branch-detail-sticky { background: #fbf8f2f5; }
+.branch-detail-sticky [data-slot="button"] { min-height: 40px; }
+@media (min-width: 1024px) {
+  .branch-detail-primary-grid, .branch-detail-secondary-grid { grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); }
+  .branch-detail-additional-grid { grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .branch-detail { padding-bottom: 9rem; }
+  .branch-detail-container { padding-inline: 1rem; }
+  .branch-detail-breadcrumbs { padding-block: .8rem; }
+  .branch-detail-hero-inner { padding-block: 1.7rem 4.25rem; }
+  .branch-detail-hero-copy { width: 100%; }
+  .branch-detail-hero h1 { font-size: clamp(2rem, 8vw, 2.8rem); }
+  .branch-detail-hero p { font-size: 14px; }
+  .branch-detail-illustration { width: 65%; inset-inline-end: -2rem; bottom: 0; opacity: .09; }
+  .branch-detail-actionbar { padding: 1rem; gap: .9rem; border-radius: 18px; }
+  .branch-detail-status, .branch-detail-header-rating { flex-basis: 100%; }
+  .branch-detail-header-rating > a { margin: 0; }
+  .branch-detail-actions { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); width: 100%; margin-inline-start: 0; }
+  .branch-detail-actions .branch-navigation-action { grid-column: 1 / -1; }
+  .branch-detail-actions [data-slot="button"] { min-width: 0; min-height: 44px; height: auto; padding-block: .6rem; white-space: normal; }
+  .branch-detail-content { margin-top: 1.25rem; gap: 1.25rem; }
+  .branch-detail-primary-grid, .branch-detail-secondary-grid, .branch-detail-additional-grid { gap: 1.25rem; }
+  .branch-detail-card, .branch-detail #reviews { padding: 1rem; border-radius: 18px; }
+  .branch-detail-section-heading { font-size: 1.15rem; }
+  .branch-detail-gallery { padding: .4rem; }
+  .branch-detail-gallery-stage { min-height: 0; flex: auto; aspect-ratio: 16 / 10; border-radius: 13px; }
+  .branch-detail-thumbnails > button { width: 76px; height: 54px; }
+  .branch-detail #reviews > .grid > div { padding: 1rem; }
+}
